@@ -113,40 +113,57 @@ header{
 
 .mat-options {
     display: flex;
-    justify-content: center;  
-    align-items: flex-start;  
-    flex-wrap: wrap;          
-    gap: 10rem;                 
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
     padding: 2rem 1rem;
 }
 
 .yoga-mat-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 180px;           
+    width: 300px;
     cursor: pointer;
-    transition: transform 0.3s ease;
 }
 
-.yoga-mat-card:hover img {
-    transform: translateY(-5px); /* Subtle hover lift effect */
+.mat-img-wrapper {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
 }
 
-.yoga-mat-card img {
-    width: 300px;               
-    height: 400px;             /* Standardizes height for all options */
-    object-fit: cover;         /* Crops image neatly without stretching */
-    margin-bottom: 0.3rem;
+.mat-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
-/* Label Below Image */
-.yoga-mat-card p {
+.yoga-mat-card:hover .mat-img-wrapper img {
+    transform: scale(1.15);
+}
+
+.mat-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.mat-name {
     font-family: 'AppleGaramond-Light', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 500;
-
-    text-align: left;
     color: #333;
+    margin: 0;
 }
+
+.mat-price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #572b1f;
+}
+
