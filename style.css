@@ -115,36 +115,54 @@ header{
     margin: 0 auto;              
 }
 
+.shop-mat{
+    background-color: #572b1f;
+}
+
+.quote{
+    color: white;
+    margin-top: 10rem;
+}
+
+.quote h2{
+    font-weight: 400;
+}
+
 .mat-catalogue{
-    margin-left: 4.8rem;
+    margin-left: 2.8rem;
     margin-top: 10rem;
 
     font-weight: 500;
 }
 .mat-catalogue h2{
     font-weight: 500;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .mat-options {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 4rem;
+    gap: 1rem;
     padding: 2rem 1rem;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .yoga-mat-card {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 600px;
     cursor: pointer;
+
+    margin-bottom: 4rem;
 }
 
 .mat-img-wrapper {
     position:relative;
     width: 100%;
-    height: 400px;
+    height: 700px;
     overflow: hidden;
     margin-bottom: 0.8rem;
 
