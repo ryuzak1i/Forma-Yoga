@@ -66,7 +66,8 @@ header.scrolled::before {
 }
 
 header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
-    color: #000000;
+    color: #1e0d09;
+    text-shadow: none;
 }
 
 .navbar {
@@ -101,6 +102,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     font-family: 'AppleGaramond-Light';
     font-size: 2rem;
     font-weight: 500;
+    text-shadow: 0px 2px 4px #000000;
 
 }
 
@@ -126,7 +128,6 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     height: 100vh;
 }
 
-/* Fullscreen Slider Container */
 .slider {
     display: flex;
     width: 100%;
@@ -135,13 +136,12 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     
-    /* Hide scrollbars across browsers */
-    scrollbar-width: none;               /* Firefox */
-    -ms-overflow-style: none;            /* IE/Edge */
+    scrollbar-width: none;             
+    -ms-overflow-style: none;            
 }
 
 .slider::-webkit-scrollbar {
-    display: none;                       /* Chrome, Safari, Opera */
+    display: none;                     
 }
 
 /* Fullscreen Background Images */
@@ -153,17 +153,16 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     object-fit: cover;
 }
 
-/* Overlaid Content (Heading + Button) */
 .hero-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;                           /* Sits above background images */
+    z-index: 2;                           
     text-align: center;
     width: 90%;
     max-width: 1200px;
-    pointer-events: none;                /* Allows swipe/drag events to pass to slider */
+    pointer-events: none;               
 }
 
 /* Enable clicks back on the button inside pointer-events parent */
@@ -171,16 +170,14 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     pointer-events: auto;
 }
 
-/* Hero Typography */
 .home-quote {
-    font-size: clamp(3rem, 6vw, 7rem);   /* Responsive font sizing for mobile & desktop */
+    font-size: clamp(3rem, 6vw, 7rem);   
     font-weight: 500;
     color: #ffffff;
     margin-bottom: 2rem;
-    text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
+    text-shadow: 0px 10px 18px rgba(0, 0, 0, 0.6);
 }
 
-/* Button Styling */
 .button-container {
     display: flex;
     justify-content: center;
@@ -194,7 +191,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 }
 
 .shop-button:hover {
-    background-color: #f0f0f0;
+    background-color: antiquewhite;
 }
 
 .shop-button a {
@@ -285,10 +282,18 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    transition: transform 0.7s ease;
+}
+
+.quote1 img:hover,
+.quote2 img:hover,
+.quote3 img:hover {
+    transform:scale(1.08);
 }
 
 #catalogue{
-    background-color: antiquewhite;
+    background-color: rgb(255, 247, 237);
 }
 
 .mat-catalogue{
@@ -300,14 +305,14 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 .mat-catalogue h2{
     font-weight: 500;
     font-size: 4rem;
-    color:#1e0d09;
+    color:#46271f;
 }
 
 .mat-options {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     padding: 2rem 1rem;
 
     margin-left: 1rem;
@@ -318,7 +323,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 .yoga-mat-card {
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 550px;
     cursor: pointer;
 
     margin-bottom: 4rem;
@@ -327,7 +332,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 .mat-img-wrapper {
     position:relative;
     width: 100%;
-    height: 700px;
+    height: 650px;
     overflow: hidden;
     margin-bottom: 0.8rem;
 }
@@ -418,3 +423,49 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     background-color: #572b1f;
     color: #ffffff;
 }
+
+.yoga-sources{
+    background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d );
+    padding: 20rem;
+}
+
+.yoga-description h3{
+    color: white;
+    font-size: 4rem;
+    font-weight: 500;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.yoga-description p{
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.footer-section{
+    background-color: #1e0d09;
+}
+
+.footer-content{
+    padding: 3rem;
+}
+
+.quick-links a, ul,
+.social-links a, ul{
+    list-style-type: none;
+    text-decoration: none;
+
+    color: white;
+}
+
+#full-logo{
+    width: 300px;
+    height: auto;
+}
+
+
