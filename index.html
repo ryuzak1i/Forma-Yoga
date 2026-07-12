@@ -17,7 +17,7 @@
         <ul class="navbar-tabs">
             <!-- Left Group -->
             <li class="nav-left">
-                <a href="#mats">Mats</a>
+                <a href="#catalogue">Mats</a>
                 <a href="OurStory.html">Our Story</a>
                 <a href="Events.html">Events</a>
             </li>
@@ -55,6 +55,10 @@
             </div>
 
             <div class="quote2">
+                <img src="images/vegan.png">
+            </div>
+
+            <div class="quote3">
                 <img src="images/durable.png">
             </div>
         </section>
@@ -179,5 +183,17 @@
         </div>
     
     </footer>
+
+    <script>
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
