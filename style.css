@@ -435,27 +435,99 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     color: #ffffff;
 }
 
-.yoga-sources{
-    background-color: rgb(251, 240, 226);
-    padding: 10rem;
+.sponsors {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 2rem 1rem;
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(238, 229, 218);
 }
 
-.yoga-description h3{
-    color: white;
-    font-size: 4rem;
-    font-weight: 500;
-
-    margin-left: 1rem;
-    margin-right: 1rem;
+.card-wrapper {
+    width: 100%;
+    max-width: 1700px;
+    overflow: hidden; 
+    margin: 0 1.5rem;
 }
 
-.yoga-description p{
-    color: white;
-    font-size: 1rem;
-    font-weight: 500;
+/* Sliding Flex Track */
+.card-list {
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
 
-    margin-left: 1rem;
-    margin-right: 1rem;
+.card-item {
+    flex: 0 0 calc((100% - 6rem) / 4); /* 3 gaps of 2rem = 6rem */
+    box-sizing: border-box;
+    background: #ffffffcc;
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+/* Link Wrapper */
+.card-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Responsive Image */
+.card-image {
+    width: 80%;
+    max-width: 170px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: .0rem;
+}
+
+/* Shop Now Text */
+.shop-now {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #00000095;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    margin: 0;
+}
+
+/* Circular Arrow Controls */
+.slider-arrow {
+    background-color: #ffffff7b;
+    color: #333;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.slider-arrow:hover {
+    background-color: #46271f;
+    color: #ffffff;
+}
+
+/* Mobile responsive fallback */
+@media (max-width: 768px) {
+    .card-item {
+        flex: 0 0 100%; /* Shows 1 card at a time on mobile */
+    }
 }
 
 .footer-section{
