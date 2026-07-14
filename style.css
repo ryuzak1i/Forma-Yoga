@@ -167,7 +167,6 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     pointer-events: none;               
 }
 
-/* Enable clicks back on the button inside pointer-events parent */
 .hero-overlay .button-container {
     pointer-events: auto;
 }
@@ -193,7 +192,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 }
 
 .shop-button:hover {
-    background-color: antiquewhite;
+    background-color: #1e0d09;
 }
 
 .shop-button a {
@@ -204,6 +203,10 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     text-decoration: none;
     color: #3d2b20db;
     display: block;
+}
+
+.shop-button:hover a{
+    color: #ffffff;
 }
 
 /* Nav Dots */
@@ -553,6 +556,144 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     text-shadow: none;
     font-weight: 500;
 }
+
+/*CONTENT*/
+
+/* Page Wrapper */
+.product-page-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    max-width: 1350px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------------
+   LEFT COLUMN: PHOTO GALLERY (2x2 Grid)
+--------------------------------------------------- */
+.product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;                  /* Tight gap matching image_a5ab81.jpg */
+    flex: 1 1 65%;              /* Takes ~65% of screen width */
+    max-width: 820px;
+}
+
+.product-gallery img {
+    width: calc(50% - 6px);     /* Exactly two images per row */
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---------------------------------------------------
+   RIGHT COLUMN: STICKY PRODUCT DETAILS
+--------------------------------------------------- */
+.product-details {
+    flex: 1 1 30%;              /* Takes ~30% of screen width */
+    max-width: 380px;
+    position: sticky;           /* Stays visible as user scrolls photos */
+    top: 100px;                 /* Adjust based on navbar height */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #111111;
+    margin: 0 0 0.5rem 0;
+}
+
+.price-rating-row {
+    margin-bottom: 1.5rem;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111111;
+}
+
+.tax-note {
+    display: block;
+    font-size: 0.82rem;
+    color: #777777;
+    margin-top: 0.3rem;
+}
+
+/* Color Swatches */
+.color-section {
+    margin-bottom: 2rem;
+}
+
+.color-label {
+    font-size: 0.9rem;
+    color: #333333;
+    margin-bottom: 0.8rem;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.swatch {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.swatch.active {
+    border: 2px solid #ffffff;  /* Circle highlight around selected swatch */
+    transform: scale(1.1);
+}
+
+/* Action Buttons (Full Width) */
+.btn-add-bag {
+    width: 100%;
+    padding: 1rem;
+    background-color: #1e0d09;
+    color: #ffffff;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-bottom: 0.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add-bag:hover {
+    background-color: #46271f;
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 868px) {
+    .product-page-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .product-gallery,
+    .product-details {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .product-details {
+        position: static;
+    }
+}
+
 
 
 
