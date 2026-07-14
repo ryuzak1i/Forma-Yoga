@@ -1,12 +1,12 @@
 * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 @font-face {
     font-family: 'AppleGaramond-Light';
-    src: url('fonts/AppleGaramond.ttf') format('truetype'); 
+    src: url('fonts/AppleGaramond.ttf') format('truetype');
     /* src: url('fonts/MyFont.otf') format('opentype'); */ /* For .otf */
     font-weight: normal;
     font-style: normal;
@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: 'Monterchi-Sans-Book-trial';
-    src: url('fonts/Monterchi-Sans-Book-trial.ttf') format('truetype'); 
+    src: url('fonts/Monterchi-Sans-Book-trial.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -38,7 +38,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: transparent; 
+    background-color: transparent;
 }
 
 header::before {
@@ -49,10 +49,10 @@ header::before {
     width: 100%;
     height: 100%;
     
-    background-color: #ffffff;     
+    background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     
-    z-index: -1;                   
+    z-index: -1;
     
     transform-origin: top;
     
@@ -65,10 +65,17 @@ header.scrolled::before {
     transform: scaleY(1);
 }
 
-header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
+header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping {
     color: #1e0d09;
     text-shadow: none;
+}
+
+header.scrolled .navbar-tabs a {
     font-weight: 500;
+}
+
+header.scrolled .fa-bag-shopping {
+    font-weight: 900 !important;
 }
 
 .navbar {
@@ -78,11 +85,11 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 
 .navbar-tabs {
     display: flex;
-    justify-content: space-between; 
-    align-items: center;           
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
     margin: 0;
-    padding: 1.5rem 3rem; 
+    padding: 1.5rem 3rem;
     
     color: white;
 }
@@ -91,8 +98,8 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     font-family: "Poppins";
     font-weight: 500;
     display: flex;
-    gap: 2.5rem;                 
-    flex: 1;     
+    gap: 2.5rem;
+    flex: 1;
     
     font-size: 1rem;
 }
@@ -109,13 +116,12 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 
 .nav-right {
     display: flex;
-    justify-content: flex-end;     
-    flex: 1;                
-         
+    justify-content: flex-end;
+    flex: 1;
 }
 
 .fa-bag-shopping{
-    color: white;  
+    color: white;
 }
 
 .navbar-tabs a {
@@ -137,12 +143,12 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     
-    scrollbar-width: none;             
-    -ms-overflow-style: none;            
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .slider::-webkit-scrollbar {
-    display: none;                     
+    display: none;
 }
 
 /* Fullscreen Background Images */
@@ -160,11 +166,11 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;                           
+    z-index: 2;
     text-align: center;
     width: 90%;
     max-width: 1200px;
-    pointer-events: none;               
+    pointer-events: none;
 }
 
 .hero-overlay .button-container {
@@ -172,7 +178,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 }
 
 .home-quote {
-    font-size: clamp(3rem, 6vw, 7rem);   
+    font-size: clamp(3rem, 6vw, 7rem);
     font-weight: 500;
     color: #ffffff;
     margin-bottom: 2rem;
@@ -186,8 +192,8 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 
 .shop-button {
     background-color: white;
-    padding: 14px 36px;        
-    width: fit-content;       
+    padding: 14px 36px;
+    width: fit-content;
     transition: background-color 0.3s ease;
 }
 
@@ -252,36 +258,36 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 
 .shop-button {
     background-color: white;
-    padding: 12px 30px;        
-    width: fit-content;       
-    margin: 0 auto;              
+    padding: 12px 30px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .shop-mat{
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d );
     display:flex;
-    justify-content: center;   
-    align-items: center;       
-    gap: 3rem;               
-    padding: 5rem 2rem;       
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 5rem 2rem;
     min-height: 80vh;
 }
 
 .quote1, .quote2, .quote3 {
     color: white;
-    flex: 1;               
-    max-width: 450px;        
-    display: flex;          
+    flex: 1;
+    max-width: 450px;
+    display: flex;
 }
 
 .quote1 img, .quote2 img, .quote3 img {
-    width: 100%;           
-    height: 100%;            
+    width: 100%;
+    height: 100%;
 
     line-height: 1.8;
     text-align: center;
-    color: #ffffff;       
-    box-shadow: 0px 3px 3px #1e0d09;    
+    color: #ffffff;
+    box-shadow: 0px 3px 3px #1e0d09;
     border-radius: 16px;
     
     display: flex;
@@ -302,7 +308,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 }
 
 .mat-catalogue{
-    max-width: 1200px;        
+    max-width: 1200px;
 }
 
 .mat-catalogue h2{
@@ -355,7 +361,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     top: 0;
     left: 0;
     opacity: 0;
-    z-index: 1; 
+    z-index: 1;
 }
 .mat-img-wrapper:hover .hover-img {
     opacity: 1;
@@ -389,32 +395,32 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 
 .badge {
     position: absolute;
-    top: 12px;                 
-    left: 12px;               
-    z-index: 2;                 
+    top: 12px;
+    left: 12px;
+    z-index: 2;
     
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     
-    background-color: #ffffff;  
-    color: #000000a1;             
+    background-color: #ffffff;
+    color: #000000a1;
     padding: 6px 18px;
-    pointer-events: none;      
+    pointer-events: none;
 }
 
 .quick-add-btn {
     position: absolute;
-    bottom: 12px;                 
-    left: 12px;                  
+    bottom: 12px;
+    left: 12px;
     width: calc(100% - 24px);      /* 100% width minus 12px on both sides */
     
     padding: 12px 0;
     background-color:white;
     color: #572b1f;
     border: none;
-    border-radius: 4px;            
+    border-radius: 4px;
     
     font-family: 'Poppins', sans-serif;
     font-size: 0.85rem;
@@ -432,7 +438,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 
 .yoga-mat-card:hover .quick-add-btn {
     opacity: 0.9;
-    transform: translateY(0);     
+    transform: translateY(0);
 }
 
 .quick-add-btn:hover {
@@ -454,7 +460,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 .card-wrapper {
     width: 100%;
     max-width: 1700px;
-    overflow: hidden; 
+    overflow: hidden;
     margin: 0 1.5rem;
 }
 
@@ -576,7 +582,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 .product-gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;                  
+    gap: 12px;
     flex: 1 1 65%;              /* Takes ~65% of screen width */
     max-width: 1020px;
     margin-top: 6rem;
@@ -649,8 +655,8 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 }
 
 .swatch.active {
-    border: 1px solid #b1b1b107;  
-    box-shadow: inset 0 0 0 3px rgb(255, 255, 255); 
+    border: 1px solid #b1b1b107;
+    box-shadow: inset 0 0 0 3px rgb(255, 255, 255);
     transform: scale(1.1);
 }
 
