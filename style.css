@@ -68,6 +68,7 @@ header.scrolled::before {
 header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     color: #1e0d09;
     text-shadow: none;
+    font-weight: 500;
 }
 
 .navbar {
@@ -298,25 +299,25 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
 }
 
 .mat-catalogue{
-    margin-left: 2.8rem;
-    padding-top: 8rem;
-    font-weight: 500;
+    max-width: 1200px;        
 }
 
 .mat-catalogue h2{
     font-weight: 500;
     font-size: 4rem;
-    color:#46271f;
+    color:#090807;
+    padding-top: 6rem;
+    margin-left: 6rem;
 }
 
 .mat-options {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
     gap: 2rem;
     padding: 2rem 1rem;
 
-    margin-left: 1rem;
+    margin-left: 5rem;
     margin-right: 1rem;
     
 }
@@ -327,7 +328,7 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     width: 550px;
     cursor: pointer;
 
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .mat-img-wrapper {
@@ -531,6 +532,40 @@ header.scrolled .navbar-tabs a, header.scrolled .fa-bag-shopping{
     }
 }
 
+/* ----------------------------------------WALNUT----------------------------------------*/
+.walnut{
+    background-color: rgb(255, 247, 237);
+}
+
+.walnut-header{
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.walnut-header li{
+    color: #1e0d09;
+    text-shadow: none;
+    font-weight: 500;
+}
+
+.walnut-header .fa-bag-shopping{
+    color: #1e0d09;
+    text-shadow: none;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER*/
 .footer-section{
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d );
 }
