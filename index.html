@@ -263,49 +263,97 @@
             }
         });
 
-        // 2. Sponsor Carousel Controls
+       // 2. Infinite Sponsor Carousel Controls
         const track = document.getElementById('cardTrack');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const cards = document.querySelectorAll('.card-item');
+        const originalCards = document.querySelectorAll('.card-item');
 
-        let currentIndex = 0;
-
-        function updateSlider() {
-            if (!cards.length) return;
-            const cardWidth = cards[0].getBoundingClientRect().width;
+        if (nextBtn && prevBtn && track && originalCards.length > 0) {
             const gap = 32; 
-            const moveDistance = cardWidth + gap;
+            let currentIndex = 0;
+            let isTransitioning = false;
 
-            track.style.transform = `translateX(-${moveDistance * currentIndex}px)`;
-        }
+            // Determine how many cards are visible on screen
+            const getVisibleCardsCount = () => window.innerWidth <= 768 ? 1 : 4;
 
-        if (nextBtn && prevBtn && track) {
-            nextBtn.addEventListener('click', () => {
-                const visibleCards = window.innerWidth <= 768 ? 1 : 4;
-                const maxIndex = cards.length - visibleCards;
+            // 1. CLONE CARDS: Clone the first few cards and append them to the end
+            const visibleCount = getVisibleCardsCount();
+            for (let i = 0; i < visibleCount; i++) {
+                const clone = originalCards[i].cloneNode(true);
+                clone.classList.add('cloned-card');
+                track.appendChild(clone);
+            }
 
-                if (currentIndex < maxIndex) {
-                    currentIndex++;
+            // Grab all cards now including clones
+            const allCards = track.querySelectorAll('.card-item');
+
+            function updateSlider(smooth = true) {
+                const cardWidth = originalCards[0].getBoundingClientRect().width;
+                const moveDistance = cardWidth + gap;
+
+                if (smooth) {
+                    track.style.transition = 'transform 0.5s ease-in-out';
                 } else {
-                    currentIndex = 0;
+                    track.style.transition = 'none';
                 }
-                updateSlider();
+
+                track.style.transform = `translateX(-${moveDistance * currentIndex}px)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (isTransitioning) return; // Prevent double-click bugs
+                
+                currentIndex++;
+                isTransitioning = true;
+                updateSlider(true);
             });
 
             prevBtn.addEventListener('click', () => {
-                const visibleCards = window.innerWidth <= 768 ? 1 : 4;
-                const maxIndex = cards.length - visibleCards;
-
-                if (currentIndex > 0) {
-                    currentIndex--;
+                if (isTransitioning) return;
+                
+                const totalOriginal = originalCards.length;
+                
+                // If we are at the very beginning and click "prev"
+                if (currentIndex === 0) {
+                    isTransitioning = true;
+                    // Jump instantly to the clone position at the end
+                    currentIndex = totalOriginal;
+                    updateSlider(false);
+                    
+                    // Force browser layout repaint, then animate one step backward
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            currentIndex--;
+                            updateSlider(true);
+                        });
+                    });
                 } else {
-                    currentIndex = maxIndex;
+                    currentIndex--;
+                    isTransitioning = true;
+                    updateSlider(true);
                 }
-                updateSlider();
             });
 
-            window.addEventListener('resize', updateSlider);
+            // 2. INFINITE JUMP LOGIC: Snap back instantly when transition finishes
+            track.addEventListener('transitionend', () => {
+                isTransitioning = false;
+                const totalOriginal = originalCards.length;
+
+                // If we reached the clones at the end, snap instantly back to index 0
+                if (currentIndex >= totalOriginal) {
+                    currentIndex = 0;
+                    updateSlider(false); // Snap instantly without animation
+                }
+            });
+
+            // Re-align on window resize
+            window.addEventListener('resize', () => {
+                updateSlider(false);
+            });
+
+            // Initial setup run
+            updateSlider(false);
         }
     </script>
 </body>

@@ -684,12 +684,10 @@ header.scrolled .fa-bag-shopping {
     cursor: pointer;
     margin-bottom: 0.5rem;
     transition: background-color 0.3s ease;
-    transition: border 0.3s ease;
 }
 
 .btn-add-bag:hover {
     background-color: #f6e8d8;;
-    border: 1px solid #73524964;
 }
 
 .btn-buy-now{
