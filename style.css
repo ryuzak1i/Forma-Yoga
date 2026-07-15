@@ -610,12 +610,20 @@ header.scrolled .fa-bag-shopping {
     margin-top: 6rem;
 }
 
+.best-seller {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #46271f;
+    margin: 0 0 0rem 0;
+}
+
 .product-title {
     font-family: 'AppleGaramond-Light', sans-serif;
     font-size: 3.5rem;
     font-weight: 500;
     color: #46271f;
-    margin: 0 0 0.5rem 0;
+    margin:0;
 }
 
 .price-rating-row {
@@ -624,9 +632,9 @@ header.scrolled .fa-bag-shopping {
 }
 
 .product-price {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e0d09;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #46271f;
 }
 
 /* Color Swatches */
@@ -666,6 +674,27 @@ header.scrolled .fa-bag-shopping {
 .btn-add-bag {
     width: 100%;
     padding: 1rem;
+    background-color: transparent;
+    color: #1e0d09;
+    border: 1px solid #1e0d09;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s ease;
+    transition: border 0.3s ease;
+}
+
+.btn-add-bag:hover {
+    background-color: #f6e8d8;;
+    border: 1px solid #73524964;
+}
+
+.btn-buy-now{
+    width: 100%;
+    padding: 1rem;
     background-color: #1e0d09;
     color: #ffffff;
     border: none;
@@ -678,8 +707,8 @@ header.scrolled .fa-bag-shopping {
     transition: background-color 0.3s ease;
 }
 
-.btn-add-bag:hover {
-    background-color: #46271f;
+.btn-buy-now:hover {
+    background-color: #46271f;;
 }
 
 .product-page-container hr{
@@ -688,7 +717,57 @@ header.scrolled .fa-bag-shopping {
     height: 0;
 }
 
+.mat-description{
+    font-family: "Poppins";
+    text-align: justify;
+}
 
+.description-title{
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 550;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #1e0d09d6;
+}
+
+.fit-description {
+    list-style-type: disc;    
+    padding-left: 1.2rem;      
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.fit-description li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #1e0d09d6;
+    margin-bottom: 0.5rem;      
+}
+
+.fabrication-description {
+    list-style-type: disc;    
+    padding-left: 1.2rem;      
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.fabrication-description li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #1e0d09d6;
+    margin-bottom: 0.5rem;      
+}
+
+.fabrication-description ul {
+    list-style-type: circle;  
+    padding-left: 1.2rem;       
+    margin-top: 0.5rem;        
+    margin-bottom: 0rem;
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 868px) {
