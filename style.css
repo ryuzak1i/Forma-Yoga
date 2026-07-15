@@ -601,7 +601,7 @@ header.scrolled .fa-bag-shopping {
    RIGHT COLUMN: STICKY PRODUCT DETAILS
 --------------------------------------------------- */
 .product-details {
-    flex: 1 1 30%;              
+    flex: 1 1 50%;              
     max-width: 580px;
     position: sticky;           
     top: 100px;                 /* navbar height */
@@ -650,20 +650,33 @@ header.scrolled .fa-bag-shopping {
     margin-top: 0.8rem;
 }
 
+/* Color Swatches Container */
 .color-swatches {
     display: flex;
     gap: 0.6rem;
 }
 
+/* Swatch Buttons */
 .swatch {
     width: 38px;
     height: 38px;
     border-radius: 50%;
     cursor: pointer;
+    
+    /* NEW: Resets default button styles so they stay perfect circles */
+    padding: 0; 
     border: 1px solid transparent;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    outline: none; 
+    
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Hover effect */
+.swatch:hover {
+    transform: scale(1.05);
+}
+
+/* Active/Selected Swatch Style */
 .swatch.active {
     border: 1px solid #b1b1b107;  
     box-shadow: inset 0 0 0 3px rgb(255, 255, 255); 
@@ -682,6 +695,7 @@ header.scrolled .fa-bag-shopping {
     font-size: 0.85rem;
     letter-spacing: 1px;
     cursor: pointer;
+    margin-top: 1.5rem;
     margin-bottom: 0.5rem;
     transition: background-color 0.3s ease;
 }
