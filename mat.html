@@ -63,6 +63,7 @@
                 <p class="color-label">Color: <strong>Walnut</strong></p>
                 <div class="color-swatches">
                     <button class="swatch active"
+                        data-color-id="walnut"
                         data-product-title="Forma Walnut Mat"
                         data-product-price="P 2,500"
                         data-color-label="Walnut"
@@ -75,6 +76,7 @@
                     </button>
 
                     <button class="swatch"
+                        data-color-id="jetblack"
                         data-product-title="Forma Jet Black Mat"
                         data-product-price="P 2,500"
                         data-color-label="Jet Black"
@@ -87,6 +89,7 @@
                     </button>
 
                     <button class="swatch"
+                        data-color-id="petal"
                         data-product-title="Forma Petal Mat"
                         data-product-price="P 2,500"
                         data-color-label="Petal"
@@ -99,6 +102,7 @@
                     </button>
 
                     <button class="swatch"
+                        data-color-id="pierre"
                         data-product-title="Forma Pierre Mat"
                         data-product-price="P 2,500"
                         data-color-label="Pierre"
@@ -111,6 +115,7 @@
                     </button>
 
                     <button class="swatch"
+                        data-color-id="emerald"
                         data-product-title="Forma Emerald Mat"
                         data-product-price="P 2,500"
                         data-color-label="Emerald"
@@ -203,6 +208,19 @@
                 document.querySelector(".pg-img-4").src = newImage4;
             });
         });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedColor = urlParams.get('color'); // Looks for '?color=xyz'
+
+        // 2. If a color parameter exists, find the corresponding swatch
+        if (selectedColor) {
+            const targetSwatch = document.querySelector(`.swatch[data-color-id="${selectedColor}"]`);
+            
+            // 3. If the swatch is found, trigger a click on it
+            if (targetSwatch) {
+                targetSwatch.click(); 
+            }
+        }
     </script>
 </body>
 </html>
