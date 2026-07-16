@@ -63,6 +63,7 @@
                 <p class="color-label">Color: <strong>Walnut</strong></p>
                 <div class="color-swatches">
                     <button class="swatch active"
+                        data-bestsell="BEST SELLER"
                         data-color-id="walnut"
                         data-product-title="Forma Walnut Mat"
                         data-product-price="P 2,500"
@@ -188,12 +189,21 @@
                 const newTitle = this.getAttribute("data-product-title");
                 const newPrice = this.getAttribute("data-product-price");
                 const newColorLabel = this.getAttribute("data-color-label");
+                const newBestSeller = this.getAttribute("data-bestsell");
 
                 // 3. Update the text on the page
                 document.querySelector(".product-title").textContent = newTitle;
                 document.querySelector(".product-price").textContent = newPrice;
                 // Targets the <strong> tag inside the color label to keep the "Color: " part intact
                 document.querySelector(".color-label strong").textContent = newColorLabel; 
+                
+                const bestSellerBadge = document.querySelector(".best-seller");
+                if (newBestSeller) {
+                    bestSellerBadge.textContent = newBestSeller;
+                    bestSellerBadge.style.display = "block";
+                } else {
+                    bestSellerBadge.style.display = "none";
+                }
 
                 // 4. Grab the new image paths
                 const newImage1 = this.getAttribute("data-img-1");
