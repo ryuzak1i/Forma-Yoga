@@ -268,19 +268,47 @@ header.scrolled .fa-bag-shopping {
     display: flex;
     justify-content: center;   
     align-items: center;       
-    padding: 2rem 1rem 2rem 3rem;         
+    padding-top: 2rem;  
+    padding-bottom: 2rem;
+    padding-left: 2rem;    
+}
+
+.forma-facts {
+    width: 100%;
+    line-height: 0;
+    position: relative; 
     overflow: hidden;
 }
 
-.quote1 {
+.forma-facts img {
     width: 100%;
-    line-height: 0;
+    height: auto;
+    object-fit: cover;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.quote1 img {
-    width: 100%;          /* Forces the image to span left-to-right */
-    height: auto;         /* Scales the height perfectly so it doesn't squish */
-    object-fit: cover;  
+.hover-forma {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0; 
+
+    transform: translateY(40px);
+}
+
+.forma-facts:hover .hover-forma {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* Pin the hover image directly on top of the base image */
+.hover-forma {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Completely hidden by default */
 }
 
 #catalogue{
@@ -307,14 +335,14 @@ header.scrolled .fa-bag-shopping {
     padding: 2rem 1rem;
 
     margin-left: 2rem;
-    margin-right: 1rem;
+    margin-right: 0;
     
 }
 
 .yoga-mat-card {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 390px;
     cursor: pointer;
 
     margin-bottom: 6rem;
