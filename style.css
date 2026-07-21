@@ -264,21 +264,17 @@ header.scrolled .fa-bag-shopping {
 }
 
 .shop-mat{
-    background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d );
+    /*background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d );*/
+    background-color:  rgb(238, 229, 218);
     display:flex;
     justify-content: center;   
     align-items: center;       
     gap: 3rem;               
-    padding: 5rem 2rem;       
+    padding: 2rem ;       
     min-height: 80vh;
 }
 
-.quote1, .quote2, .quote3 {
-    color: white;
-    flex: 1;               
-    max-width: 450px;        
-    display: flex;          
-}
+
 
 .quote1 img, .quote2 img, .quote3 img {
     width: 100%;           
@@ -287,8 +283,6 @@ header.scrolled .fa-bag-shopping {
     line-height: 1.8;
     text-align: center;
     color: #ffffff;       
-    box-shadow: 0px 3px 3px #1e0d09;    
-    border-radius: 16px;
     
     display: flex;
     flex-direction: column;
@@ -297,11 +291,7 @@ header.scrolled .fa-bag-shopping {
     transition: transform 0.7s ease;
 }
 
-.quote1 img:hover,
-.quote2 img:hover,
-.quote3 img:hover {
-    transform:scale(1.08);
-}
+
 
 #catalogue{
     background-color: rgb(255, 247, 237);
@@ -316,17 +306,17 @@ header.scrolled .fa-bag-shopping {
     font-size: 4rem;
     color:#090807;
     padding-top: 6rem;
-    margin-left: 6rem;
+    margin-left: 3rem;
 }
 
 .mat-options {
     display: flex;
     justify-content: left;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
     padding: 2rem 1rem;
 
-    margin-left: 5rem;
+    margin-left: 2rem;
     margin-right: 1rem;
     
 }
@@ -334,10 +324,10 @@ header.scrolled .fa-bag-shopping {
 .yoga-mat-card {
     display: flex;
     flex-direction: column;
-    width: 550px;
+    width: 350px;
     cursor: pointer;
 
-    margin-bottom: 2rem;
+    margin-bottom: 6rem;
 }
 
 .mat-img-wrapper {
@@ -373,14 +363,15 @@ header.scrolled .fa-bag-shopping {
 
 .mat-info {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;  
     width: 100%;
+    text-align: left;         
 }
 
 .mat-name {
-    font-family: 'AppleGaramond-Light', sans-serif;
-    font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
     font-weight: 500;
     color: #46271f;
     margin: 0;
@@ -390,7 +381,7 @@ header.scrolled .fa-bag-shopping {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    color: #572b1f;
+    color: #572b1fb5;
 }
 
 .badge {
@@ -455,6 +446,8 @@ header.scrolled .fa-bag-shopping {
     padding: 2rem 1rem;
     font-family: "Poppins", sans-serif;
     background-color: rgb(238, 229, 218);
+
+    padding: 0 1rem 2rem 1rem;
 }
 
 .card-wrapper {
@@ -512,6 +505,16 @@ header.scrolled .fa-bag-shopping {
     margin: 0;
 }
 
+.brands h2{
+    text-align: center;
+    background-color:  rgb(238, 229, 218);
+
+    font-weight: 500;
+    font-size: 4rem;
+    color:#090807;
+    padding-top: 6rem;
+    margin-bottom: 0;
+}
 /* Circular Arrow Controls */
 .slider-arrow {
     background-color: #ffffff7b;
