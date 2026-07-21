@@ -35,5 +35,29 @@
             </ul>
         </nav>
     </header>
+
+    <main id="our-story-hero" class="section-container">
+        <div class="our-story-img">
+            <img src="images/our-story.png">
+        </div>
+
+        <div class="our-story-content">
+            <h1 class="gets-you">The Mat that gets you</h1>
+        </div>
+
+    </main>
+
+    <script>
+        // Navbar Scroll State
+        const header = document.querySelector('.walnut-header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
