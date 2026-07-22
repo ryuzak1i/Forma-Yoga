@@ -813,7 +813,6 @@ header.scrolled .fa-bag-shopping {
     text-align: right;
     width: 90%;
     max-width: 1200px;
-    pointer-events: none;    
 }
 
 .sub-header {
@@ -827,6 +826,16 @@ header.scrolled .fa-bag-shopping {
 .our-story-overlay .home-quote {
     margin-bottom: -15px; 
     line-height: 0.8;   
+
+    display: inline-block; 
+    text-decoration: none;
+
+    transition: transform 0.2s ease-out, text-shadow 0.2s ease-out;
+}
+
+.our-story-overlay .home-quote:hover {
+    text-shadow: 0px 3px 8px #ffffff ;
+    transform: translateY(-5px);
 }
 
 /* Mobile Responsiveness */
