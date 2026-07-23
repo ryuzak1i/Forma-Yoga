@@ -838,10 +838,33 @@ header.scrolled .fa-bag-shopping {
     transform: translateY(-5px);
 }
 
-.mat-content{
+.mat-content-wrapper {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 1rem; 
+    
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.mat-content {
+    flex: 1; 
     font-family: 'Poppins';
-    padding: 0rem 75rem 2rem 2rem;
     text-align: justify;
+}
+
+/* 3. The Image Side (Controls the size!) */
+.mat-content-img {
+    width: 600px; 
+    flex-shrink: 0; /* Prevents the text from squishing  image */
+}
+
+.mat-content-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 /* Mobile Responsiveness */
