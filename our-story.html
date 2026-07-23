@@ -10,31 +10,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="png" sizes="180x180" href="images/logo-tab.png">
 </head>
-<body class="walnut">
-    <header class="walnut-header">
-        <nav class="navbar">
-            <ul class="navbar-tabs">
-                <!-- Left Group -->
-                <li class="nav-left">
-                    <a href="index.html#catalogue">Mats</a>
-                    <a href="our-story.html">Our Story</a>
-                    <a href="events.html">Events</a>
-                </li>
+<body>
+    <header>
+    <nav class="navbar">
+        <ul class="navbar-tabs">
+            <!-- Left Group -->
+            <li class="nav-left">
+                <a href="index.html#catalogue">Mats</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="events.html">Events</a>
+            </li>
 
-                <!-- Center Group -->
-                <li class="nav-center">
-                    <a id="brand-name" href="index.html">Forma</a>
-                </li>
+            <!-- Center Group -->
+            <li class="nav-center">
+                <a id="brand-name" href="#home">Forma</a>
+            </li>
 
-                <!-- Right Group -->
-                <li class="nav-right">
-                    <a href="basket.html">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+            <!-- Right Group -->
+            <li class="nav-right">
+                <a href="basket.html">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
 
     <main id="our-story-hero" class="section-container">
         <div class="our-story-img">
@@ -50,13 +50,20 @@
 
         <div class="our-story-content">
             <h1 class="gets-you">The Mat that gets you</h1>
+            
+            <div class="mat-content">
+                <p></p>
+            </div>
         </div>
+        </div>
+
+        
 
     </main>
 
     <script>
         // Navbar Scroll State
-        const header = document.querySelector('.walnut-header');
+        const header = document.querySelector('header');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
