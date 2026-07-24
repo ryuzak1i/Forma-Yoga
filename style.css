@@ -804,7 +804,7 @@ header.scrolled .fa-bag-shopping {
     font-size: 6rem;
     font-weight: 500;
 
-    padding: 4rem 0rem 0rem;
+    padding: 6rem 0rem 0rem;
     margin: 0; 
     margin-bottom: 2rem;
     line-height: 1;
@@ -897,16 +897,6 @@ header.scrolled .fa-bag-shopping {
 
 
 
-
-
-
-
-
-
-
-
-
-
 /*FOOTER*/
 .footer-section{
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d );
@@ -927,6 +917,11 @@ header.scrolled .fa-bag-shopping {
 #full-logo{
     width: 300px;
     height: auto;
+}
+
+::selection {
+  background-color: #65463d1b; /* The highlight background color */
+  color: #000000;            /* The text color inside the highlight */
 }
 
 
