@@ -795,13 +795,19 @@ header.scrolled .fa-bag-shopping {
     object-fit: cover;
 }
 
+.our-story-content{
+    background-color:  rgb(255, 247, 237);
+}
 .our-story-content h1{
     text-align: center;
     font-style: italic;
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 500;
 
-    padding: 4rem 0rem 4rem;
+    padding: 4rem 0rem 0rem;
+    margin: 0; 
+    margin-bottom: 2rem;
+    line-height: 1;
 }
 
 .our-story-overlay {
@@ -840,25 +846,29 @@ header.scrolled .fa-bag-shopping {
 
 .mat-content-wrapper {
     display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    gap: 1rem; 
     
+    align-items: flex-start; 
+    
+    gap: 4rem; 
     width: 100%;
-    max-width: 1200px; 
-    margin: 0 auto; 
+    padding: 0rem 3rem 0 8rem; 
+    box-sizing: border-box;
 }
 
 .mat-content {
-    flex: 1; 
+    flex: 0 0 40%; 
+    
     font-family: 'Poppins';
+    font-size: 1.5rem;
     text-align: justify;
+    line-height: 1.8;
+
+    padding-top: 12rem;
 }
 
-/* 3. The Image Side (Controls the size!) */
 .mat-content-img {
-    width: 600px; 
-    flex-shrink: 0; /* Prevents the text from squishing  image */
+    flex: 1; 
+    margin-top: -16rem;
 }
 
 .mat-content-img img {
