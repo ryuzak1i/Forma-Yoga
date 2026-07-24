@@ -877,6 +877,32 @@ header.scrolled .fa-bag-shopping {
     object-fit: cover;
 }
 
+.mat-content2 {
+    flex: 0 0 40%; 
+    
+    font-family: 'Poppins';
+    font-size: 1.5rem;
+    text-align: justify;
+    line-height: 1.8;
+
+    margin-top: -10rem;
+}
+
+.mat-content-img2 {
+    flex: 1; 
+    margin-top: -35rem;
+}
+
+.mat-content-img2 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.mat-content-wrapper.reverse {
+    padding: 0rem 8rem 0 3rem; 
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 868px) {
     .product-page-container {
