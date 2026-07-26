@@ -41,6 +41,7 @@ header {
     background-color: transparent; 
 }
 
+
 header::before {
     content: '';
     position: absolute;
@@ -163,7 +164,7 @@ header.scrolled .fa-bag-shopping {
     scroll-snap-align: start;
     object-fit: cover;
 
-    flex: 0 0 100vw; /* Changed from 100% */
+    flex: 0 0 100vw; 
     min-width: 100vw;
 }
 
@@ -571,6 +572,16 @@ header.scrolled .fa-bag-shopping {
 /* ----------------------------------------MATS----------------------------------------*/
 .walnut{
     background-color: rgb(255, 247, 237);
+}
+
+.walnut-header .navbar-tabs,
+.walnut-header .navbar-tabs a,
+.walnut-header .fa-bag-shopping {
+    color: #1e0d09; 
+}
+
+.walnut-header .nav-center {
+    text-shadow: none; 
 }
 
 /*CONTENT*/
