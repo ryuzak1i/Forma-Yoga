@@ -145,6 +145,9 @@ header.scrolled .fa-bag-shopping {
     
     scrollbar-width: none;             
     -ms-overflow-style: none;            
+
+    display: flex;
+    gap: 0;
 }
 
 .slider::-webkit-scrollbar {
@@ -159,6 +162,9 @@ header.scrolled .fa-bag-shopping {
     height: 100vh;
     scroll-snap-align: start;
     object-fit: cover;
+
+    flex: 0 0 100vw; /* Changed from 100% */
+    min-width: 100vw;
 }
 
 .hero-overlay {
