@@ -377,6 +377,26 @@
             }
         });
 
+        const slider = document.querySelector('.slider');
+
+        setInterval(() => {
+            
+            slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+
+            setTimeout(() => {
+                
+                slider.style.scrollBehavior = 'auto'; 
+                
+                slider.appendChild(slider.firstElementChild); 
+                
+                slider.scrollLeft -= slider.clientWidth; 
+                
+                slider.style.scrollBehavior = 'smooth'; 
+                
+            }, 600); 
+
+        }, 5000);
+
        // 2. Infinite Sponsor Carousel Controls
         const track = document.getElementById('cardTrack');
         const prevBtn = document.getElementById('prevBtn');
