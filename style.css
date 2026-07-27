@@ -276,8 +276,8 @@ header.scrolled .fa-bag-shopping {
     justify-content: center;   
     align-items: center;       
     padding-top: 2rem;  
-    padding-bottom: 2rem;
-    padding-left: 8rem;    
+    padding-bottom: 6rem;
+    padding-left: 6rem;    
 }
 
 .forma-facts {
@@ -329,7 +329,7 @@ header.scrolled .fa-bag-shopping {
 .mat-catalogue h2{
     font-weight: 500;
     font-size: 4rem;
-    color:#090807;
+    color:#46271f;
     padding-top: 4rem;
     margin-left: 3rem;
 }
@@ -468,12 +468,13 @@ header.scrolled .fa-bag-shopping {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: auto;
     padding: 2rem 1rem;
     font-family: "Poppins", sans-serif;
     background-color: rgb(238, 229, 218);
 
-    padding: 0 1rem 2rem 1rem;
+    margin-top: 0rem;
+    padding: 4rem 1rem 8rem 1rem;
 }
 
 .card-wrapper {
@@ -502,7 +503,6 @@ header.scrolled .fa-bag-shopping {
     text-align: center;
 }
 
-/* Link Wrapper */
 .card-link {
     display: flex;
     flex-direction: column;
@@ -511,7 +511,6 @@ header.scrolled .fa-bag-shopping {
     color: inherit;
 }
 
-/* Responsive Image */
 .card-image {
     width: 80%;
     max-width: 170px;
@@ -520,7 +519,6 @@ header.scrolled .fa-bag-shopping {
     margin-bottom: .0rem;
 }
 
-/* Shop Now Text */
 .shop-now {
     font-size: 0.85rem;
     font-weight: 600;
@@ -537,9 +535,11 @@ header.scrolled .fa-bag-shopping {
 
     font-weight: 500;
     font-size: 4rem;
-    color:#090807;
-    padding-top: 6rem;
-    margin-bottom: 0;
+    color:#46271f;
+    margin: 0; 
+
+    padding-top: 4rem; 
+    padding-bottom: 1rem;
 }
 /* Circular Arrow Controls */
 .slider-arrow {
@@ -561,6 +561,45 @@ header.scrolled .fa-bag-shopping {
 .slider-arrow:hover {
     background-color: #46271f;
     color: #ffffff;
+}
+
+.community{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: auto;
+    padding: 2rem 1rem;
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(255, 247, 237);
+
+    margin-top: 0rem;
+    padding: 6rem 1rem 6rem 1rem;
+}
+
+.community-header h2{
+    text-align: center;
+    background-color:  rgb(255, 247, 237);
+
+    font-weight: 500;
+    font-size: 4rem;
+    color:#46271f;
+    margin: 0; 
+    line-height: 0.8;
+
+    padding-top: 4rem; 
+}
+
+.community-header h4{
+    text-align: center;
+    background-color:  rgb(255, 247, 237);
+
+    font-family: 'Poppins';
+    font-weight: 600;
+    color:#46271f;
+    margin: 0; 
+
+    padding-bottom: 1rem;
 }
 
 /* Mobile responsive fallback */
@@ -868,62 +907,44 @@ header.scrolled .fa-bag-shopping {
 
 .mat-content-wrapper {
     display: flex;
-    
-    align-items: flex-start; 
-    
-    gap: 4rem; 
+    align-items: center;      
+    justify-content: center;   
+    gap: 5rem;                 
     width: 100%;
-    padding: 0rem 3rem 0 8rem; 
-    box-sizing: border-box;
-}
-
-.mat-content {
-    flex: 0 0 40%; 
+    max-width: 1300px;         
+    margin: 0 auto;  
     
-    font-family: 'Poppins';
-    font-size: 1.5rem;
-    text-align: justify;
-    line-height: 1.8;
-
-    padding-top: 12rem;
+    padding: 0rem 4rem;
 }
 
-.mat-content-img {
-    flex: 1; 
-    margin-top: -16rem;
-}
 
-.mat-content-img img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
+.mat-content, 
 .mat-content2 {
-    flex: 0 0 40%; 
-    
-    font-family: 'Poppins';
-    font-size: 1.5rem;
+    flex: 0 0 50%;             
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
     text-align: justify;
     line-height: 1.8;
-
-    margin-top: -10rem;
+    margin: 0;
+    padding: 0;
 }
 
+/* 3. The Image Blocks */
+.mat-content-img, 
 .mat-content-img2 {
-    flex: 1; 
-    margin-top: -35rem;
+    flex: 0 0 60%;             
+    margin: 0;
+    padding: 0;
 }
 
+.mat-content-img img, 
 .mat-content-img2 img {
     width: 100%;
     height: auto;
+    display: block;
     object-fit: cover;
 }
 
-.mat-content-wrapper.reverse {
-    padding: 0rem 8rem 0 3rem; 
-}
 
 /* Mobile Responsiveness */
 /* =========================================
