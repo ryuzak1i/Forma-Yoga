@@ -1,0 +1,242 @@
+//INDEX.HTML
+        // Navbar Scroll State
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        const slider = document.querySelector('.slider');
+
+        setInterval(() => {
+            
+            slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+
+            setTimeout(() => {
+                
+                slider.style.scrollBehavior = 'auto'; 
+                
+                slider.appendChild(slider.firstElementChild); 
+                
+                slider.scrollLeft -= slider.clientWidth; 
+                
+                slider.style.scrollBehavior = 'smooth'; 
+                
+            }, 600); 
+
+        }, 8000);
+
+       // 2. Infinite Sponsor Carousel Controls
+        const track = document.getElementById('cardTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const originalCards = document.querySelectorAll('.card-item');
+
+        if (nextBtn && prevBtn && track && originalCards.length > 0) {
+            const gap = 32; 
+            let currentIndex = 0;
+            let isTransitioning = false;
+
+            // Determine how many cards are visible on screen
+            const getVisibleCardsCount = () => window.innerWidth <= 768 ? 1 : 4;
+
+            // 1. CLONE CARDS: Clone the first few cards and append them to the end
+            const visibleCount = getVisibleCardsCount();
+            for (let i = 0; i < visibleCount; i++) {
+                const clone = originalCards[i].cloneNode(true);
+                clone.classList.add('cloned-card');
+                track.appendChild(clone);
+            }
+
+            // Grab all cards now including clones
+            const allCards = track.querySelectorAll('.card-item');
+
+            function updateSlider(smooth = true) {
+                const cardWidth = originalCards[0].getBoundingClientRect().width;
+                const moveDistance = cardWidth + gap;
+
+                if (smooth) {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                } else {
+                    track.style.transition = 'none';
+                }
+
+                track.style.transform = `translateX(-${moveDistance * currentIndex}px)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (isTransitioning) return; // Prevent double-click bugs
+                
+                currentIndex++;
+                isTransitioning = true;
+                updateSlider(true);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (isTransitioning) return;
+                
+                const totalOriginal = originalCards.length;
+                
+                // If we are at the very beginning and click "prev"
+                if (currentIndex === 0) {
+                    isTransitioning = true;
+                    // Jump instantly to the clone position at the end
+                    currentIndex = totalOriginal;
+                    updateSlider(false);
+                    
+                    // Force browser layout repaint, then animate one step backward
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            currentIndex--;
+                            updateSlider(true);
+                        });
+                    });
+                } else {
+                    currentIndex--;
+                    isTransitioning = true;
+                    updateSlider(true);
+                }
+            });
+
+            // 2. INFINITE JUMP LOGIC: Snap back instantly when transition finishes
+            track.addEventListener('transitionend', () => {
+                isTransitioning = false;
+                const totalOriginal = originalCards.length;
+
+                // If we reached the clones at the end, snap instantly back to index 0
+                if (currentIndex >= totalOriginal) {
+                    currentIndex = 0;
+                    updateSlider(false); // Snap instantly without animation
+                }
+            });
+
+            // Re-align on window resize
+            window.addEventListener('resize', () => {
+                updateSlider(false);
+            });
+
+            // Initial setup run
+            updateSlider(false);
+        }
+
+        //COMMUNITY JS
+        const commTrack = document.getElementById('communityTrack');
+        const commPrevBtn = document.getElementById('commPrevBtn');
+        const commNextBtn = document.getElementById('commNextBtn');
+        const commCards = document.querySelectorAll('.community-item');
+
+        if (commNextBtn && commPrevBtn && commTrack && commCards.length > 0) {
+            const gap = 32; // Matches 2rem
+            let commIndex = 0;
+            let commTransitioning = false;
+
+            const getVisibleCards = () => window.innerWidth <= 768 ? 1 : 4;
+
+            // Clone initial cards for infinite loop
+            const visibleCount = getVisibleCards();
+            for (let i = 0; i < visibleCount; i++) {
+                const clone = commCards[i].cloneNode(true);
+                commTrack.appendChild(clone);
+            }
+
+            function updateCommunitySlider(smooth = true) {
+                const cardWidth = commCards[0].getBoundingClientRect().width;
+                const moveDistance = cardWidth + gap;
+
+                if (smooth) {
+                    commTrack.style.transition = 'transform 0.5s ease-in-out';
+                } else {
+                    commTrack.style.transition = 'none';
+                }
+
+                commTrack.style.transform = `translateX(-${moveDistance * commIndex}px)`;
+            }
+
+            commNextBtn.addEventListener('click', () => {
+                if (commTransitioning) return;
+                commIndex++;
+                commTransitioning = true;
+                updateCommunitySlider(true);
+            });
+
+            commPrevBtn.addEventListener('click', () => {
+                if (commTransitioning) return;
+                
+                const totalOriginal = commCards.length;
+                if (commIndex === 0) {
+                    commTransitioning = true;
+                    commIndex = totalOriginal;
+                    updateCommunitySlider(false);
+                    
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            commIndex--;
+                            updateCommunitySlider(true);
+                        });
+                    });
+                } else {
+                    commIndex--;
+                    commTransitioning = true;
+                    updateCommunitySlider(true);
+                }
+            });
+
+            commTrack.addEventListener('transitionend', () => {
+                commTransitioning = false;
+                const totalOriginal = commCards.length;
+
+                if (commIndex >= totalOriginal) {
+                    commIndex = 0;
+                    updateCommunitySlider(false);
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                updateCommunitySlider(false);
+            });
+
+            updateCommunitySlider(false);
+        }
+
+        // Mat Color Pop-up Modal Logic (Event Delegation)
+        const modal = document.getElementById('matModal');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const modalName = document.getElementById('modalMatName');
+        const modalImg = document.getElementById('modalMatImg');
+        const modalMatLink = document.getElementById('modalMatLink');
+
+        document.addEventListener('click', (e) => {
+            const button = e.target.closest('.mat-badge-btn');
+
+            if (button) {
+                e.preventDefault();  // Stop default navigation
+                e.stopPropagation(); // Stop event bubbling to <a class="card-link">
+
+                const color = button.getAttribute('data-color');
+                const imgSrc = button.getAttribute('data-img');
+                const productUrl = button.getAttribute('data-url');
+
+                if (modalName) modalName.textContent = `Forma ${color} Mat`;
+                if (modalImg) modalImg.src = imgSrc;
+
+                // Dynamic URL update to mat.html?color=walnut
+                if (modalMatLink && productUrl) {
+                    modalMatLink.href = productUrl; 
+                }
+
+                if (modal) modal.style.display = 'flex';
+            }
+        });
+
+        // Close event triggers
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
+        }
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
