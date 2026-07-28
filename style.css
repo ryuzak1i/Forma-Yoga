@@ -484,10 +484,9 @@ header.scrolled .fa-bag-shopping {
     margin: 0 1.5rem;
 }
 
-/* Sliding Flex Track */
 .card-list {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -499,8 +498,9 @@ header.scrolled .fa-bag-shopping {
     box-sizing: border-box;
     background: #ffffffcc;
     border-radius: 8px;
-    padding: 2rem 1rem;
+    padding: 1.5rem;
     text-align: center;
+    
 }
 
 .card-link {
@@ -609,10 +609,9 @@ header.scrolled .fa-bag-shopping {
     padding: 1rem 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;     /* Centers everything horizontally */
+    align-items: center;    
     justify-content: center;
 
-    box-shadow: 0 px 6px rgba(0, 0, 0, 0.1);
 }
 .community-item .card-image {
     width: 100%;          

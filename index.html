@@ -333,17 +333,17 @@
             <button class="slider-arrow next-arrow" id="nextBtn" aria-label="Next">&#10095;</button>
         </section>
 
-        <!--COMMUNITY-->
+        <!-- COMMUNITY SECTION -->
         <section class="community-header">
             <h2><i>Spotted in Forma</i></h2>
             <h4>Behind the Movement</h4>
         </section>
 
         <section class="community">
-            <button class="slider-arrow prev-arrow" id="prevBtn" aria-label="Previous">&#10094;</button>
+            <button class="slider-arrow prev-arrow" id="commPrevBtn" aria-label="Previous">&#10094;</button>
 
             <div class="card-wrapper">
-                <ul class="card-list" id="cardTrack">
+                <ul class="card-list" id="communityTrack">
                     <li class="community-item">
                         <a href="#" class="card-link">
                             <video src="video/community/community.mp4" class="card-image" autoplay loop muted playsinline alt="Video Mat"></video>
@@ -358,9 +358,9 @@
                     </li>
                     <li class="community-item">
                         <a href="#" class="card-link">
-                            <video src="video/community/community4.mp4" class="card-image" autoplay loop muted playsinline alt="Video Mat"></video>
+                            <video src="video/community/community5.mp4" class="card-image" autoplay loop muted playsinline alt="Video Mat"></video>
                         </a>
-                        <p class="tag">@mikalcause</p>
+                        <p class="tag">@daniellagozon</p>
                     </li>
                     <li class="community-item">
                         <a href="#" class="card-link">
@@ -368,10 +368,22 @@
                         </a>
                         <p class="tag">@ry.aliscad</p>
                     </li>
+                    <li class="community-item">
+                        <a href="#" class="card-link">
+                            <video src="video/community/community4.mp4" class="card-image" autoplay loop muted playsinline alt="Video Mat"></video>
+                        </a>
+                        <p class="tag">@mikalcause</p>
+                    </li>
+                    <li class="community-item">
+                        <a href="#" class="card-link">
+                            <video src="video/community/community6.mp4" class="card-image" autoplay loop muted playsinline alt="Video Mat"></video>
+                        </a>
+                        <p class="tag">@hannahdacanay</p>
+                    </li>
                 </ul>
             </div>
 
-            <button class="slider-arrow next-arrow" id="nextBtn" aria-label="Next">&#10095;</button>
+            <button class="slider-arrow next-arrow" id="commNextBtn" aria-label="Next">&#10095;</button>
         </section>
     </main>
     
@@ -534,6 +546,85 @@
 
             // Initial setup run
             updateSlider(false);
+        }
+
+        //COMMUNITY JS
+        const commTrack = document.getElementById('communityTrack');
+        const commPrevBtn = document.getElementById('commPrevBtn');
+        const commNextBtn = document.getElementById('commNextBtn');
+        const commCards = document.querySelectorAll('.community-item');
+
+        if (commNextBtn && commPrevBtn && commTrack && commCards.length > 0) {
+            const gap = 32; // Matches 2rem
+            let commIndex = 0;
+            let commTransitioning = false;
+
+            const getVisibleCards = () => window.innerWidth <= 768 ? 1 : 4;
+
+            // Clone initial cards for infinite loop
+            const visibleCount = getVisibleCards();
+            for (let i = 0; i < visibleCount; i++) {
+                const clone = commCards[i].cloneNode(true);
+                commTrack.appendChild(clone);
+            }
+
+            function updateCommunitySlider(smooth = true) {
+                const cardWidth = commCards[0].getBoundingClientRect().width;
+                const moveDistance = cardWidth + gap;
+
+                if (smooth) {
+                    commTrack.style.transition = 'transform 0.5s ease-in-out';
+                } else {
+                    commTrack.style.transition = 'none';
+                }
+
+                commTrack.style.transform = `translateX(-${moveDistance * commIndex}px)`;
+            }
+
+            commNextBtn.addEventListener('click', () => {
+                if (commTransitioning) return;
+                commIndex++;
+                commTransitioning = true;
+                updateCommunitySlider(true);
+            });
+
+            commPrevBtn.addEventListener('click', () => {
+                if (commTransitioning) return;
+                
+                const totalOriginal = commCards.length;
+                if (commIndex === 0) {
+                    commTransitioning = true;
+                    commIndex = totalOriginal;
+                    updateCommunitySlider(false);
+                    
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            commIndex--;
+                            updateCommunitySlider(true);
+                        });
+                    });
+                } else {
+                    commIndex--;
+                    commTransitioning = true;
+                    updateCommunitySlider(true);
+                }
+            });
+
+            commTrack.addEventListener('transitionend', () => {
+                commTransitioning = false;
+                const totalOriginal = commCards.length;
+
+                if (commIndex >= totalOriginal) {
+                    commIndex = 0;
+                    updateCommunitySlider(false);
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                updateCommunitySlider(false);
+            });
+
+            updateCommunitySlider(false);
         }
     </script>
 </body>
