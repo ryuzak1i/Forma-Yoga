@@ -1,4 +1,4 @@
-//INDEX.HTML
+//------------------------INDEX.HTML------------------------
         // Navbar Scroll State
         const header = document.querySelector('header');
 
@@ -123,7 +123,7 @@
             updateSlider(false);
         }
 
-        //COMMUNITY JS
+        //------------------------COMMUNITY JS------------------------
         const commTrack = document.getElementById('communityTrack');
         const commPrevBtn = document.getElementById('commPrevBtn');
         const commNextBtn = document.getElementById('commNextBtn');
@@ -240,3 +240,6 @@
         window.addEventListener('click', (e) => {
             if (e.target === modal) modal.style.display = 'none';
         });
+
+
+

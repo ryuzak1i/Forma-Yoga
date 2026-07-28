@@ -330,7 +330,7 @@ header.scrolled .fa-bag-shopping {
     font-weight: 500;
     font-size: 4rem;
     color:#46271f;
-    padding-top: 4rem;
+    padding-top: 6rem;
     margin-left: 3rem;
 }
 
@@ -631,9 +631,8 @@ header.scrolled .fa-bag-shopping {
 
 }
 
-/* 1. Set anchor position for the card link */
 .card-link {
-    position: relative; /* Allows button to position absolute relative to the video */
+    position: relative; 
     display: block;
     width: 100%;
     text-decoration: none;
@@ -643,6 +642,7 @@ header.scrolled .fa-bag-shopping {
     position: absolute;
     bottom: 12px;
     left: 12px;
+
     background: rgba(255, 255, 255, 0.92);
     color: #46271f;
     border: none;
@@ -651,6 +651,7 @@ header.scrolled .fa-bag-shopping {
     font-family: 'Poppins', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
+
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
     z-index: 10;
@@ -833,13 +834,11 @@ header.scrolled .fa-bag-shopping {
     margin-top: 0.8rem;
 }
 
-/* Color Swatches Container */
 .color-swatches {
     display: flex;
     gap: 0.6rem;
 }
 
-/* Swatch Buttons */
 .swatch {
     width: 38px;
     height: 38px;
@@ -854,7 +853,6 @@ header.scrolled .fa-bag-shopping {
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover effect */
 .swatch:hover {
     transform: scale(1.05);
 }
@@ -1141,28 +1139,109 @@ header.scrolled .fa-bag-shopping {
     }
 }
 
-
-
-/*FOOTER*/
-.footer-section{
-    background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d );
+.footer-section {
+    background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d);
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
-.footer-content{
-    padding: 3rem;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 7rem;
 }
 
-.quick-links a, ul,
-.social-links a, ul{
-    list-style-type: none;
-    text-decoration: none;
-
-    color: white;
+.forma-descrip {
+    flex: 0 1 340px;
+    max-width: 340px;
+    text-align: left;
 }
 
-#full-logo{
-    width: 300px;
+#full-logo {
+    width: 320px;
     height: auto;
+    display: block;    
+    margin-top: -65px;  
+    margin-left: -10px;
+}
+
+.forma-descrip p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.footer-column {
+    flex: 0 1 180px;
+}
+
+.footer-column h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 1.2rem 0;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    position: relative;
+}
+
+.footer-column h4::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-column a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.footer-column a:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+.social-links li.copyright {
+    margin-top: 1.5rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        padding: 3rem 1.5rem;
+        gap: 2rem;
+    }
+
+    .forma-descrip {
+        max-width: 100%;
+    }
 }
 
 ::selection {
