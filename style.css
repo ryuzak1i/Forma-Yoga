@@ -558,6 +558,32 @@ header.scrolled .fa-bag-shopping {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/*WHO IS FORMA*/
+
+.who-forma {
+    background-image: url('images/who-is-forma.png');
+    background-size: cover;       
+    background-position: center; 
+    background-repeat: no-repeat; 
+    
+    width: 100%;
+    min-height: 70vh;          
+    
+    display: flex;
+    flex-direction: column;   
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.who-forma h1{
+    font-family: 'Poppins';
+    font-size: 4rem;
+    font-weight: 650;
+    color:white;
+    letter-spacing: -0.05rem;
+}
+
 .slider-arrow:hover {
     background-color: #46271f;
     color: #ffffff;
@@ -769,7 +795,7 @@ header.scrolled .fa-bag-shopping {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;                  
-    flex: 1 1 90%;              /* Takes ~65% of screen width */
+    flex: 1 1 90%;              
     max-width: 1120px;
     margin-top: 6rem;
 }
@@ -788,7 +814,7 @@ header.scrolled .fa-bag-shopping {
     flex: 1 1 50%;              
     max-width: 580px;
     position: sticky;           
-    top: 100px;                 /* navbar height */
+    top: 100px;                
     display: flex;
     flex-direction: column;
     margin-top: 6rem;
