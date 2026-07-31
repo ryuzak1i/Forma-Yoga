@@ -993,14 +993,12 @@ header.scrolled .fa-bag-shopping {
     object-fit: cover;
 }
 
-.our-story-content{
-    background-color:  #fff7ed;
-}
 .our-story-content h1{
     text-align: center;
     font-style: italic;
     font-size: 6rem;
     font-weight: 500;
+    color: #46271f;;
 
     padding: 6rem 0rem 0rem;
     margin: 0; 
@@ -1046,46 +1044,69 @@ header.scrolled .fa-bag-shopping {
     transform: translateY(-5px);
 }
 
-.mat-content-wrapper {
-    display: flex;
-    align-items: center;      
-    justify-content: center;   
-    gap: 5rem;                 
-    width: 100%;
-    max-width: 1300px;         
-    margin: 0 auto;  
-    
-    padding: 0rem 4rem;
+.our-story-content {
+    background-color: #fff7ed;
+    padding: 6rem 0;
 }
 
+.gets-you {
+    text-align: center;
+    font-family: 'AppleGaramond-Light', serif;
+    font-style: italic;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 500;
+    color: #46271f;
+    margin: 0 0 4rem 0;
+    line-height: 1;
+}
 
-.mat-content, 
-.mat-content2 {
-    flex: 0 0 50%;             
+/* Base style shared across both story sections */
+.story-section {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 4rem; 
+    
+    width: 100%;
+    max-width: 1300px; 
+    margin: 0 auto 4rem auto; /* Creates spacing between Section 1 and Section 2 */
+    padding: 0 4rem;
+}
+
+/* Equal 50/50 split for both content blocks */
+.story-text {
+    flex: 1 1 50%; 
     font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: justify;
     line-height: 1.8;
-    margin: 0;
-    padding: 0;
+    color: #1e0d09d6;
 }
 
-/* 3. The Image Blocks */
-.mat-content-img, 
-.mat-content-img2 {
-    flex: 0 0 60%;             
-    margin: 0;
-    padding: 0;
+.story-img {
+    flex: 1 1 50%;
 }
 
-.mat-content-img img, 
-.mat-content-img2 img {
+.story-img img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 868px) {
+    .story-section {
+        flex-direction: column;
+        padding: 0 2rem;
+        gap: 2rem;
+    }
+
+    /* Keeps image above text on mobile for the second section */
+    .story-mission .story-img {
+        order: -1; 
+    }
+}
 
 /* Mobile Responsiveness */
 /* =========================================
