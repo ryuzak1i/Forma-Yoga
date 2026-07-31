@@ -1122,100 +1122,6 @@ header.scrolled .fa-bag-shopping {
     display: block;
 }
 
-
-/* =========================================
-   MOBILE/TABLET/LAPTOP RESPONSIVENESS
-========================================= */
-@media (max-width: 1440px) {
-    .story-intro,
-    .story-mission {
-        max-width: 1100px; /* Pulls content slightly inward for laptop screen limits */
-        gap: 3rem;         /* Reduces side gap so text and images don't squish */
-        padding: 3rem 2rem;
-    }
-
-    .story-text {
-        font-size: 0.98rem; /* Slightly dials back text size to maintain good line wrapping */
-        line-height: 1.7;
-    }
-
-    .story-img {
-        max-width: 480px;  /* Scales the image frame down proportionally */
-        height: 340px;     /* Adjusts crop height to match laptop viewport */
-        border-width: 8px;
-    }
-}
-
-@media (max-width: 992px) {
-    .gets-you {
-        padding-top: 3rem;
-    }
-
-    .story-intro,
-    .story-mission {
-        flex-direction: column;   /* Stacks text and image vertically */
-        padding: 2.5rem 1.5rem;   /* Resets massive side paddings */
-        gap: 2rem;
-    }
-
-    /* Keeps image on top for the second section */
-    .story-mission .story-img {
-        order: -1; 
-    }
-
-    .story-text {
-        flex: 1 1 100%;
-        width: 100%;
-        padding: 0;
-        font-size: 1rem;
-        text-align: left;        /* Better readability on small screens */
-    }
-
-    .story-img {
-        flex: 1 1 100%;
-        width: 100%;
-        max-width: 100%;
-        height: 280px;           /* Scales down frame height for mobile screens */
-        border-width: 6px;       /* Slightly thinner border for small screens */
-    }
-}
-
-/* =========================================
-   RESPONSIVE MOBILE STYLES
-========================================= */
-
-@media (max-width: 768px) {
-    /* 3. Prevent Navbar Links from squishing together */
-    .navbar-tabs {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-    
-    .nav-left {
-        gap: 1.5rem;
-        justify-content: center;
-    }
-
-    /* 4. Center Catalogue and Adjust spacing */
-    .shop-mat {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    
-    .mat-catalogue h2, 
-    .brands h2 {
-        font-size: 3rem;
-        margin-left: 0;
-        text-align: center;
-    }
-    
-    .mat-options {
-        justify-content: center;
-        margin-left: 0;
-    }
-}
-
 .footer-section {
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d);
     width: 100%;
@@ -1308,7 +1214,105 @@ header.scrolled .fa-bag-shopping {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Mobile Responsiveness */
+::selection {
+  background-color: #65463d1b; /* The highlight background color */
+  color: #000000;            /* The text color inside the highlight */
+}
+
+/* =========================================
+   Mobile Responsiveness for INDEX 
+========================================= */
+
+@media (max-width: 768px) {
+    /* 3. Prevent Navbar Links from squishing together */
+    .navbar-tabs {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-left {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+
+    /* 4. Center Catalogue and Adjust spacing */
+    .shop-mat {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .mat-catalogue h2, 
+    .brands h2 {
+        font-size: 3rem;
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .mat-options {
+        justify-content: center;
+        margin-left: 0;
+    }
+}
+
+/* =========================================
+   MOBILE/TABLET/LAPTOP RESPONSIVENESS [OUR STORY]
+========================================= */
+@media (max-width: 1440px) {
+    .story-intro,
+    .story-mission {
+        max-width: 1100px; 
+        gap: 3rem;        
+        padding: 3rem 2rem;
+    }
+
+    .story-text {
+        font-size: 0.98rem; 
+        line-height: 1.7;
+    }
+
+    .story-img {
+        max-width: 480px;  
+        height: 340px;     
+        border-width: 8px;
+    }
+}
+
+@media (max-width: 992px) {
+    .gets-you {
+        padding-top: 3rem;
+    }
+
+    .story-intro,
+    .story-mission {
+        flex-direction: column;  
+        padding: 2.5rem 1.5rem; 
+        gap: 2rem;
+    }
+
+    .story-mission .story-img {
+        order: -1; 
+    }
+
+    .story-text {
+        flex: 1 1 100%;
+        width: 100%;
+        padding: 0;
+        font-size: 1rem;
+        text-align: left;        
+    }
+
+    .story-img {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        height: 280px;           
+        border-width: 6px;       
+    }
+}
+/* =========================================
+    Mobile Responsiveness for FOOTER 
+   ========================================= */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
@@ -1320,10 +1324,3 @@ header.scrolled .fa-bag-shopping {
         max-width: 100%;
     }
 }
-
-::selection {
-  background-color: #65463d1b; /* The highlight background color */
-  color: #000000;            /* The text color inside the highlight */
-}
-
-
