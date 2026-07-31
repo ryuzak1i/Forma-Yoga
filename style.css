@@ -1046,7 +1046,6 @@ header.scrolled .fa-bag-shopping {
 
 .our-story-content {
     background-color: #fff7ed;
-
     width: 100%;
     overflow: hidden;
 }
@@ -1055,33 +1054,38 @@ header.scrolled .fa-bag-shopping {
     text-align: center;
     font-family: 'AppleGaramond-Light', serif;
     font-style: italic;
-    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-size: clamp(3rem, 5vw, 6rem);
     font-weight: 500;
     color: #46271f;
     line-height: 1;
+    margin: 0;
+    padding-top: 4rem;
 }
 
 .story-intro{
     display: flex;
     align-items: center; 
     justify-content: center; 
-    gap: 2rem; 
+    gap: 4rem; 
     
     width: 100%;
-    padding-top: 6rem;
-    padding-left: 16rem;
-    padding-right: 16rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     box-sizing: border-box;
 }
-
 .story-mission {
     display: flex;
     align-items: center; 
     justify-content: center; 
-    gap: 2rem; 
+    gap: 4rem; 
     
     width: 100%;
-    padding: 1rem 16rem 12rem; 
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 2rem 8rem;
     box-sizing: border-box;
 }
 
@@ -1091,7 +1095,7 @@ header.scrolled .fa-bag-shopping {
     font-size: 1.05rem;
     line-height: 1.8;
     text-align: justify;
-    padding: 0 2rem;
+    color: #1e0d09d6;
 }
 
 .story-text p {
@@ -1099,14 +1103,15 @@ header.scrolled .fa-bag-shopping {
 }
 
 .story-img {
-    flex: 0 0 auto;        
-    width: 680px;           
-    height: 400px;         
+    flex: 1 1 50%;
+    width: 100%;
+    max-width: 680px;     
+    height: 380px;          
     
-    border: 12px solid #fdfdfd; 
-    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.337);
+    border: 10px solid #fdfdfd; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;  
-    overflow: hidden;        
+    overflow: hidden; 
 }
 
 .story-img img {
@@ -1117,60 +1122,67 @@ header.scrolled .fa-bag-shopping {
     display: block;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 868px) {
-    .story-section {
-        flex-direction: column;
-        padding: 0 2rem;
+
+/* =========================================
+   MOBILE/TABLET/LAPTOP RESPONSIVENESS
+========================================= */
+@media (max-width: 1440px) {
+    .story-intro,
+    .story-mission {
+        max-width: 1100px; /* Pulls content slightly inward for laptop screen limits */
+        gap: 3rem;         /* Reduces side gap so text and images don't squish */
+        padding: 3rem 2rem;
+    }
+
+    .story-text {
+        font-size: 0.98rem; /* Slightly dials back text size to maintain good line wrapping */
+        line-height: 1.7;
+    }
+
+    .story-img {
+        max-width: 480px;  /* Scales the image frame down proportionally */
+        height: 340px;     /* Adjusts crop height to match laptop viewport */
+        border-width: 8px;
+    }
+}
+
+@media (max-width: 992px) {
+    .gets-you {
+        padding-top: 3rem;
+    }
+
+    .story-intro,
+    .story-mission {
+        flex-direction: column;   /* Stacks text and image vertically */
+        padding: 2.5rem 1.5rem;   /* Resets massive side paddings */
         gap: 2rem;
     }
 
-    /* Keeps image above text on mobile for the second section */
+    /* Keeps image on top for the second section */
     .story-mission .story-img {
         order: -1; 
     }
+
+    .story-text {
+        flex: 1 1 100%;
+        width: 100%;
+        padding: 0;
+        font-size: 1rem;
+        text-align: left;        /* Better readability on small screens */
+    }
+
+    .story-img {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        height: 280px;           /* Scales down frame height for mobile screens */
+        border-width: 6px;       /* Slightly thinner border for small screens */
+    }
 }
 
-/* Mobile Responsiveness */
 /* =========================================
    RESPONSIVE MOBILE STYLES
 ========================================= */
-
-@media (max-width: 868px) {
-    /* 1. Fix the "Our Story" zig-zag layout overlap */
-    .mat-content-wrapper, 
-    .mat-content-wrapper.reverse {
-        flex-direction: column;       /* Stacks text and image vertically */
-        padding: 2rem !important;     /* Resets the massive left/right padding */
-        gap: 2rem;
-    }
-
-    .mat-content, 
-    .mat-content2 {
-        flex: 1 1 100%;
-        margin-top: 0;                /* Removes negative overlap margins */
-        padding-top: 0; 
-    }
-
-    .mat-content-img, 
-    .mat-content-img2 {
-        flex: 1 1 100%;
-        margin-top: 0;                /* Removes negative overlap margins */
-        order: -1;                    /* Forces the image to sit above the text on mobile */
-    }
-    
-    /* 2. Fix the Our Story Hero Overlay Position */
-    .our-story-overlay {
-        left: 50%;
-        text-align: center;
-        width: 100%;
-        padding: 0 1rem;
-    }
-    
-    .sub-header {
-        margin-right: 0;
-    }
-}
 
 @media (max-width: 768px) {
     /* 3. Prevent Navbar Links from squishing together */
