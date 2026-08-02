@@ -1413,6 +1413,35 @@ header.scrolled .fa-bag-shopping {
     }
 }
 
+/* ===================================================
+   MOBILE RESPONSIVENESS EVENTS.HTML
+=================================================== */
+
+/* Laptops (1024px to 1280px) */
+@media (max-width: 1280px) {
+    .event-card-grid {
+        gap: 2rem;
+    }
+
+    .event-card {
+        flex: 0 1 320px;
+        height: 460px;
+    }
+}
+
+/* Mobile & Tablet Stacking (under 992px) */
+@media (max-width: 992px) {
+    .event-card-grid {
+        flex-direction: column;    /* Stacks cards vertically */
+        align-items: center;
+    }
+
+    .event-card {
+        width: 100%;
+        max-width: 450px;           /* Prevents card from stretching too wide on mobile */
+        height: 380px;
+    }
+}
 /* =========================================
     Mobile Responsiveness for FOOTER 
    ========================================= */
