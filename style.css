@@ -1169,7 +1169,7 @@ header.scrolled .fa-bag-shopping {
     padding-top: 16rem;                
     padding-bottom: 8rem;
     box-sizing: border-box;
-    background-color: #eee5da;
+    background-color: #eee5da8a;
 }
 
 .events-header {
@@ -1217,7 +1217,7 @@ header.scrolled .fa-bag-shopping {
 .event-card {
     flex: 0 1 380px;       
     height: 520px;
-    background-color: #eee5da;
+    background-color: #eee5da8a;
     border-radius: 12px;
     text-decoration: none;
     color: #5d3d34;
@@ -1233,12 +1233,12 @@ header.scrolled .fa-bag-shopping {
 
 .event-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .event-card-content h3 {
     font-family: 'AppleGaramond-Light', serif;
-    font-size: 2rem;
+    font-size: 2.3rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
