@@ -1140,6 +1140,31 @@ header.scrolled .fa-bag-shopping {
 
 /* -----------------------------------EVENTS-----------------------------------------*/
 
+.navbar-events{
+    background-color: white;
+}
+.tabs-events{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;           
+    list-style: none;
+    margin: 0;
+    padding: 1.5rem 3rem; 
+    
+    color: #1e0d09;
+}
+
+.tabs-events a {
+    text-decoration: none;
+    color: inherit;
+    text-shadow: none;
+}
+
+.tabs-events .fa-bag-shopping {
+    color: #1e0d09;
+}
+
+
 .events {
     padding-top: 16rem;                
     padding-bottom: 8rem;
