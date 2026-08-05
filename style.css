@@ -1208,21 +1208,26 @@ header.scrolled .fa-bag-shopping {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 3rem;                     
+    gap: 5rem 1.5rem;
     margin: 0 auto;
     padding-top: 0;
     margin-top: 0;
-    max-width: 100%;
+    
+    width: 90%;
+    max-width: 100%;            
+    margin: 0 auto;
 }
 
 .event-card {
-    flex: 0 1 calc(20% - 2.4rem);
-    height: 520px;
+    flex: 0 0 calc(33.333% - 1rem);
+    min-width: 250px;
+    height: 720px;
+
     background-color: #eee5da8a;
     border-radius: 12px;
     text-decoration: none;
     color: #5d3d34;
-    padding: 0;                   /* Changed to 0 so the image touches top/left/right edges */
+    padding: 0;                   
     overflow: hidden;
     
     display: flex;
@@ -1239,7 +1244,7 @@ header.scrolled .fa-bag-shopping {
 
 .event-card-content h3 {
     font-family: 'AppleGaramond-Light', serif;
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
