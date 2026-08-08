@@ -459,7 +459,7 @@ header.scrolled .fa-bag-shopping {
     min-height: auto;
     padding: 2rem 1rem;
     font-family: "Poppins", sans-serif;
-    background-color: rgb(238, 229, 218);
+    background-color:rgb(255, 247, 237);
 
     margin-top: 0rem;
     padding: 4rem 1rem 8rem 1rem;
@@ -519,7 +519,7 @@ header.scrolled .fa-bag-shopping {
 
 .brands h2{
     text-align: center;
-    background-color:  rgb(238, 229, 218);
+    background-color:  rgb(255, 247, 237);
 
     font-weight: 500;
     font-size: 4rem;
@@ -1162,7 +1162,7 @@ header.scrolled .fa-bag-shopping {
     padding-top: 16rem;                
     padding-bottom: 8rem;
     box-sizing: border-box;
-    background-color: #eee5da8a;
+    background-color: rgb(255, 247, 237);
 }
 
 .events-header {
@@ -1216,7 +1216,7 @@ header.scrolled .fa-bag-shopping {
     min-width: 250px;
     height: 720px;
 
-    background-color: #eee5da8a;
+    background-color: rgb(255, 247, 237);
     border-radius: 12px;
     text-decoration: none;
     color: #5d3d34;
