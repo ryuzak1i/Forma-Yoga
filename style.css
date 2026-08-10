@@ -102,7 +102,7 @@ header.scrolled .fa-bag-shopping {
     gap: 2.5rem;                 
     flex: 1;     
     
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .nav-center {
@@ -314,7 +314,7 @@ header.scrolled .fa-bag-shopping {
 }
 
 .mat-catalogue h2{
-    font-weight: 500;
+    font-weight: 400;
     font-size: 4rem;
     color:#46271f;
     padding-top: 6rem;
@@ -340,7 +340,7 @@ header.scrolled .fa-bag-shopping {
     max-width: 350px; 
     
     cursor: pointer;
-    margin-bottom: 6rem;
+    margin-bottom: 8rem;
 }
 
 .mat-img-wrapper {
@@ -601,7 +601,7 @@ header.scrolled .fa-bag-shopping {
     margin: 0; 
     line-height: 0.8;
 
-    padding-top: 4rem; 
+    padding-top: 6rem; 
 }
 
 .community-header h4{
