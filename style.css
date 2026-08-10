@@ -1263,6 +1263,53 @@ header.scrolled .fa-bag-shopping {
     width: 100%;
 }
 
+.cabana-vid {
+    position: relative;
+    width: 100%;
+    height: 70vh; 
+    overflow: hidden; 
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;      
+    height: 100%;     
+    
+    object-fit: cover; 
+    
+    z-index: -1; 
+}
+
+.content{
+    padding: 16rem 0 0 2rem;
+}
+
+.events-vid-title, .events-vid-subtitle {
+    position: relative;
+    z-index: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    height: 100%;
+    text-align: left;
+}
+
+.events-vid-title{
+    font-family: 'Poppins';
+    font-weight: 500;
+
+    color: #ffffff;
+}
+
+.events-vid-subtitle{
+    font-family: 'Poppins';
+    font-size: 0.8rem;
+
+    color: #ffffff;
+}
+
 .footer-section {
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d);
     width: 100%;
