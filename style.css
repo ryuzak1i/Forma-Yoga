@@ -1298,7 +1298,7 @@ header.scrolled .fa-bag-shopping {
 
 .events-vid-title{
     font-family: 'Poppins';
-    font-weight: 500;
+    font-weight: 600;
 
     color: #ffffff;
 }
@@ -1408,11 +1408,9 @@ header.scrolled .fa-bag-shopping {
 }
 
 /* =========================================
-   Mobile Responsiveness for INDEX.html
+   MOBILE RESPONSIVENESS (Phones & Small Tablets)
 ========================================= */
-
 @media (max-width: 768px) {
-    /* 3. Prevent Navbar Links from squishing together */
     .navbar-tabs {
         flex-direction: column;
         gap: 1rem;
@@ -1424,7 +1422,6 @@ header.scrolled .fa-bag-shopping {
         justify-content: center;
     }
 
-    /* 4. Center Catalogue and Adjust spacing */
     .shop-mat {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -1440,6 +1437,39 @@ header.scrolled .fa-bag-shopping {
     .mat-options {
         justify-content: center;
         margin-left: 0;
+        width: 100%;
+        height: auto; 
+        overflow: visible;
+    }
+
+    .yoga-mat-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%; 
+        max-width: 350px; 
+    }
+}
+
+/* =========================================
+   LAPTOP RESPONSIVENESS (1280px and below)
+========================================= */
+@media (max-width: 1280px) {
+    .yoga-mat-card {
+        max-width: 220px;      
+        margin-bottom: 4rem;   
+    }
+
+    .mat-img-wrapper {
+        height: 460px;         
+    }
+
+    .mat-name, 
+    .mat-price {
+        font-size: 0.95rem; 
+    }
+    
+    .mat-catalogue h2 {
+        font-size: 3.5rem;     
     }
 }
 
