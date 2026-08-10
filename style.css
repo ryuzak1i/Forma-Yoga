@@ -529,6 +529,7 @@ header.scrolled .fa-bag-shopping {
     padding-top: 4rem; 
     padding-bottom: 1rem;
 }
+
 /* Circular Arrow Controls */
 .slider-arrow {
     background-color: #ffffff7b;
@@ -1454,8 +1455,11 @@ header.scrolled .fa-bag-shopping {
    LAPTOP RESPONSIVENESS (1280px and below)
 ========================================= */
 @media (max-width: 1280px) {
+    .mat-options{
+        gap: 0.4rem;
+    }
     .yoga-mat-card {
-        max-width: 220px;      
+        max-width: 230px;      
         margin-bottom: 4rem;   
     }
 
@@ -1470,6 +1474,15 @@ header.scrolled .fa-bag-shopping {
     
     .mat-catalogue h2 {
         font-size: 3.5rem;     
+    }
+
+    .community-item {
+        flex: 0 0 calc((100% - 4rem) / 3);
+    }
+
+    .community-item .card-image {    
+        height: 400px;       
+        
     }
 }
 
@@ -1545,18 +1558,22 @@ header.scrolled .fa-bag-shopping {
         flex: 0 1 320px;
         height: 460px;
     }
+
+    .card-item{
+        flex: 0 0 calc((100% - 4rem) / 3);
+    }
 }
 
 /* Mobile & Tablet Stacking (under 992px) */
 @media (max-width: 992px) {
     .event-card-grid {
-        flex-direction: column;    /* Stacks cards vertically */
+        flex-direction: column;    
         align-items: center;
     }
 
     .event-card {
         width: 100%;
-        max-width: 450px;           /* Prevents card from stretching too wide on mobile */
+        max-width: 450px;         
         height: 380px;
     }
 }
