@@ -1311,10 +1311,8 @@ header.scrolled .fa-bag-shopping {
     color: #ffffff;
 }
 
+/*CART*/
 
-/* =========================================
-   SIDE CART STYLES
-========================================= */
 .cart-overlay {
     position: fixed;
     top: 0;
@@ -1329,7 +1327,7 @@ header.scrolled .fa-bag-shopping {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.cart-overlay.active {
+.cart-overlay:active{
     opacity: 1;
     visibility: visible;
 }
@@ -1339,7 +1337,7 @@ header.scrolled .fa-bag-shopping {
     top: 0;
     right: 0;
     width: 100%;
-    max-width: 420px;       /* Width of the side cart */
+    max-width: 420px;       
     height: 100vh;
     background-color: #fff7ed; 
     z-index: 2001;
@@ -1347,13 +1345,11 @@ header.scrolled .fa-bag-shopping {
     display: flex;
     flex-direction: column;
     
-    /* Pushes the cart exactly 100% off the right side of the screen */
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     font-family: 'Poppins', sans-serif;
 }
 
-/* When the JS adds this class, it pulls it back onto the screen */
 .side-cart.open {
     transform: translateX(0);
 }
@@ -1419,19 +1415,6 @@ header.scrolled .fa-bag-shopping {
 .checkout-btn:hover {
     background-color: #46271f;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .footer-section {
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d);
@@ -1526,8 +1509,8 @@ header.scrolled .fa-bag-shopping {
 }
 
 ::selection {
-  background-color: #65463d1b; /* The highlight background color */
-  color: #000000;            /* The text color inside the highlight */
+  background-color: #65463d1b; 
+  color: #000000;         
 }
 
 /* =========================================

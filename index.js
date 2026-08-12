@@ -297,63 +297,63 @@
             if (e.target === modal) modal.style.display = 'none';
         });
 
-        // =========================================
-// SIDE CART LOGIC
-// =========================================
-const sideCart = document.getElementById('side-cart');
-const cartOverlay = document.getElementById('cart-overlay');
-const closeCartBtn = document.getElementById('close-cart');
-const basketIcons = document.querySelectorAll('.fa-bag-shopping');
-const quickAddBtns = document.querySelectorAll('.quick-add-btn');
 
-// Function to slide the cart in
-function openCart() {
-    if (sideCart && cartOverlay) {
-        sideCart.classList.add('open');
-        cartOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevents background scrolling
+    // =========================================
+    // SIDE CART LOGIC
+    // =========================================
+    const sideCart = document.getElementById('side-cart');
+    const cartOverlay = document.getElementById('cart-overlay');
+    const closeCartBtn = document.getElementById('close-cart');
+    const basketIcons = document.querySelectorAll('.fa-bag-shopping');
+    const quickAddBtns = document.querySelectorAll('.quick-add-btn');
+
+    // Function to slide the cart in
+    function openCart() {
+        if (sideCart && cartOverlay) {
+            sideCart.classList.add('open');
+            cartOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevents background scrolling
+        }
     }
-}
 
-// Function to slide the cart out
-function closeCart() {
-    if (sideCart && cartOverlay) {
-        sideCart.classList.remove('open');
-        cartOverlay.classList.remove('active');
-        document.body.style.overflow = ''; // Restores background scrolling
+    // Function to slide the cart out
+    function closeCart() {
+        if (sideCart && cartOverlay) {
+            sideCart.classList.remove('open');
+            cartOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restores background scrolling
+        }
     }
-}
 
-// 1. Trigger: Clicking the navbar basket icon
-basketIcons.forEach(icon => {
-    // Finds the <a> tag wrapping the icon
-    const parentLink = icon.closest('a'); 
-    if (parentLink) {
-        parentLink.addEventListener('click', (e) => {
-            e.preventDefault(); // Stops the browser from loading basket.html
-            openCart();
-        });
-    }
-});
-
-// 2. Trigger: Clicking any "QUICK ADD" button
-quickAddBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault(); 
-        openCart();
-        // You can later add code here to visually add the specific mat to the cart!
+    // 1. Trigger: Clicking the navbar basket icon
+    basketIcons.forEach(icon => {
+        // Finds the <a> tag wrapping the icon
+        const parentLink = icon.closest('a'); 
+        if (parentLink) {
+            parentLink.addEventListener('click', (e) => {
+                e.preventDefault(); // Stops the browser from loading basket.html
+                openCart();
+            });
+        }
     });
-});
 
-// 3. Triggers to close the cart
-if (closeCartBtn) {
-    closeCartBtn.addEventListener('click', closeCart);
-}
+    // 2. Trigger: Clicking any "QUICK ADD" button
+    quickAddBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            openCart();
+            // You can later add code here to visually add the specific mat to the cart!
+        });
+    });
 
-// Clicking the darkened background overlay closes the cart
-if (cartOverlay) {
-    cartOverlay.addEventListener('click', closeCart);
-}
+    // 3. Triggers to close the cart
+    if (closeCartBtn) {
+        closeCartBtn.addEventListener('click', closeCart);
+    }
 
+    // Clicking the darkened background overlay closes the cart
+    if (cartOverlay) {
+        cartOverlay.addEventListener('click', closeCart);
+    }
 
 
