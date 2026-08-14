@@ -97,7 +97,6 @@ if (nextBtn && prevBtn && track && originalCards.length > 0) {
     updateSlider(false);
 }
 
-
 //------------------------PRODUCT PAGE (MAT.HTML) JS------------------------
 document.querySelectorAll(".swatch").forEach(button => {
     button.addEventListener("click", function () {
@@ -150,7 +149,6 @@ if (selectedColor) {
         targetSwatch.click(); 
     }
 }
-
 
 //------------------------COMMUNITY SECTION JS------------------------
 const commTrack = document.getElementById('communityTrack');
@@ -258,16 +256,16 @@ window.addEventListener('click', (e) => {
     if (e.target === modal) modal.style.display = 'none';
 });
 
-
 // =========================================
 // ADVANCED SIDE CART LOGIC
 // =========================================
 const sideCart = document.getElementById('side-cart');
 const cartOverlay = document.getElementById('cart-overlay');
-const closeCartBtn = document.getElementById('close-cart');
+const closeCartBtnSide = document.getElementById('close-cart');
 const basketIcons = document.querySelectorAll('.fa-bag-shopping');
 const cartContent = document.querySelector('.cart-content');
 
+// Load cart from memory
 let cart = JSON.parse(localStorage.getItem('formaCart')) || [];
 
 function openCart() {
@@ -286,89 +284,135 @@ function closeCart() {
     }
 }
 
+// Helper: Converts "P 2,500" or "₱2,500" into a pure math number (2500)
+function parsePrice(priceStr) {
+    return parseInt(priceStr.replace(/[^\d]/g, ''), 10);
+}
+
+// Helper: Converts a math number (2500) back into a string ("₱2,500")
+function formatPrice(num) {
+    return '₱' + num.toLocaleString();
+}
+
 function updateCartUI() {
     if (!cartContent) return;
+    
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const cartTotalEl = document.getElementById('cart-total-price');
+    let subtotal = 0;
 
+    // IF CART IS EMPTY
     if (cart.length === 0) {
-        cartContent.innerHTML = '<p>Your bag is currently empty.</p>';
+        // We use backticks (`) here so we can write multiple lines of HTML easily
+        cartContent.innerHTML = `
+            <p>Your bag is currently empty.</p>
+            <a href="index.html#catalogue" class="empty-cart-link">GET SHOPPING</a>
+        `;
+        if (cartTotalEl) cartTotalEl.textContent = '₱0';
+        if (checkoutBtn) checkoutBtn.classList.add('disabled'); // Disable checkout
         localStorage.setItem('formaCart', JSON.stringify(cart));
         return;
     }
 
+    // IF CART HAS ITEMS
+    if (checkoutBtn) checkoutBtn.classList.remove('disabled'); // Enable checkout
     cartContent.innerHTML = ''; 
+
     cart.forEach((item, index) => {
+        // Calculate the total for this specific item group
+        const itemTotal = parsePrice(item.price) * item.quantity;
+        subtotal += itemTotal; // Add to master subtotal
+
         cartContent.innerHTML += `
             <div class="cart-item">
                 <img src="${item.image}" alt="${item.name}">
                 <div class="cart-item-info">
                     <div class="cart-item-title">${item.name}</div>
-                    <div class="cart-item-price">${item.price}</div>
+                    <div class="cart-item-price">${formatPrice(itemTotal)}</div>
+                    
+                    <div class="cart-item-quantity">
+                        <button class="qty-btn qty-minus" data-index="${index}">-</button>
+                        <span class="qty-value">${item.quantity}</span>
+                        <button class="qty-btn qty-plus" data-index="${index}">+</button>
+                    </div>
                 </div>
                 <button class="remove-item-btn" data-index="${index}">&times;</button>
             </div>
         `;
     });
 
+    if (cartTotalEl) cartTotalEl.textContent = formatPrice(subtotal);
     localStorage.setItem('formaCart', JSON.stringify(cart));
 }
 
+// Master Click Listener for Cart Buttons (Remove, +, -)
 if (cartContent) {
     cartContent.addEventListener('click', (e) => {
-        const removeBtn = e.target.closest('.remove-item-btn');
-        if (removeBtn) {
-            const index = removeBtn.getAttribute('data-index');
-            cart.splice(index, 1); 
-            updateCartUI();        
+        const target = e.target;
+        const index = target.getAttribute('data-index');
+
+        if (target.classList.contains('remove-item-btn')) {
+            cart.splice(index, 1); // Trash can clicked
+        } 
+        else if (target.classList.contains('qty-plus')) {
+            cart[index].quantity += 1; // Plus clicked
+        } 
+        else if (target.classList.contains('qty-minus')) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1; // Minus clicked
+            } else {
+                cart.splice(index, 1); // Removes item if quantity drops to 0
+            }
         }
+        
+        // Refresh UI if any button was clicked
+        if (target.closest('button')) updateCartUI();
     });
 }
 
-// Add to Cart from Homepage "QUICK ADD"
+// Logic to check for duplicates before adding
+function addToCart(name, price, image) {
+    // Look to see if this mat is already in the cart
+    const existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+        existingItem.quantity += 1; // Duplicate found! Just increase quantity
+    } else {
+        cart.push({ name, price, image, quantity: 1 }); // New item! Add to array
+    }
+    
+    updateCartUI();
+    openCart();
+}
+
+// Trigger: Homepage "QUICK ADD"
 const quickAddBtns = document.querySelectorAll('.quick-add-btn');
 quickAddBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault(); 
         const card = btn.closest('.yoga-mat-card');
-        
         if (card) {
-            const nameEl = card.querySelector('.mat-name');
-            const priceEl = card.querySelector('.mat-price');
-            const imgEl = card.querySelector('.base-img');
-            
-            if (nameEl && priceEl && imgEl) {
-                const name = nameEl.textContent;
-                const price = priceEl.textContent;
-                const image = imgEl.src; 
-
-                cart.push({ name, price, image });
-                updateCartUI();
-                openCart();
-            }
+            const name = card.querySelector('.mat-name').textContent;
+            const price = card.querySelector('.mat-price').textContent;
+            const image = card.querySelector('.base-img').src; 
+            addToCart(name, price, image);
         }
     });
 });
 
-// Add to Cart from Product Page "ADD TO BAG"
+// Trigger: Product Page "ADD TO BAG"
 const addToBagBtn = document.querySelector('.btn-add-bag');
 if (addToBagBtn) {
     addToBagBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const nameEl = document.querySelector('.product-title');
-        const priceEl = document.querySelector('.product-price');
-        const imageEl = document.querySelector('.pg-img-1');
-        
-        if (nameEl && priceEl && imageEl) {
-            const name = nameEl.textContent;
-            const price = priceEl.textContent;
-            const image = imageEl.src;
-
-            cart.push({ name, price, image });
-            updateCartUI();
-            openCart();
-        }
+        const name = document.querySelector('.product-title').textContent;
+        const price = document.querySelector('.product-price').textContent;
+        const image = document.querySelector('.pg-img-1').src;
+        addToCart(name, price, image);
     });
 }
 
+// Navigation & Close Triggers
 basketIcons.forEach(icon => {
     const parentLink = icon.closest('a'); 
     if (parentLink) {
@@ -379,12 +423,8 @@ basketIcons.forEach(icon => {
     }
 });
 
-if (closeCartBtn) {
-    closeCartBtn.addEventListener('click', closeCart);
-}
+if (closeCartBtnSide) closeCartBtnSide.addEventListener('click', closeCart);
+if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 
-if (cartOverlay) {
-    cartOverlay.addEventListener('click', closeCart);
-}
-
+// Run immediately to load saved data and calculate total
 updateCartUI();
