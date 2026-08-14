@@ -299,7 +299,10 @@ function updateCartUI() {
     
     const checkoutBtn = document.getElementById('checkout-btn');
     const cartTotalEl = document.getElementById('cart-total-price');
+    const cartBadges = document.querySelectorAll('.cart-badge'); 
+    
     let subtotal = 0;
+    let totalItems = 0; 
 
     // IF CART IS EMPTY
     if (cart.length === 0) {
@@ -310,35 +313,23 @@ function updateCartUI() {
             </div>
         `;
         if (cartTotalEl) cartTotalEl.textContent = '₱0';
-        if (checkoutBtn) checkoutBtn.classList.add('disabled'); // Disable checkout
+        if (checkoutBtn) checkoutBtn.classList.add('disabled'); 
+        
+        // Hide the badge when empty
+        cartBadges.forEach(badge => badge.classList.remove('show'));
+        
         localStorage.setItem('formaCart', JSON.stringify(cart));
         return;
     }
 
-    // Close side cart when clicking anywhere outside of it
-    document.addEventListener('click', (e) => {
-        // Only run if the cart is open
-        if (sideCart && sideCart.classList.contains('open')) {
-            const isClickInsideCart = sideCart.contains(e.target);
-            const isClickOnBasketIcon = e.target.closest('.fa-bag-shopping');
-            const isClickOnQuickAdd = e.target.closest('.quick-add-btn');
-            const isClickOnAddToBag = e.target.closest('.btn-add-bag');
-
-            // If the click did NOT happen inside the cart and was not one of the open triggers
-            if (!isClickInsideCart && !isClickOnBasketIcon && !isClickOnQuickAdd && !isClickOnAddToBag) {
-                closeCart();
-            }
-        }
-    });
-
     // IF CART HAS ITEMS
-    if (checkoutBtn) checkoutBtn.classList.remove('disabled'); // Enable checkout
+    if (checkoutBtn) checkoutBtn.classList.remove('disabled'); 
     cartContent.innerHTML = ''; 
 
     cart.forEach((item, index) => {
-        // Calculate the total for this specific item group
         const itemTotal = parsePrice(item.price) * item.quantity;
-        subtotal += itemTotal; // Add to master subtotal
+        subtotal += itemTotal; 
+        totalItems += item.quantity; 
 
         cartContent.innerHTML += `
             <div class="cart-item">
@@ -359,8 +350,31 @@ function updateCartUI() {
     });
 
     if (cartTotalEl) cartTotalEl.textContent = formatPrice(subtotal);
+    
+    // Update the badge number and make it visible!
+    cartBadges.forEach(badge => {
+        badge.textContent = totalItems;
+        badge.classList.add('show');
+    });
+
     localStorage.setItem('formaCart', JSON.stringify(cart));
 }
+
+// Close side cart when clicking anywhere outside of it
+document.addEventListener('click', (e) => {
+    // Only run if the cart is open
+    if (sideCart && sideCart.classList.contains('open')) {
+        const isClickInsideCart = sideCart.contains(e.target);
+        const isClickOnBasketIcon = e.target.closest('.fa-bag-shopping');
+        const isClickOnQuickAdd = e.target.closest('.quick-add-btn');
+        const isClickOnAddToBag = e.target.closest('.btn-add-bag');
+
+        // If the click did NOT happen inside the cart and was not one of the open triggers
+        if (!isClickInsideCart && !isClickOnBasketIcon && !isClickOnQuickAdd && !isClickOnAddToBag) {
+            closeCart();
+        }
+    }
+});
 
 // Master Click Listener for Cart Buttons (Remove, +, -)
 if (cartContent) {

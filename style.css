@@ -1557,6 +1557,46 @@ header.scrolled .fa-bag-shopping {
     opacity: 0.85;
 }
 
+/* =========================================
+   CART NOTIFICATION BADGE
+========================================= */
+.cart-icon-link {
+    position: relative; /* Keeps the absolute badge anchored to the icon */
+    display: inline-block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: #b33939;  /* A nice red for visibility, or change to #46271f for brand brown */
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    
+    /* Flexbox perfectly centers the number inside the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Hidden by default when the cart is empty */
+    opacity: 0; 
+    transform: scale(0.5);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    
+    pointer-events: none; /* Ensures clicking the badge still clicks the bag link */
+}
+
+/* Added by JavaScript when items are in the cart */
+.cart-badge.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
 .footer-section {
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d);
     width: 100%;
