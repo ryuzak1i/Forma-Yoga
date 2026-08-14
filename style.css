@@ -1327,7 +1327,7 @@ header.scrolled .fa-bag-shopping {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.cart-overlay:active{
+.cart-overlay.active{
     opacity: 1;
     visibility: visible;
 }
@@ -1523,6 +1523,38 @@ header.scrolled .fa-bag-shopping {
 .remove-item-btn:hover {
     color: #b33939;
     transform: scale(1.1);
+}
+
+/* =========================================
+   EMPTY CART STYLING (Centered & Brown Link)
+========================================= */
+.empty-cart-state {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.empty-cart-state p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #5d3d34;
+    margin-bottom: 0.8rem;
+}
+
+.empty-cart-link {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #46271f;                  /* Rich brown color matching your brand */
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    letter-spacing: 1px;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.empty-cart-link:hover {
+    color: #65463d;                  /* Slightly lighter brown on hover */
+    opacity: 0.85;
 }
 
 .footer-section {

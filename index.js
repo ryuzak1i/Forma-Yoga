@@ -303,16 +303,33 @@ function updateCartUI() {
 
     // IF CART IS EMPTY
     if (cart.length === 0) {
-        // We use backticks (`) here so we can write multiple lines of HTML easily
         cartContent.innerHTML = `
-            <p>Your bag is currently empty.</p>
-            <a href="index.html#catalogue" class="empty-cart-link">GET SHOPPING</a>
+            <div class="empty-cart-state">
+                <p>Your bag is currently empty.</p>
+                <a href="index.html#catalogue" class="empty-cart-link">GET SHOPPING</a>
+            </div>
         `;
         if (cartTotalEl) cartTotalEl.textContent = '₱0';
         if (checkoutBtn) checkoutBtn.classList.add('disabled'); // Disable checkout
         localStorage.setItem('formaCart', JSON.stringify(cart));
         return;
     }
+
+    // Close side cart when clicking anywhere outside of it
+    document.addEventListener('click', (e) => {
+        // Only run if the cart is open
+        if (sideCart && sideCart.classList.contains('open')) {
+            const isClickInsideCart = sideCart.contains(e.target);
+            const isClickOnBasketIcon = e.target.closest('.fa-bag-shopping');
+            const isClickOnQuickAdd = e.target.closest('.quick-add-btn');
+            const isClickOnAddToBag = e.target.closest('.btn-add-bag');
+
+            // If the click did NOT happen inside the cart and was not one of the open triggers
+            if (!isClickInsideCart && !isClickOnBasketIcon && !isClickOnQuickAdd && !isClickOnAddToBag) {
+                closeCart();
+            }
+        }
+    });
 
     // IF CART HAS ITEMS
     if (checkoutBtn) checkoutBtn.classList.remove('disabled'); // Enable checkout
