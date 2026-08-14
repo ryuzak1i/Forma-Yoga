@@ -1416,6 +1416,58 @@ header.scrolled .fa-bag-shopping {
     background-color: #46271f;
 }
 
+/* =========================================
+   CART ITEM STYLES
+========================================= */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e0d5c1;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e0d5c1;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #46271f;
+    margin-bottom: 0.2rem;
+}
+
+.cart-item-price {
+    font-size: 0.85rem;
+    color: #65463d;
+}
+
+.remove-item-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: #46271f;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.remove-item-btn:hover {
+    color: #b33939;
+    transform: scale(1.1);
+}
+
 .footer-section {
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d);
     width: 100%;
