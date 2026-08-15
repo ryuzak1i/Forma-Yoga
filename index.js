@@ -377,18 +377,27 @@ document.addEventListener('click', (e) => {
 });
 
 // Master Click Listener for Cart Buttons (Remove, +, -)
+// Master Click Listener for Cart Buttons (Remove, +, -)
 if (cartContent) {
     cartContent.addEventListener('click', (e) => {
-        const target = e.target;
-        const index = target.getAttribute('data-index');
+        // Safely find the button that was clicked
+        const button = e.target.closest('button');
 
-        if (target.classList.contains('remove-item-btn')) {
+        // If they didn't click a button, ignore it
+        if (!button) return;
+
+        // THE FIX: Stop the click from bubbling up to the global document listener!
+        e.stopPropagation();
+
+        const index = button.getAttribute('data-index');
+
+        if (button.classList.contains('remove-item-btn')) {
             cart.splice(index, 1); // Trash can clicked
         } 
-        else if (target.classList.contains('qty-plus')) {
+        else if (button.classList.contains('qty-plus')) {
             cart[index].quantity += 1; // Plus clicked
         } 
-        else if (target.classList.contains('qty-minus')) {
+        else if (button.classList.contains('qty-minus')) {
             if (cart[index].quantity > 1) {
                 cart[index].quantity -= 1; // Minus clicked
             } else {
@@ -396,8 +405,8 @@ if (cartContent) {
             }
         }
         
-        // Refresh UI if any button was clicked
-        if (target.closest('button')) updateCartUI();
+        // Refresh UI 
+        updateCartUI();
     });
 }
 
