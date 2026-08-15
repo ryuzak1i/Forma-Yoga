@@ -1132,6 +1132,19 @@ header.scrolled .fa-bag-shopping {
     display: block;
 }
 
+.article{
+    text-align: center;
+    padding-bottom: 6rem;
+
+    font-family: "Poppins";
+    color: #46271f;
+}
+
+.read-more a{
+    color: #244b8f;
+    text-decoration: underline;
+}
+
 /* -----------------------------------EVENTS-----------------------------------------*/
 
 .navbar-events{
@@ -1545,7 +1558,7 @@ header.scrolled .fa-bag-shopping {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 0.85rem;
-    color: #46271f;                  /* Rich brown color matching your brand */
+    color: #46271f;                  
     text-decoration: underline;
     text-underline-offset: 4px;
     letter-spacing: 1px;
@@ -1553,7 +1566,7 @@ header.scrolled .fa-bag-shopping {
 }
 
 .empty-cart-link:hover {
-    color: #65463d;                  /* Slightly lighter brown on hover */
+    color: #65463d;               
     opacity: 0.85;
 }
 
@@ -1561,7 +1574,7 @@ header.scrolled .fa-bag-shopping {
    CART NOTIFICATION BADGE
 ========================================= */
 .cart-icon-link {
-    position: relative; /* Keeps the absolute badge anchored to the icon */
+    position: relative; 
     display: inline-block;
 }
 
@@ -1569,7 +1582,7 @@ header.scrolled .fa-bag-shopping {
     position: absolute;
     top: -6px;
     right: -10px;
-    background-color: #b33939;  /* A nice red for visibility, or change to #46271f for brand brown */
+    background-color: #b33939; 
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
     font-size: 0.65rem;
@@ -1578,20 +1591,17 @@ header.scrolled .fa-bag-shopping {
     height: 18px;
     border-radius: 50%;
     
-    /* Flexbox perfectly centers the number inside the circle */
     display: flex;
     justify-content: center;
     align-items: center;
     
-    /* Hidden by default when the cart is empty */
     opacity: 0; 
     transform: scale(0.5);
     transition: opacity 0.2s ease, transform 0.2s ease;
     
-    pointer-events: none; /* Ensures clicking the badge still clicks the bag link */
+    pointer-events: none; 
 }
 
-/* Added by JavaScript when items are in the cart */
 .cart-badge.show {
     opacity: 1;
     transform: scale(1);
