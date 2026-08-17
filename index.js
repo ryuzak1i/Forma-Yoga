@@ -377,7 +377,6 @@ document.addEventListener('click', (e) => {
 });
 
 // Master Click Listener for Cart Buttons (Remove, +, -)
-// Master Click Listener for Cart Buttons (Remove, +, -)
 if (cartContent) {
     cartContent.addEventListener('click', (e) => {
         // Safely find the button that was clicked
@@ -386,7 +385,6 @@ if (cartContent) {
         // If they didn't click a button, ignore it
         if (!button) return;
 
-        // THE FIX: Stop the click from bubbling up to the global document listener!
         e.stopPropagation();
 
         const index = button.getAttribute('data-index');
