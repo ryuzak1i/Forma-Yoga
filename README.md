@@ -39,7 +39,3 @@ Forma Yoga began as a thesis requirement by five 4th-year Management students at
 
 
 **Installation:** To run this project locally, simply clone the repository and open `index.html` in any modern web browser. No complex build tools or local servers are required to view the front-end.
-
----
-
-Would you like to include a "Future Roadmap" section in this README to outline the next steps for the project, such as building out the `basket.html` checkout page?
