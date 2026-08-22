@@ -466,3 +466,30 @@ if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 
 // Run immediately to load saved data and calculate total
 updateCartUI();
+
+// Trigger: Product Page "BUY NOW"
+const buyNowBtn = document.querySelector('.btn-buy-now');
+if (buyNowBtn) {
+    buyNowBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // 1. Grab the product details from the page
+        const name = document.querySelector('.product-title').textContent;
+        const price = document.querySelector('.product-price').textContent;
+        const image = document.querySelector('.pg-img-1').src;
+        
+        // 2. Add it to the cart (checking for duplicates first)
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1; 
+        } else {
+            cart.push({ name, price, image, quantity: 1 }); 
+        }
+        
+        // 3. Save the cart to memory
+        localStorage.setItem('formaCart', JSON.stringify(cart));
+        
+        // 4. Instantly redirect to the checkout page!
+        window.location.href = 'basket.html';
+    });
+}
