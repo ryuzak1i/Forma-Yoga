@@ -130,6 +130,12 @@ header.scrolled .fa-bag-shopping {
     color: inherit;
 }
 
+hr{
+    border:none;
+    height: 1px;
+    background-color: #46271f28;
+}
+
 .slider-wrapper {
     position: relative;
     width: 100%;
