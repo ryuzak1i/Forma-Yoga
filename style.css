@@ -1616,6 +1616,129 @@ hr{
 /*BASKET*/
 
 /* =========================================
+   CHECKOUT PAGE SPLIT LAYOUT
+========================================= */
+body.walnut {
+    background-color: #ffffff; /* Gives the left side a crisp white background */
+}
+
+.checkout-layout {
+    display: flex;
+    align-items: flex-start; /* CRITICAL: Allows the right side to be sticky */
+    min-height: 100vh;
+}
+
+/* --- Left Side: Form --- */
+.contact-details {
+    flex: 1 1 55%;
+    max-width: 55%;
+    padding: 120px 5% 6rem 10%; /* High top padding avoids overlapping with the fixed header */
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 1rem; /* Puts First/Last Name and City/Postal Code side-by-side */
+}
+
+.input-row input {
+    flex: 1;
+}
+
+.contact-details input[type="email"],
+.contact-details input[type="text"],
+.contact-details input[type="tel"],
+.contact-details select {
+    width: 100%;
+    padding: 14px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.contact-details input:focus,
+.contact-details select:focus {
+    border-color: #46271f;
+}
+
+.radio-row {
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.pay-btn {
+    background-color: #1e0d09;
+    color: white;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.05rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.pay-btn:hover {
+    background-color: #46271f;
+}
+
+/* --- Right Side: Sticky Summary --- */
+.checkout-sidebar {
+    flex: 1 1 45%;
+    max-width: 45%;
+    background-color: #f7f6f2; /* Light beige matching the screenshot */
+    padding: 120px 10% 4rem 4rem;
+    border-left: 1px solid #e0d5c1;
+    
+    /* Sticky Magic */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto; /* Adds a scrollbar just for this panel if they buy lots of mats */
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS FOR CHECKOUT
+========================================= */
+@media (max-width: 992px) {
+    .checkout-layout {
+        flex-direction: column-reverse; /* Flips the layout so the total summary sits on top! */
+    }
+    
+    .contact-details, 
+    .checkout-sidebar {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 2rem 5%;
+    }
+    
+    .checkout-sidebar {
+        height: auto;
+        position: relative;
+        top: 0;
+        padding-top: 100px; /* Accounts for header on mobile */
+        border-left: none;
+        border-bottom: 1px solid #e0d5c1;
+    }
+    
+    .contact-details {
+        padding-top: 3rem;
+    }
+}
+
+/* =========================================
    CHECKOUT SIDEBAR STYLES
 ========================================= */
 .checkout-sidebar {
