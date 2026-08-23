@@ -467,3 +467,80 @@ if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 // Run immediately to load saved data and calculate total
 updateCartUI();
 
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutList = document.getElementById('checkout-items-list');
+    const subtotalEl = document.getElementById('checkout-subtotal');
+    const totalEl = document.getElementById('checkout-total');
+    const countEl = document.getElementById('checkout-item-count');
+    const applyBtn = document.getElementById('apply-discount-btn');
+    const discountInput = document.getElementById('discount-code');
+
+    // Retrieve the cart from the memory you set up previously
+    let cart = JSON.parse(localStorage.getItem('formaCart')) || [];
+
+    // Math helpers
+    function parsePrice(priceStr) {
+        return parseInt(priceStr.replace(/[^\d]/g, ''), 10);
+    }
+
+    function formatPrice(num) {
+        return '₱' + num.toLocaleString() + '.00'; // Added .00 to match screenshot
+    }
+
+    function renderCheckout() {
+        checkoutList.innerHTML = '';
+        let subtotal = 0;
+        let totalItems = 0;
+
+        if (cart.length === 0) {
+            checkoutList.innerHTML = '<p style="font-family: Poppins; font-size: 0.9rem; margin-bottom: 1rem;">Your cart is empty.</p>';
+        } else {
+            cart.forEach(item => {
+                const itemTotal = parsePrice(item.price) * item.quantity;
+                subtotal += itemTotal;
+                totalItems += item.quantity;
+
+                // Inject the item HTML
+                checkoutList.innerHTML += `
+                    <div class="checkout-item">
+                        <div class="checkout-item-img-wrapper">
+                            <img src="${item.image}" alt="${item.name}">
+                            <span class="checkout-item-qty">${item.quantity}</span>
+                        </div>
+                        <span class="checkout-item-name">${item.name}</span>
+                        <span class="checkout-item-price">${formatPrice(itemTotal)}</span>
+                    </div>
+                `;
+            });
+        }
+
+        // Update text values on the page
+        countEl.textContent = `· ${totalItems} items`;
+        subtotalEl.textContent = formatPrice(subtotal);
+        totalEl.textContent = formatPrice(subtotal); 
+        
+        return subtotal;
+    }
+
+    // Run the render function and store the total
+    let currentSubtotal = renderCheckout();
+
+    // Discount Logic
+    applyBtn.addEventListener('click', () => {
+        const code = discountInput.value.trim().toUpperCase();
+        
+        // Example logic: gives 10% off if they type FORMA10
+        if (code === 'FORMA10') {
+            const discount = currentSubtotal * 0.10;
+            totalEl.textContent = formatPrice(currentSubtotal - discount);
+            
+            // Visual feedback
+            applyBtn.textContent = 'Applied';
+            applyBtn.style.backgroundColor = '#46271f';
+            applyBtn.style.color = '#ffffff';
+            discountInput.disabled = true;
+        } else {
+            alert('Invalid discount code');
+        }
+    });
+});
