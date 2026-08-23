@@ -1613,6 +1613,156 @@ hr{
     transform: scale(1);
 }
 
+/*BASKET*/
+
+/* =========================================
+   CHECKOUT SIDEBAR STYLES
+========================================= */
+.checkout-sidebar {
+    background-color: #f7f6f2; /* Light beige background */
+    padding: 3rem;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    max-width: 480px; 
+    border-left: 1px solid #e0d5c1;
+    min-height: 100vh;
+}
+
+/* Item List */
+.checkout-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.checkout-item-img-wrapper {
+    position: relative;
+    width: 65px;
+    height: 65px;
+    border: 1px solid #e0d5c1;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.2rem;
+}
+
+.checkout-item-img-wrapper img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.checkout-item-qty {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #1e1e1e; /* Dark bubble */
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-item-name {
+    flex: 1;
+    font-size: 0.9rem;
+    color: #333333;
+    font-weight: 500;
+}
+
+.checkout-item-price {
+    font-size: 0.9rem;
+    color: #333333;
+    font-weight: 500;
+}
+
+/* Discount Input */
+.discount-section {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0d5c1;
+}
+
+#discount-code {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#discount-code:focus {
+    border-color: #46271f;
+}
+
+#apply-discount-btn {
+    background-color: #e5e5e5;
+    color: #888888;
+    border: none;
+    border-radius: 4px;
+    padding: 0 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#apply-discount-btn:hover {
+    background-color: #d4d4d4;
+    color: #333333;
+}
+
+/* Totals */
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: #333333;
+}
+
+.light-text {
+    color: #777777;
+    font-size: 0.8rem;
+}
+
+.totals-divider {
+    border: none;
+    border-top: 1px solid #e0d5c1;
+    margin: 1.5rem 0;
+}
+
+.total-final {
+    align-items: center;
+}
+
+.total-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.currency {
+    font-size: 0.75rem;
+    color: #777777;
+    margin-right: 0.4rem;
+}
+
+.total-price strong {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
 
 .footer-section {
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d);
