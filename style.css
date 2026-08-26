@@ -1633,8 +1633,9 @@ body.walnut {
 /* =========================================
    CHECKOUT PAGE SPECIFIC HEADER
 ========================================= */
+/* 1. Make the header take up physical space and stick to the top */
 .checkout-header {
-    position: absolute; 
+    position: sticky; /* Changed from absolute to sticky */
     top: 0;
     left: 0;
     width: 100%;
@@ -1647,26 +1648,27 @@ body.walnut {
     display: none !important; 
 }
 
-.checkout-header .navbar-tabs,
-.checkout-header .navbar-tabs a,
-.checkout-header .fa-bag-shopping {
-    color: #1e0d09;
-    text-shadow: none;
-}
-
-/* --- Left Side: Form --- */
+/* 2. Adjust the left side padding so it doesn't overcompensate */
 .contact-details {
     flex: 1 1 55%;
     max-width: 55%;
-    padding: 120px 5% 6rem 10%; 
+    padding: 4rem 5% 6rem 10%; /* Reduced top padding from 120px to 4rem */
     font-family: 'Poppins', sans-serif;
 }
 
-/* --- Left Side: Form --- */
-.contact-details {
-    flex: 1 1 55%;
-    max-width: 55%;/* High top padding avoids overlapping with the fixed header */
-    font-family: 'Poppins', sans-serif;
+/* 3. Adjust the right side sidebar to sit perfectly under the header */
+.checkout-sidebar {
+    flex: 1 1 45%;
+    max-width: 45%;
+    background-color: #f7f6f2; 
+    padding: 4rem 10% 4rem 4rem; /* Reduced top padding */
+    border-left: 1px solid #e0d5c1;
+    
+    /* Fixed Sticky Magic */
+    position: sticky;
+    top: 88px; /* Sticks right below the header (which is roughly 88px tall) */
+    height: calc(100vh - 88px); /* Fills exactly the rest of the screen */
+    overflow-y: auto; 
 }
 
 .form-group {
