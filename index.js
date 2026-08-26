@@ -1,7 +1,10 @@
 //------------------------INDEX.HTML------------------------
 // Navbar Scroll State
 const header = document.querySelector('header');
-if (header) {
+const isCheckoutPage = document.querySelector('.checkout-layout') !== null;
+
+// Only run the scroll animation if we are NOT on the checkout page
+if (header && !isCheckoutPage) {
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -455,6 +458,9 @@ basketIcons.forEach(icon => {
     const parentLink = icon.closest('a'); 
     if (parentLink) {
         parentLink.addEventListener('click', (e) => {
+            // If on checkout page, do nothing and let the browser reload normally
+            if (document.querySelector('.checkout-layout')) return; 
+            
             e.preventDefault(); 
             openCart();
         });
@@ -544,3 +550,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+

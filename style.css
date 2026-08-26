@@ -1619,20 +1619,53 @@ hr{
    CHECKOUT PAGE SPLIT LAYOUT
 ========================================= */
 body.walnut {
-    background-color: #ffffff; /* Gives the left side a crisp white background */
+    background-color: #ffffff; /* Fixed stray slash here! */
 }
 
 .checkout-layout {
     display: flex;
-    align-items: flex-start; /* CRITICAL: Allows the right side to be sticky */
+    align-items: flex-start; 
     min-height: 100vh;
+    
+    background: linear-gradient(to right, #ffffff 0%, #ffffff 55%, #f7f6f2 55%, #f7f6f2 100%);
+}
+
+/* =========================================
+   CHECKOUT PAGE SPECIFIC HEADER
+========================================= */
+.checkout-header {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff; 
+    border-bottom: 1px solid #e0d5c1; 
+}
+
+.checkout-header::before {
+    display: none !important; 
+}
+
+.checkout-header .navbar-tabs,
+.checkout-header .navbar-tabs a,
+.checkout-header .fa-bag-shopping {
+    color: #1e0d09;
+    text-shadow: none;
 }
 
 /* --- Left Side: Form --- */
 .contact-details {
     flex: 1 1 55%;
     max-width: 55%;
-    padding: 120px 5% 6rem 10%; /* High top padding avoids overlapping with the fixed header */
+    padding: 120px 5% 6rem 10%; 
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- Left Side: Form --- */
+.contact-details {
+    flex: 1 1 55%;
+    max-width: 55%;/* High top padding avoids overlapping with the fixed header */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -1642,7 +1675,7 @@ body.walnut {
 
 .input-row {
     display: flex;
-    gap: 1rem; /* Puts First/Last Name and City/Postal Code side-by-side */
+    gap: 1rem; 
 }
 
 .input-row input {
@@ -1714,7 +1747,8 @@ body.walnut {
 ========================================= */
 @media (max-width: 992px) {
     .checkout-layout {
-        flex-direction: column-reverse; /* Flips the layout so the total summary sits on top! */
+        flex-direction: column-reverse; 
+        background: #ffffff; 
     }
     
     .contact-details, 
