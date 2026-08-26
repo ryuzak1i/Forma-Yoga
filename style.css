@@ -130,11 +130,7 @@ header.scrolled .fa-bag-shopping {
     color: inherit;
 }
 
-hr{
-    border:none;
-    height: 1px;
-    background-color: #46271f28;
-}
+
 
 .slider-wrapper {
     position: relative;
@@ -1619,56 +1615,52 @@ hr{
    CHECKOUT PAGE SPLIT LAYOUT
 ========================================= */
 body.walnut {
-    background-color: #ffffff; /* Fixed stray slash here! */
+    background-color: #ffffff; 
 }
 
 .checkout-layout {
     display: flex;
     align-items: flex-start; 
     min-height: 100vh;
-    
     background: linear-gradient(to right, #ffffff 0%, #ffffff 55%, #f7f6f2 55%, #f7f6f2 100%);
 }
 
-/* =========================================
-   CHECKOUT PAGE SPECIFIC HEADER
-========================================= */
-/* 1. Make the header take up physical space and stick to the top */
+/* --- The Header --- */
 .checkout-header {
-    position: sticky; /* Changed from absolute to sticky */
+    position: absolute !important; /* Scrolls away naturally */
     top: 0;
     left: 0;
     width: 100%;
+    height: 90px; 
     z-index: 1000;
-    background-color: #ffffff; 
-    border-bottom: 1px solid #e0d5c1; 
+    
+    background: #ffffff !important; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
+    /* Removes the CSS border line */
+    border-bottom: none !important; 
 }
+
 
 .checkout-header::before {
     display: none !important; 
 }
 
-/* 2. Adjust the left side padding so it doesn't overcompensate */
+/* Forces the Forma text and basket icon to be black */
+.checkout-header .navbar-tabs,
+.checkout-header .navbar-tabs a,
+.checkout-header .fa-bag-shopping,
+.checkout-header #brand-name {
+    color: #000000 !important;
+    text-shadow: none !important;
+}
+
+/* --- Left Side: Form --- */
 .contact-details {
     flex: 1 1 55%;
     max-width: 55%;
-    padding: 4rem 5% 6rem 10%; /* Reduced top padding from 120px to 4rem */
+    padding: 120px 5% 6rem 10%; /* 120px pushes the form safely below the 90px header */
     font-family: 'Poppins', sans-serif;
-}
-
-/* 3. Adjust the right side sidebar to sit perfectly under the header */
-.checkout-sidebar {
-    flex: 1 1 45%;
-    max-width: 45%;
-    background-color: #f7f6f2; 
-    padding: 4rem 10% 4rem 4rem; /* Reduced top padding */
-    border-left: 1px solid #e0d5c1;
-    
-    /* Fixed Sticky Magic */
-    position: sticky;
-    top: 88px; /* Sticks right below the header (which is roughly 88px tall) */
-    height: calc(100vh - 88px); /* Fills exactly the rest of the screen */
-    overflow-y: auto; 
 }
 
 .form-group {
@@ -1733,61 +1725,22 @@ body.walnut {
 .checkout-sidebar {
     flex: 1 1 45%;
     max-width: 45%;
-    background-color: #f7f6f2; /* Light beige matching the screenshot */
-    padding: 120px 10% 4rem 4rem;
+    background-color: transparent; 
+    padding: 120px 10% 4rem 4rem; 
     border-left: 1px solid #e0d5c1;
     
-    /* Sticky Magic */
     position: sticky;
-    top: 0;
+    top: 0; 
     height: 100vh;
-    overflow-y: auto; /* Adds a scrollbar just for this panel if they buy lots of mats */
+    overflow-y: auto; 
 }
 
-/* =========================================
-   MOBILE RESPONSIVENESS FOR CHECKOUT
-========================================= */
-@media (max-width: 992px) {
-    .checkout-layout {
-        flex-direction: column-reverse; 
-        background: #ffffff; 
-    }
-    
-    .contact-details, 
-    .checkout-sidebar {
-        flex: 1 1 100%;
-        max-width: 100%;
-        padding: 2rem 5%;
-    }
-    
-    .checkout-sidebar {
-        height: auto;
-        position: relative;
-        top: 0;
-        padding-top: 100px; /* Accounts for header on mobile */
-        border-left: none;
-        border-bottom: 1px solid #e0d5c1;
-    }
-    
-    .contact-details {
-        padding-top: 3rem;
-    }
+/* Forces EVERYTHING inside the sidebar to use Poppins */
+.checkout-sidebar * {
+    font-family: 'Poppins', sans-serif !important;
 }
 
-/* =========================================
-   CHECKOUT SIDEBAR STYLES
-========================================= */
-.checkout-sidebar {
-    background-color: #f7f6f2; /* Light beige background */
-    padding: 3rem;
-    font-family: 'Poppins', sans-serif;
-    width: 100%;
-    max-width: 480px; 
-    border-left: 1px solid #e0d5c1;
-    min-height: 100vh;
-}
-
-/* Item List */
+/* --- Checkout Items Styling --- */
 .checkout-item {
     display: flex;
     align-items: center;
@@ -1818,7 +1771,7 @@ body.walnut {
     position: absolute;
     top: -8px;
     right: -8px;
-    background-color: #1e1e1e; /* Dark bubble */
+    background-color: #1e1e1e; 
     color: #ffffff;
     font-size: 0.7rem;
     font-weight: 600;
@@ -1843,7 +1796,7 @@ body.walnut {
     font-weight: 500;
 }
 
-/* Discount Input */
+/* --- Discount Section --- */
 .discount-section {
     display: flex;
     gap: 0.8rem;
@@ -1883,7 +1836,7 @@ body.walnut {
     color: #333333;
 }
 
-/* Totals */
+/* --- Totals --- */
 .totals-row {
     display: flex;
     justify-content: space-between;
@@ -1921,6 +1874,40 @@ body.walnut {
 .total-price strong {
     font-size: 1.4rem;
     font-weight: 600;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS FOR CHECKOUT
+========================================= */
+@media (max-width: 992px) {
+    .checkout-header,
+    .checkout-layout {
+        background: #ffffff !important; /* Forces solid white for mobile phones */
+    }
+    
+    .checkout-layout {
+        flex-direction: column-reverse; 
+    }
+    
+    .contact-details, 
+    .checkout-sidebar {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 2rem 5%;
+    }
+    
+    .checkout-sidebar {
+        height: auto;
+        position: relative;
+        top: 0;
+        padding-top: 100px; /* Accounts for header on mobile */
+        border-left: none;
+        border-bottom: 1px solid #e0d5c1;
+    }
+    
+    .contact-details {
+        padding-top: 3rem;
+    }
 }
 
 .footer-section {
