@@ -458,9 +458,7 @@ basketIcons.forEach(icon => {
     const parentLink = icon.closest('a'); 
     if (parentLink) {
         parentLink.addEventListener('click', (e) => {
-            // If on checkout page, do nothing and let the browser reload normally
-            if (document.querySelector('.checkout-layout')) return; 
-            
+            // Removed the checkout page restriction so the cart opens anywhere!
             e.preventDefault(); 
             openCart();
         });

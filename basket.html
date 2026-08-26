@@ -209,6 +209,30 @@
         </aside>
     </main>
 
+     <!-- SIDE CART OVERLAY & DRAWER -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+    
+    <div id="side-cart" class="side-cart">
+        <div class="cart-header">
+            <h2>Shopping Bag</h2>
+            <button id="close-cart" class="close-cart-btn">&times;</button>
+        </div>
+
+        <div class="cart-content">
+            <p>Your bag is currently empty.</p>
+            <a href="index.html#catalogue">GET SHOPPING</a>
+            <!-- Future cart items can be injected here -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cart-total-price">₱0</span>
+            </div>
+            <a href="basket.html" id="checkout-btn" class="checkout-btn">CHECKOUT</a>
+        </div>
+    </div>
+
     <script src="index.js"></script>
 </body>
 </html>
