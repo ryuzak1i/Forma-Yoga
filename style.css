@@ -1698,6 +1698,7 @@ body.walnut {
 }
 
 .radio-row {
+    margin-top: 0.8rem;
     margin-bottom: 0.8rem;
     font-size: 0.9rem;
 }
