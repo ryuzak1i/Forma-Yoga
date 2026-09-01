@@ -1878,6 +1878,113 @@ body.walnut {
 }
 
 /* =========================================
+   FAQ PAGE STYLES
+========================================= */
+body {
+    background-color: #fff7ed; /* Extends the warm beige background */
+}
+
+.faq-hero {
+    padding-top: 140px; /* Pushes content below the fixed navbar */
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.faq-hero h2 {
+    font-family: 'AppleGaramond-Light', 'EB Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    color: #46271f;
+    font-weight: 500;
+    margin: 0;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem 2rem;
+}
+
+.accordion h2 {
+    font-family: 'AppleGaramond-Light', 'EB Garamond', serif;
+    font-size: 2rem;
+    color: #46271f;
+    margin-top: 3.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #e0d5c1;
+    padding-bottom: 0.5rem;
+}
+
+/* Base style for the accordion container */
+details {
+    border-bottom: 1px solid #e0d5c1;
+}
+
+/* Style the clickable question */
+summary {
+    list-style: none; /* Hides default triangle arrow */
+    cursor: pointer;
+    padding: 1.5rem 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: #46271f;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+/* Hides default triangle arrow in Safari/Chrome specifically */
+summary::-webkit-details-marker {
+    display: none; 
+}
+
+summary:hover {
+    color: #65463d; /* Slight color shift on hover */
+}
+
+/* Custom (+) icon */
+summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #46271f;
+    transition: transform 0.3s ease; /* Smooth rotation */
+}
+
+/* Rotates the (+) into an (x) when the details tag is open */
+details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+/* Style the hidden answer text */
+.faq-content {
+    padding-bottom: 1.5rem;
+    padding-right: 2rem; /* Prevents text from hitting the + icon */
+    animation: fadeDown 0.4s ease-out; /* Custom animation */
+}
+
+.faq-item {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #5d3d34;
+}
+
+/* Smooth fade-in animation for the answers */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
    MOBILE RESPONSIVENESS FOR CHECKOUT
 ========================================= */
 @media (max-width: 992px) {
