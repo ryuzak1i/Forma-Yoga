@@ -1880,15 +1880,20 @@ body.walnut {
 /* =========================================
    FAQ PAGE STYLES
 ========================================= */
-body {
-    background-color: #fff7ed; /* Extends the warm beige background */
+
+body.walnut,
+.faq-hero, 
+.accordion {
+    background-color: #fff7ed !important; 
 }
 
 .faq-hero {
-    padding-top: 140px; /* Pushes content below the fixed navbar */
+    padding-top: 140px; 
     padding-bottom: 2rem;
     text-align: center;
 }
+
+/* ... keep the rest of your FAQ css the exact same ... */
 
 .faq-hero h2 {
     font-family: 'AppleGaramond-Light', 'EB Garamond', serif;
@@ -1914,14 +1919,12 @@ body {
     padding-bottom: 0.5rem;
 }
 
-/* Base style for the accordion container */
 details {
     border-bottom: 1px solid #e0d5c1;
 }
 
-/* Style the clickable question */
 summary {
-    list-style: none; /* Hides default triangle arrow */
+    list-style: none; 
     cursor: pointer;
     padding: 1.5rem 0;
     font-family: 'Poppins', sans-serif;
@@ -1935,30 +1938,26 @@ summary {
     transition: color 0.2s ease;
 }
 
-/* Hides default triangle arrow in Safari/Chrome specifically */
 summary::-webkit-details-marker {
     display: none; 
 }
 
 summary:hover {
-    color: #65463d; /* Slight color shift on hover */
+    color: #65463d; 
 }
 
-/* Custom (+) icon */
 summary::after {
     content: '+';
     font-size: 1.5rem;
     font-weight: 300;
     color: #46271f;
-    transition: transform 0.3s ease; /* Smooth rotation */
+    transition: transform 0.3s ease; 
 }
 
-/* Rotates the (+) into an (x) when the details tag is open */
 details[open] summary::after {
     transform: rotate(45deg);
 }
 
-/* Style the hidden answer text */
 .faq-content {
     padding-bottom: 1.5rem;
     padding-right: 2rem; /* Prevents text from hitting the + icon */
