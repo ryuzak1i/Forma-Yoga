@@ -676,3 +676,27 @@ function processOrder(formData, buttonElement) {
         buttonElement.style.backgroundColor = "#1e0d09";
     });
 }
+
+// =========================================
+// 10. FORM VALIDATION (Real-Time Filtering)
+// =========================================
+const firstNameInput = document.getElementById('first-name');
+const lastNameInput = document.getElementById('last-name');
+const postalInput = document.getElementById('postal-code');
+const phoneInput = document.getElementById('phone');
+
+// Filter: Allows only letters, spaces, and hyphens
+const restrictToLetters = (e) => {
+    e.target.value = e.target.value.replace(/[^A-Za-zñÑ\s\-]/g, '');
+};
+
+// Filter: Allows only numbers
+const restrictToNumbers = (e) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+};
+
+// Attach the filters to the specific input fields (if they exist on the page)
+if (firstNameInput) firstNameInput.addEventListener('input', restrictToLetters);
+if (lastNameInput) lastNameInput.addEventListener('input', restrictToLetters);
+if (postalInput) postalInput.addEventListener('input', restrictToNumbers);
+if (phoneInput) phoneInput.addEventListener('input', restrictToNumbers);
