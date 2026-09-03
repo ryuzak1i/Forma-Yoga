@@ -533,10 +533,10 @@ if (checkoutForm) {
             processOrder(formData, checkoutForm.querySelector('.pay-btn'));
         } else {
             if (method === 'GCash') {
-                qrImg.src = 'image_05cfa7.png';
+                qrImg.src = 'images/qr-payment/gcash.png';
                 paymentTitle.textContent = 'Pay via GCash';
             } else if (method === 'BankTransfer') {
-                qrImg.src = 'image_05d361.png';
+                qrImg.src = 'images/qr-payment/maribank.png';
                 paymentTitle.textContent = 'Pay via MariBank';
             }
             paymentModal.style.display = 'flex';
