@@ -1,10 +1,8 @@
-//------------------------INDEX.HTML------------------------
-// Navbar Scroll State
+// =========================================
+// 1. NAVBAR SCROLL
+// =========================================
 const header = document.querySelector('header');
-const isCheckoutPage = document.querySelector('.checkout-layout') !== null;
-
-// Only run the scroll animation if we are NOT on the checkout page
-if (header && !isCheckoutPage) {
+if (header) {
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -14,7 +12,9 @@ if (header && !isCheckoutPage) {
     });
 }
 
-// Hero Slider
+// =========================================
+// 2. HERO SLIDER
+// =========================================
 const slider = document.querySelector('.slider');
 if (slider) {
     setInterval(() => {
@@ -28,7 +28,9 @@ if (slider) {
     }, 8000);
 }
 
-// Infinite Sponsor Carousel
+// =========================================
+// 3. SPONSOR CAROUSEL
+// =========================================
 const track = document.getElementById('cardTrack');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -47,8 +49,6 @@ if (nextBtn && prevBtn && track && originalCards.length > 0) {
         clone.classList.add('cloned-card');
         track.appendChild(clone);
     }
-
-    const allCards = track.querySelectorAll('.card-item');
 
     function updateSlider(smooth = true) {
         const cardWidth = originalCards[0].getBoundingClientRect().width;
@@ -93,14 +93,13 @@ if (nextBtn && prevBtn && track && originalCards.length > 0) {
         }
     });
 
-    window.addEventListener('resize', () => {
-        updateSlider(false);
-    });
-
+    window.addEventListener('resize', () => updateSlider(false));
     updateSlider(false);
 }
 
-//------------------------PRODUCT PAGE (MAT.HTML) JS------------------------
+// =========================================
+// 4. PRODUCT PAGE SWATCHES
+// =========================================
 document.querySelectorAll(".swatch").forEach(button => {
     button.addEventListener("click", function () {
         const activeSwatch = document.querySelector(".swatch.active");
@@ -145,15 +144,14 @@ document.querySelectorAll(".swatch").forEach(button => {
 
 const urlParams = new URLSearchParams(window.location.search);
 const selectedColor = urlParams.get('color'); 
-
 if (selectedColor) {
     const targetSwatch = document.querySelector(`.swatch[data-color-id="${selectedColor}"]`);
-    if (targetSwatch) {
-        targetSwatch.click(); 
-    }
+    if (targetSwatch) targetSwatch.click(); 
 }
 
-//------------------------COMMUNITY SECTION JS------------------------
+// =========================================
+// 5. COMMUNITY CAROUSEL
+// =========================================
 const commTrack = document.getElementById('communityTrack');
 const commPrevBtn = document.getElementById('commPrevBtn');
 const commNextBtn = document.getElementById('commNextBtn');
@@ -216,14 +214,13 @@ if (commNextBtn && commPrevBtn && commTrack && commCards.length > 0) {
         }
     });
 
-    window.addEventListener('resize', () => {
-        updateCommunitySlider(false);
-    });
-
+    window.addEventListener('resize', () => updateCommunitySlider(false));
     updateCommunitySlider(false);
 }
 
-// Mat Color Pop-up Modal
+// =========================================
+// 6. MAT COLOR POP-UP MODAL
+// =========================================
 const modal = document.getElementById('matModal');
 const closeModalBtn = document.querySelector('.close-modal');
 const modalName = document.getElementById('modalMatName');
@@ -242,9 +239,8 @@ document.addEventListener('click', (e) => {
 
         if (modalName) modalName.textContent = `Forma ${color} Mat`;
         if (modalImg) modalImg.src = imgSrc;
-        if (modalMatLink && productUrl) {
-            modalMatLink.href = productUrl; 
-        }
+        if (modalMatLink && productUrl) modalMatLink.href = productUrl; 
+        
         if (modal) modal.style.display = 'flex';
     }
 });
@@ -260,7 +256,7 @@ window.addEventListener('click', (e) => {
 });
 
 // =========================================
-// ADVANCED SIDE CART LOGIC
+// 7. ADVANCED SIDE CART LOGIC
 // =========================================
 const sideCart = document.getElementById('side-cart');
 const cartOverlay = document.getElementById('cart-overlay');
@@ -268,7 +264,7 @@ const closeCartBtnSide = document.getElementById('close-cart');
 const basketIcons = document.querySelectorAll('.fa-bag-shopping');
 const cartContent = document.querySelector('.cart-content');
 
-// Load cart from memory
+// Load global cart from memory
 let cart = JSON.parse(localStorage.getItem('formaCart')) || [];
 
 function openCart() {
@@ -287,12 +283,10 @@ function closeCart() {
     }
 }
 
-// Helper: Converts "P 2,500" or "₱2,500" into a pure math number (2500)
 function parsePrice(priceStr) {
     return parseInt(priceStr.replace(/[^\d]/g, ''), 10);
 }
 
-// Helper: Converts a math number (2500) back into a string ("₱2,500")
 function formatPrice(num) {
     return '₱' + num.toLocaleString();
 }
@@ -307,7 +301,6 @@ function updateCartUI() {
     let subtotal = 0;
     let totalItems = 0; 
 
-    // IF CART IS EMPTY
     if (cart.length === 0) {
         cartContent.innerHTML = `
             <div class="empty-cart-state">
@@ -318,14 +311,11 @@ function updateCartUI() {
         if (cartTotalEl) cartTotalEl.textContent = '₱0';
         if (checkoutBtn) checkoutBtn.classList.add('disabled'); 
         
-        // Hide the badge when empty
         cartBadges.forEach(badge => badge.classList.remove('show'));
-        
         localStorage.setItem('formaCart', JSON.stringify(cart));
         return;
     }
 
-    // IF CART HAS ITEMS
     if (checkoutBtn) checkoutBtn.classList.remove('disabled'); 
     cartContent.innerHTML = ''; 
 
@@ -340,7 +330,6 @@ function updateCartUI() {
                 <div class="cart-item-info">
                     <div class="cart-item-title">${item.name}</div>
                     <div class="cart-item-price">${formatPrice(itemTotal)}</div>
-                    
                     <div class="cart-item-quantity">
                         <button class="qty-btn qty-minus" data-index="${index}">-</button>
                         <span class="qty-value">${item.quantity}</span>
@@ -354,7 +343,6 @@ function updateCartUI() {
 
     if (cartTotalEl) cartTotalEl.textContent = formatPrice(subtotal);
     
-    // Update the badge number and make it visible!
     cartBadges.forEach(badge => {
         badge.textContent = totalItems;
         badge.classList.add('show');
@@ -363,70 +351,55 @@ function updateCartUI() {
     localStorage.setItem('formaCart', JSON.stringify(cart));
 }
 
-// Close side cart when clicking anywhere outside of it
 document.addEventListener('click', (e) => {
-    // Only run if the cart is open
     if (sideCart && sideCart.classList.contains('open')) {
         const isClickInsideCart = sideCart.contains(e.target);
         const isClickOnBasketIcon = e.target.closest('.fa-bag-shopping');
         const isClickOnQuickAdd = e.target.closest('.quick-add-btn');
         const isClickOnAddToBag = e.target.closest('.btn-add-bag');
 
-        // If the click did NOT happen inside the cart and was not one of the open triggers
         if (!isClickInsideCart && !isClickOnBasketIcon && !isClickOnQuickAdd && !isClickOnAddToBag) {
             closeCart();
         }
     }
 });
 
-// Master Click Listener for Cart Buttons (Remove, +, -)
 if (cartContent) {
     cartContent.addEventListener('click', (e) => {
-        // Safely find the button that was clicked
         const button = e.target.closest('button');
-
-        // If they didn't click a button, ignore it
         if (!button) return;
 
         e.stopPropagation();
-
         const index = button.getAttribute('data-index');
 
         if (button.classList.contains('remove-item-btn')) {
-            cart.splice(index, 1); // Trash can clicked
+            cart.splice(index, 1); 
         } 
         else if (button.classList.contains('qty-plus')) {
-            cart[index].quantity += 1; // Plus clicked
+            cart[index].quantity += 1; 
         } 
         else if (button.classList.contains('qty-minus')) {
             if (cart[index].quantity > 1) {
-                cart[index].quantity -= 1; // Minus clicked
+                cart[index].quantity -= 1; 
             } else {
-                cart.splice(index, 1); // Removes item if quantity drops to 0
+                cart.splice(index, 1); 
             }
         }
-        
-        // Refresh UI 
         updateCartUI();
     });
 }
 
-// Logic to check for duplicates before adding
 function addToCart(name, price, image) {
-    // Look to see if this mat is already in the cart
     const existingItem = cart.find(item => item.name === name);
-    
     if (existingItem) {
-        existingItem.quantity += 1; // Duplicate found! Just increase quantity
+        existingItem.quantity += 1; 
     } else {
-        cart.push({ name, price, image, quantity: 1 }); // New item! Add to array
+        cart.push({ name, price, image, quantity: 1 }); 
     }
-    
     updateCartUI();
     openCart();
 }
 
-// Trigger: Homepage "QUICK ADD"
 const quickAddBtns = document.querySelectorAll('.quick-add-btn');
 quickAddBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -441,7 +414,6 @@ quickAddBtns.forEach(btn => {
     });
 });
 
-// Trigger: Product Page "ADD TO BAG"
 const addToBagBtn = document.querySelector('.btn-add-bag');
 if (addToBagBtn) {
     addToBagBtn.addEventListener('click', (e) => {
@@ -453,12 +425,10 @@ if (addToBagBtn) {
     });
 }
 
-// Navigation & Close Triggers
 basketIcons.forEach(icon => {
     const parentLink = icon.closest('a'); 
     if (parentLink) {
         parentLink.addEventListener('click', (e) => {
-            // Removed the checkout page restriction so the cart opens anywhere!
             e.preventDefault(); 
             openCart();
         });
@@ -468,27 +438,25 @@ basketIcons.forEach(icon => {
 if (closeCartBtnSide) closeCartBtnSide.addEventListener('click', closeCart);
 if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 
-// Run immediately to load saved data and calculate total
 updateCartUI();
 
+// =========================================
+// 8. CHECKOUT PAGE RENDERING
+// =========================================
 document.addEventListener('DOMContentLoaded', () => {
     const checkoutList = document.getElementById('checkout-items-list');
+    
+    // SAFEGUARD: If this isn't the checkout page, stop here so it doesn't crash!
+    if (!checkoutList) return;
+
     const subtotalEl = document.getElementById('checkout-subtotal');
     const totalEl = document.getElementById('checkout-total');
     const countEl = document.getElementById('checkout-item-count');
     const applyBtn = document.getElementById('apply-discount-btn');
     const discountInput = document.getElementById('discount-code');
 
-    // Retrieve the cart from the memory you set up previously
-    let cart = JSON.parse(localStorage.getItem('formaCart')) || [];
-
-    // Math helpers
-    function parsePrice(priceStr) {
-        return parseInt(priceStr.replace(/[^\d]/g, ''), 10);
-    }
-
-    function formatPrice(num) {
-        return '₱' + num.toLocaleString() + '.00'; // Added .00 to match screenshot
+    function formatCheckoutPrice(num) {
+        return '₱' + num.toLocaleString() + '.00'; 
     }
 
     function renderCheckout() {
@@ -504,7 +472,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 subtotal += itemTotal;
                 totalItems += item.quantity;
 
-                // Inject the item HTML
                 checkoutList.innerHTML += `
                     <div class="checkout-item">
                         <div class="checkout-item-img-wrapper">
@@ -512,40 +479,196 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="checkout-item-qty">${item.quantity}</span>
                         </div>
                         <span class="checkout-item-name">${item.name}</span>
-                        <span class="checkout-item-price">${formatPrice(itemTotal)}</span>
+                        <span class="checkout-item-price">${formatCheckoutPrice(itemTotal)}</span>
                     </div>
                 `;
             });
         }
 
-        // Update text values on the page
         countEl.textContent = `· ${totalItems} items`;
-        subtotalEl.textContent = formatPrice(subtotal);
-        totalEl.textContent = formatPrice(subtotal); 
+        subtotalEl.textContent = formatCheckoutPrice(subtotal);
+        totalEl.textContent = formatCheckoutPrice(subtotal); 
         
         return subtotal;
     }
 
-    // Run the render function and store the total
     let currentSubtotal = renderCheckout();
 
-    // Discount Logic
-    applyBtn.addEventListener('click', () => {
-        const code = discountInput.value.trim().toUpperCase();
-        
-        // Example logic: gives 10% off if they type FORMA10
-        if (code === 'FORMA10') {
-            const discount = currentSubtotal * 0.10;
-            totalEl.textContent = formatPrice(currentSubtotal - discount);
-            
-            // Visual feedback
-            applyBtn.textContent = 'Applied';
-            applyBtn.style.backgroundColor = '#46271f';
-            applyBtn.style.color = '#ffffff';
-            discountInput.disabled = true;
+    if (applyBtn) {
+        applyBtn.addEventListener('click', () => {
+            const code = discountInput.value.trim().toUpperCase();
+            if (code === 'FORMA10') {
+                const discount = currentSubtotal * 0.10;
+                totalEl.textContent = formatCheckoutPrice(currentSubtotal - discount);
+                
+                applyBtn.textContent = 'Applied';
+                applyBtn.style.backgroundColor = '#46271f';
+                applyBtn.style.color = '#ffffff';
+                discountInput.disabled = true;
+            } else {
+                alert('Invalid discount code');
+            }
+        });
+    }
+});
+
+// =========================================
+// 9. CHECKOUT PAYMENT MODAL & GOOGLE SHEETS
+// =========================================
+const checkoutForm = document.getElementById('checkout-form');
+const paymentModal = document.getElementById('payment-modal');
+const closePaymentModalBtn = document.querySelector('.close-payment-modal');
+const qrImg = document.getElementById('payment-qr-img');
+const paymentTitle = document.getElementById('payment-modal-title');
+const finalSubmitBtn = document.getElementById('final-submit-btn');
+const fileInput = document.getElementById('proof-file');
+
+if (checkoutForm) {
+    checkoutForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        const formData = new FormData(checkoutForm);
+        const method = formData.get('method');
+
+        if (method === 'Cash') {
+            processOrder(formData, checkoutForm.querySelector('.pay-btn'));
         } else {
-            alert('Invalid discount code');
+            if (method === 'GCash') {
+                qrImg.src = 'image_05cfa7.png';
+                paymentTitle.textContent = 'Pay via GCash';
+            } else if (method === 'BankTransfer') {
+                qrImg.src = 'image_05d361.png';
+                paymentTitle.textContent = 'Pay via MariBank';
+            }
+            paymentModal.style.display = 'flex';
         }
+    });
+}
+
+if (closePaymentModalBtn) {
+    closePaymentModalBtn.addEventListener('click', () => {
+        paymentModal.style.display = 'none';
+    });
+}
+
+document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+    const dropZoneElement = inputElement.closest(".drop-zone");
+
+    dropZoneElement.addEventListener("click", () => inputElement.click());
+
+    inputElement.addEventListener("change", () => {
+        if (inputElement.files.length) {
+            updateThumbnail(dropZoneElement, inputElement.files[0]);
+        }
+    });
+
+    dropZoneElement.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZoneElement.classList.add("drop-zone--over");
+    });
+
+    ["dragleave", "dragend"].forEach((type) => {
+        dropZoneElement.addEventListener(type, () => {
+            dropZoneElement.classList.remove("drop-zone--over");
+        });
+    });
+
+    dropZoneElement.addEventListener("drop", (e) => {
+        e.preventDefault();
+        if (e.dataTransfer.files.length) {
+            inputElement.files = e.dataTransfer.files;
+            updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+        }
+        dropZoneElement.classList.remove("drop-zone--over");
     });
 });
 
+function updateThumbnail(dropZoneElement, file) {
+    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+    if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+        dropZoneElement.querySelector(".drop-zone__prompt").remove();
+    }
+
+    if (!thumbnailElement) {
+        thumbnailElement = document.createElement("div");
+        thumbnailElement.classList.add("drop-zone__thumb");
+        dropZoneElement.appendChild(thumbnailElement);
+    }
+
+    thumbnailElement.dataset.label = file.name;
+
+    if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+        };
+    }
+}
+
+if (finalSubmitBtn) {
+    finalSubmitBtn.addEventListener('click', () => {
+        if (fileInput.files.length === 0) {
+            alert('Please upload your proof of payment to complete the order.');
+            return;
+        }
+        const formData = new FormData(checkoutForm);
+        processOrder(formData, finalSubmitBtn);
+    });
+}
+
+function processOrder(formData, buttonElement) {
+    const originalBtnText = buttonElement.textContent || buttonElement.value;
+    if (buttonElement.tagName === 'INPUT') {
+        buttonElement.value = "Processing...";
+    } else {
+        buttonElement.textContent = "Processing...";
+    }
+    buttonElement.disabled = true;
+    buttonElement.style.backgroundColor = "#cccccc";
+
+    let cartItemsText = cart.map(item => `${item.quantity}x ${item.name}`).join(', ');
+    let finalTotal = document.getElementById('checkout-total').textContent;
+
+    const orderData = {
+        first_name: formData.get('first_name'),
+        last_name: formData.get('last_name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        address: formData.get('address'),
+        apartment: formData.get('apartment') || "",
+        city: formData.get('city'),
+        province: formData.get('philippine-province'),
+        postal_code: formData.get('postal_code'),
+        method: formData.get('method'),
+        cart_items: cartItemsText,
+        total_price: finalTotal
+    };
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxm9o9ocGYl3K7B4xD8NylYMh4ZLWdTEpogxM1lqVwumy4Y2yP9eayYU5P79523ZIiO/exec';
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(orderData),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            localStorage.removeItem('formaCart');
+            alert("Thank you! Your Forma Yoga order has been successfully placed.");
+            window.location.href = "index.html"; 
+        }
+    })
+    .catch(error => {
+        console.error('Error!', error.message);
+        alert("Something went wrong placing your order. Please try again.");
+        if (buttonElement.tagName === 'INPUT') {
+            buttonElement.value = originalBtnText;
+        } else {
+            buttonElement.textContent = originalBtnText;
+        }
+        buttonElement.disabled = false;
+        buttonElement.style.backgroundColor = "#1e0d09";
+    });
+}

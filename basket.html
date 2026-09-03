@@ -39,7 +39,7 @@
         
         <!-- LEFT SIDE: Contact Form -->
         <section class="contact-details">
-            <form action="#" method="POST">
+            <form id="checkout-form">
                 <div class="form-group">
                     <label for="email"><b>Contact</b></label>
                     <input type="email" id="email" name="email" placeholder="Email" required>
@@ -230,6 +230,26 @@
                 <span id="cart-total-price">₱0</span>
             </div>
             <a href="basket.html" id="checkout-btn" class="checkout-btn">CHECKOUT</a>
+        </div>
+    </div>
+
+    <!-- PAYMENT MODAL & DRAG/DROP ZONE -->
+    <div id="payment-modal" class="modal-overlay">
+        <div class="modal-content payment-modal-content">
+            <span class="close-payment-modal">&times;</span>
+            <h3 id="payment-modal-title">Scan to Pay</h3>
+            <p id="payment-modal-desc">Scan the QR code below and upload your receipt to confirm your order.</p>
+
+            <!-- Dynamic QR Code Image -->
+            <img id="payment-qr-img" src="" alt="Payment QR Code">
+
+            <!-- Drag and Drop Zone -->
+            <div class="drop-zone" id="drop-zone">
+                <span class="drop-zone__prompt"><i class="fa-solid fa-cloud-arrow-up" style="font-size: 1.5rem; margin-bottom: 8px; display: block;"></i>Drop proof of payment here<br>or click to browse</span>
+                <input type="file" name="proof_file" id="proof-file" class="drop-zone__input" accept="image/*">
+            </div>
+
+            <button type="button" id="final-submit-btn" class="pay-btn" style="margin-top: 0;">Complete Order</button>
         </div>
     </div>
 
