@@ -25,8 +25,11 @@
 
                 <!-- Right Group -->
                 <li class="nav-right">
-                    <a href="basket.html">
+                    <a href="#" class="cart-icon-link">
                         <i class="fa-solid fa-bag-shopping"></i>
+
+                        <!--Notif bubble-->
+                        <span class="cart-badge">0</span>
                     </a>
                 </li>
             </ul>
@@ -172,7 +175,22 @@
                 </div>
 
                 <input type="submit" value="Pay now" class="pay-btn">
-            </form>
+
+                 <!-- PAYMENT MODAL & DRAG/DROP ZONE -->
+                <div id="payment-modal" class="modal-overlay">
+                    <div class="modal-content payment-modal-content">
+                        <span class="close-payment-modal">&times;</span>
+                        <h3 id="payment-modal-title">Scan to Pay</h3>
+                        <p id="payment-modal-desc">Scan the QR code below. Drop your receipt for reference, then DM your transfer screenshot to Instagram <b>@forma_yogamat</b> to confirm.</p>
+
+                        <!-- Dynamic QR Code Image -->
+                        <img id="payment-qr-img" src="" alt="Payment QR Code">
+
+                        <button type="button" id="final-submit-btn" class="pay-btn" style="margin-top: 0;">Complete Order</button>
+                    </div>
+                </div>
+
+                </form>
         </section>
 
         <aside class="checkout-sidebar">
@@ -232,26 +250,6 @@
                 <span id="cart-total-price">₱0</span>
             </div>
             <a href="basket.html" id="checkout-btn" class="checkout-btn">CHECKOUT</a>
-        </div>
-    </div>
-
-    <!-- PAYMENT MODAL & DRAG/DROP ZONE -->
-    <div id="payment-modal" class="modal-overlay">
-        <div class="modal-content payment-modal-content">
-            <span class="close-payment-modal">&times;</span>
-            <h3 id="payment-modal-title">Scan to Pay</h3>
-            <p id="payment-modal-desc">Scan the QR code below and upload your receipt to confirm your order.</p>
-
-            <!-- Dynamic QR Code Image -->
-            <img id="payment-qr-img" src="" alt="Payment QR Code">
-
-            <!-- Drag and Drop Zone -->
-            <div class="drop-zone" id="drop-zone">
-                <span class="drop-zone__prompt"><i class="fa-solid fa-cloud-arrow-up" style="font-size: 1.5rem; margin-bottom: 8px; display: block;"></i>Drop proof of payment here<br>or click to browse</span>
-                <input type="file" name="proof_file" id="proof-file" class="drop-zone__input" accept="image/*">
-            </div>
-
-            <button type="button" id="final-submit-btn" class="pay-btn" style="margin-top: 0;">Complete Order</button>
         </div>
     </div>
 

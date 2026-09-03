@@ -424,6 +424,18 @@ if (addToBagBtn) {
         addToCart(name, price, image);
     });
 }
+const buyNowBtn = document.querySelector('.btn-buy-now');
+if (buyNowBtn) {
+    buyNowBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const name = document.querySelector('.product-title').textContent;
+        const price = document.querySelector('.product-price').textContent;
+        const image = document.querySelector('.pg-img-1').src;
+        
+        addToCart(name, price, image);
+        window.location.href = "basket.html";
+    });
+}
 
 basketIcons.forEach(icon => {
     const parentLink = icon.closest('a'); 
@@ -620,7 +632,6 @@ if (finalSubmitBtn) {
 function processOrder(formData, buttonElement) {
     const originalBtnText = buttonElement.textContent || buttonElement.value;
     
-    // 1. Show loading state
     if (buttonElement.tagName === 'INPUT') {
         buttonElement.value = "Processing...";
     } else {
@@ -629,44 +640,37 @@ function processOrder(formData, buttonElement) {
     buttonElement.disabled = true;
     buttonElement.style.backgroundColor = "#cccccc";
 
-    // 2. Gather the cart items and total
+    // Gather cart items and total
     let cartItemsText = cart.map(item => `${item.quantity}x ${item.name}`).join(', ');
     let finalTotal = document.getElementById('checkout-total').textContent;
 
-    // 3. Append Web3Forms configuration to the form data
+    // Append Web3Forms configuration and order details
     formData.append("access_key", "f92bb82f-c614-4542-b0f2-7ee71df403ae");
     formData.append("subject", "New Order from Forma Yoga!");
-    
-    // 4. Append the cart details so you know what they bought
     formData.append("Cart_Items", cartItemsText);
     formData.append("Total_Price", finalTotal);
 
-    // 5. Manually grab the image file from the modal
-    const fileInput = document.getElementById('proof-file');
-    if (fileInput && fileInput.files.length > 0) {
-        formData.append("Proof_of_Payment", fileInput.files[0]);
-    }
+    // CRITICAL: Delete the file from the payload so Web3Forms free tier doesn't reject it!
+    formData.delete("proof_file");
 
-    // 6. Send the package to Web3Forms
     fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData // The browser automatically handles the complex image conversion here
+        body: formData
     })
     .then(async response => {
         const data = await response.json();
         if (data.success) {
             localStorage.removeItem('formaCart');
-            alert("Thank you! Your Forma Yoga order has been successfully placed.");
+            alert("Thank you! Your Forma Yoga order has been successfully placed. Please remember to DM your receipt to @forma_yogamat.");
             window.location.href = "index.html"; 
         } else {
             throw new Error(data.message || "Submission failed");
         }
     })
     .catch(error => {
-        console.error('Error!', error.message);
+        console.error('Error!', error);
         alert("Something went wrong placing your order. Please try again.");
         
-        // Reset the button if it fails
         if (buttonElement.tagName === 'INPUT') {
             buttonElement.value = originalBtnText;
         } else {
