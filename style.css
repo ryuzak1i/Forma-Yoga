@@ -2131,6 +2131,11 @@ details[open] summary::after {
     font-weight: 500;
 }
 
+.policy-header,
+.policy-header.scrolled {
+    background-color: #fff7ed !important;
+    border-bottom: none; /* Add this if you want to remove any default lines */
+}
 /* Smooth fade-in animation for the answers */
 @keyframes fadeDown {
     from {
