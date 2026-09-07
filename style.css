@@ -2136,6 +2136,171 @@ details[open] summary::after {
     background-color: #fff7ed !important;
     border-bottom: none; /* Add this if you want to remove any default lines */
 }
+/* =========================================
+   CONTACT PAGE 
+   ========================================= */
+
+.contact-dark-wrapper { 
+    background-color: #fff7ed; 
+    color: #5d3d34; 
+    min-height: 100vh;
+    padding: 8.75rem 1.25rem 5rem 1.25rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-layout {
+    /* 1000px -> 62.5rem */
+    max-width: 62.5rem;
+    margin: 0 auto;
+    display: flex;
+    /* 80px -> 5rem */
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+/* Left Column: Form */
+.contact-form-col {
+    flex: 1;
+    min-width: 18.75rem;
+}
+
+.contact-heading {
+    font-family: 'AppleGaramond-Light', 'EB Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    letter-spacing: 0.0625rem;
+    margin-bottom: 0.9375rem;
+    color: #46271f; 
+    text-transform: uppercase;
+}
+
+.contact-subheading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #5d3d34;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+}
+
+.input-group {
+    /* 25px -> 1.5625rem */
+    margin-bottom: 1.5625rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.0625rem;
+    margin-bottom: 0.5rem;
+    color: #46271f;
+}
+
+.input-group input,
+.input-group textarea {
+    background-color: transparent;
+    border: 1px solid #e0d5c1; 
+    color: #46271f;
+    padding: 0.9375rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #bfaea7;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #46271f;
+}
+
+.contact-submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #46271f;
+    color: #ffffff;
+    border: 1px solid #46271f;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.0625rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.625rem;
+}
+
+.contact-submit-btn:hover {
+    background-color: transparent;
+    color: #46271f;
+}
+
+/* Right Column: Info */
+.contact-info-col {
+    flex: 0.4;
+    min-width: 15.625rem;
+    padding-top: 1.25rem;
+}
+
+.info-block {
+    margin-bottom: 2.5rem;
+}
+
+.info-block h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.09375rem;
+    color: #8c736a;
+    margin-bottom: 0.625rem;
+}
+
+.info-block p {
+    font-family: 'AppleGaramond-Light', 'EB Garamond', serif;
+    font-size: 1.8rem;
+    color: #46271f;
+    font-weight: 500;
+    margin: 0;
+}
+
+.socials-block a {
+    display: flex;
+    align-items: center;
+    color: #46271f;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.0625rem;
+    margin-bottom: 0.9375rem;
+    transition: color 0.3s ease;
+}
+
+.socials-block a i {
+    font-size: 1.2rem;
+    margin-right: 0.9375rem;
+}
+
+.socials-block a:hover {
+    color: #8c736a;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .contact-layout {
+        gap: 3.125rem;
+        flex-direction: column;
+    }
+    .contact-heading {
+        font-size: 2.5rem;
+    }
+}
 
 /* Smooth fade-in animation for the answers */
 @keyframes fadeDown {
