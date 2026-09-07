@@ -3,35 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Contact Us | Forma Yoga</title>
+    <title>Contact Us | Forma Yoga</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- FontAwesome 6 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" sizes="180x180" href="images/logo-tab.png">
 </head>
-<body>
-    <header>
+<body class="walnut">
+    <!-- HEADER -->
+    <header class="walnut-header">
         <nav class="navbar">
             <ul class="navbar-tabs">
-                <!-- Left Group -->
                 <li class="nav-left">
                     <a href="index.html#catalogue">MATS</a>
                     <a href="our-story.html">OUR STORY</a>
                     <a href="events.html">EVENTS</a>
                 </li>
-
-                <!-- Center Group -->
                 <li class="nav-center">
                     <a id="brand-name" href="index.html">Forma</a>
                 </li>
-
                <li class="nav-right">
                     <a href="#" class="cart-icon-link">
                         <i class="fa-solid fa-bag-shopping"></i>
-
-                        <!--Notif bubble-->
                         <span class="cart-badge">0</span>
                     </a>
                 </li>
@@ -39,6 +33,79 @@
         </nav>
     </header>
 
+    <!-- CONTACT MAIN SECTION -->
+    <main class="contact-dark-wrapper">
+        <div class="contact-layout">
+            
+            <!-- LEFT COLUMN: FORM -->
+            <div class="contact-form-col">
+                <h1 class="contact-heading">GET IN TOUCH</h1>
+                <p class="contact-subheading">Have a question about our mats, shipping, or an upcoming event? Send us a message and we'll get back to you as soon as possible.</p>
+
+                <!-- Connected to your existing Web3Forms key -->
+                <form id="contact-page-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="f92bb82f-c614-4542-b0f2-7ee71df403ae">
+                    <input type="hidden" name="subject" value="New Contact Form Message - Forma Yoga">
+                    
+                    <div class="input-group">
+                        <label for="c-name">NAME*</label>
+                        <input type="text" id="c-name" name="name" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="c-email">EMAIL*</label>
+                        <input type="email" id="c-email" name="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="c-phone">PHONE NUMBER*</label>
+                        <input type="tel" id="c-phone" name="phone" placeholder="09XX XXX XXXX" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="c-subject">SUBJECT*</label>
+                        <input type="text" id="c-subject" name="inquiry_subject" placeholder="Product Inquiry / Shipping" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="c-message">MESSAGE*</label>
+                        <textarea id="c-message" name="message" placeholder="Your message here..." rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="contact-submit-btn">SEND MESSAGE</button>
+                </form>
+            </div>
+
+            <!-- RIGHT COLUMN: INFO -->
+            <div class="contact-info-col">
+                <div class="info-block">
+                    <h4>EMAIL</h4>
+                    <p>hello@formayoga.com</p>
+                </div>
+                
+                <div class="info-block">
+                    <h4>LOCATION</h4>
+                    <p>Manila, Philippines</p>
+                </div>
+
+                <div class="info-block socials-block">
+                    <h4>SOCIALS</h4>
+                    <a href="https://www.instagram.com/forma_yogamat/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i> INSTAGRAM
+                    </a>
+                    <a href="https://www.tiktok.com/@forma_yogamatph" target="_blank">
+                        <i class="fa-brands fa-tiktok"></i> TIKTOK
+                    </a>
+                    <a href="https://shopee.ph/formaphilippines" target="_blank">
+                        <i class="fa-solid fa-bag-shopping"></i> SHOPEE
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER SECTION -->
     <footer>
         <section class="footer-section">
             <div class="footer-content">
@@ -73,21 +140,17 @@
         </section>
     </footer>
 
-    <!-- SIDE CART OVERLAY & DRAWER -->
+    <!-- SIDE CART -->
     <div id="cart-overlay" class="cart-overlay"></div>
-    
     <div id="side-cart" class="side-cart">
         <div class="cart-header">
             <h2>Shopping Bag</h2>
             <button id="close-cart" class="close-cart-btn">&times;</button>
         </div>
-
         <div class="cart-content">
             <p>Your bag is currently empty.</p>
             <a href="index.html#catalogue">GET SHOPPING</a>
-            <!-- Future cart items can be injected here -->
         </div>
-
         <div class="cart-footer">
             <div class="cart-subtotal">
                 <span>Subtotal</span>
