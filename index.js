@@ -704,39 +704,3 @@ if (firstNameInput) firstNameInput.addEventListener('input', restrictToLetters);
 if (lastNameInput) lastNameInput.addEventListener('input', restrictToLetters);
 if (postalInput) postalInput.addEventListener('input', restrictToNumbers);
 if (phoneInput) phoneInput.addEventListener('input', restrictToNumbers);
-
-const contactForm = document.getElementById('contact-page-form');
-        const submitBtn = contactForm.querySelector('.contact-submit-btn');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'SENDING...';
-                
-                const formData = new FormData(contactForm);
-                
-                try {
-                    const response = await fetch("https://api.web3forms.com/submit", {
-                        method: "POST",
-                        body: formData
-                    });
-                    const data = await response.json();
-                    
-                    if (data.success) {
-                        submitBtn.textContent = 'MESSAGE SENT';
-                        submitBtn.style.backgroundColor = '#ffffff';
-                        submitBtn.style.color = '#000000';
-                        contactForm.reset();
-                        setTimeout(() => {
-                            submitBtn.textContent = originalText;
-                            submitBtn.style.backgroundColor = 'transparent';
-                            submitBtn.style.color = '#ffffff';
-                        }, 4000);
-                    }
-                } catch (error) {
-                    submitBtn.textContent = 'ERROR, TRY AGAIN';
-                    setTimeout(() => { submitBtn.textContent = originalText; }, 3000);
-                }
-            });
-        }
