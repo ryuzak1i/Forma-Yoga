@@ -620,10 +620,7 @@ function updateThumbnail(dropZoneElement, file) {
 
 if (finalSubmitBtn) {
     finalSubmitBtn.addEventListener('click', () => {
-        if (fileInput.files.length === 0) {
-            alert('Please upload your proof of payment to complete the order.');
-            return;
-        }
+        // Skips the file check entirely and pushes the order straight through!
         const formData = new FormData(checkoutForm);
         processOrder(formData, finalSubmitBtn);
     });
@@ -661,7 +658,7 @@ function processOrder(formData, buttonElement) {
         const data = await response.json();
         if (data.success) {
             localStorage.removeItem('formaCart');
-            alert("Thank you! Your Forma Yoga order has been successfully placed. Please remember to DM your receipt to @forma_yogamat.");
+            alert("Thank you! Your Forma Yoga order has been successfully placed. Please remember to email your receipt to forma.yogamathph@gmail.com");
             window.location.href = "index.html"; 
         } else {
             throw new Error(data.message || "Submission failed");
