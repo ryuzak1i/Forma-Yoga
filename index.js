@@ -620,7 +620,6 @@ function updateThumbnail(dropZoneElement, file) {
 
 if (finalSubmitBtn) {
     finalSubmitBtn.addEventListener('click', () => {
-        // Skips the file check entirely and pushes the order straight through!
         const formData = new FormData(checkoutForm);
         processOrder(formData, finalSubmitBtn);
     });
@@ -637,32 +636,26 @@ function processOrder(formData, buttonElement) {
     buttonElement.disabled = true;
     buttonElement.style.backgroundColor = "#cccccc";
 
-    // Gather cart items and total
     let cartItemsText = cart.map(item => `${item.quantity}x ${item.name}`).join(', ');
     let finalTotal = document.getElementById('checkout-total').textContent;
 
-    // Append Web3Forms configuration and order details
-    formData.append("access_key", "f92bb82f-c614-4542-b0f2-7ee71df403ae");
-    formData.append("subject", "New Order from Forma Yoga!");
     formData.append("Cart_Items", cartItemsText);
     formData.append("Total_Price", finalTotal);
+    formData.delete("proof_file"); // Keep this deleted since you use cash/DM
 
-    // CRITICAL: Delete the file from the payload so Web3Forms free tier doesn't reject it!
-    formData.delete("proof_file");
-
-    fetch("https://api.web3forms.com/submit", {
+    // We do NOT need the Web3Forms access_key or subject anymore!
+    
+    // Paste your newly generated Google Apps Script URL here
+    fetch("https://script.google.com/macros/s/AKfycbxNy8YcUnnp3Rvrk9RCNFmbTZVJrGemnvSlpIr0_7IrrwuBUY2QH9AytnQbjiucl2Qn/exec", {
         method: "POST",
-        body: formData
+        body: formData,
+        mode: 'no-cors' // Bypasses strict browser security redirects for Google Scripts
     })
-    .then(async response => {
-        const data = await response.json();
-        if (data.success) {
-            localStorage.removeItem('formaCart');
-            alert("Thank you! Your Forma Yoga order has been successfully placed. Please remember to email your receipt to forma.yogamathph@gmail.com");
-            window.location.href = "index.html"; 
-        } else {
-            throw new Error(data.message || "Submission failed");
-        }
+    .then(() => {
+        // Because of no-cors, we assume success if the network request finishes
+        localStorage.removeItem('formaCart');
+        alert("Thank you! Your Forma Yoga order has been successfully placed. Please remember to email your receipt to forma.yogamatph@gmail.com");
+        window.location.href = "index.html"; 
     })
     .catch(error => {
         console.error('Error!', error);
