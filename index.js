@@ -694,3 +694,54 @@ if (firstNameInput) firstNameInput.addEventListener('input', restrictToLetters);
 if (lastNameInput) lastNameInput.addEventListener('input', restrictToLetters);
 if (postalInput) postalInput.addEventListener('input', restrictToNumbers);
 if (phoneInput) phoneInput.addEventListener('input', restrictToNumbers);
+
+// =========================================
+// 11. HAMBURGER MENU LOGIC
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const navLeft = document.querySelector('.nav-left');
+
+    if (hamburgerBtn && navLeft) {
+        hamburgerBtn.addEventListener('click', () => {
+            navLeft.classList.toggle('active');
+            
+            // Toggle icon between bars and 'X'
+            const icon = hamburgerBtn.querySelector('i');
+            if (navLeft.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+                // Force dark color so 'X' is visible on the light menu background
+                hamburgerBtn.style.color = '#1e0d09'; 
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+                // Remove inline color to respect CSS hierarchy
+                hamburgerBtn.style.color = ''; 
+            }
+        });
+
+        // Close menu when clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (navLeft.classList.contains('active') && !navLeft.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                navLeft.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+                hamburgerBtn.style.color = '';
+            }
+        });
+        
+        // Close menu when a navigation link is clicked
+        const navLinks = navLeft.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLeft.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+                hamburgerBtn.style.color = '';
+            });
+        });
+    }
+});

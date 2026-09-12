@@ -2465,14 +2465,22 @@ details[open] summary::after {
     display: none;
     background: transparent;
     border: none;
-    color: inherit;
+    color: #ffffff; /* Forces the icon to be white before scrolling */
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 2002; 
     transition: color 0.3s ease;
 }
 
-.navbar-events .hamburger-menu {
+/* Turns the hamburger icon dark (#1e0d09) when you scroll down */
+header.scrolled .hamburger-menu {
+    color: #1e0d09;
+}
+
+/* Forces the icon to stay dark on pages that already have a light navbar (Checkout, FAQ, etc.) */
+.navbar-events .hamburger-menu,
+.walnut-header .hamburger-menu,
+.checkout-header .hamburger-menu {
     color: #1e0d09;
 }
 
