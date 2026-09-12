@@ -268,11 +268,44 @@ header.scrolled .fa-bag-shopping {
 .shop-mat {
     background-color: #eee5da;
     display: flex;
+    flex-direction: column; /* Stacks the text directly above the image */
     justify-content: center;   
     align-items: center;       
-    padding-top: 4rem;  
+    padding-top: 6rem;  
     padding-bottom: 6rem;
-    padding-left: 6rem;    
+    padding-left: 6rem; /* Removed the previous 6rem padding so everything perfectly centers */
+    padding-right: 0;
+}
+
+.forma-facts-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    margin-bottom: -3rem; /* Uses a negative value to aggressively pull the image and text together */
+    position: relative;   /* Ensures the text stays visible */
+    z-index: 10;          /* Keeps the text cleanly on top in case they overlap */
+}
+
+.forma-facts-text h2 {
+    font-family: 'AppleGaramond-Light', serif;
+    font-style: italic;
+    font-size: clamp(3rem, 5vw, 4.5rem); /* Naturally scales down on mobile screens */
+    font-weight: 50;
+    color: #1e0d09;
+    margin: 0;
+    line-height: 1;
+}
+
+.forma-facts-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #1e0d09;
+    margin: 0.4rem 0 0 0;
+    text-transform: uppercase;
+    line-height: 0.3;
+
 }
 
 .forma-facts {
@@ -284,10 +317,10 @@ header.scrolled .fa-bag-shopping {
 
 .forma-facts img {
     width: 95%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
+    object-position: center; /* Keeps the middle perfectly centered */
     transition: opacity 0.5s ease, transform 0.5s ease;
-
     min-height: 65vh; 
     max-height: 500px;
 }
@@ -2531,7 +2564,7 @@ header.scrolled .hamburger-menu {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2.5rem;
+        gap: 0; /* Removed gap so we can control the line spacing perfectly */
         transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         z-index: 2001;
         box-shadow: 5px 0 15px rgba(0,0,0,0.1);
@@ -2543,8 +2576,17 @@ header.scrolled .hamburger-menu {
 
     .nav-left a {
         color: #46271f !important;
-        font-size: 1.5rem;
+        font-size: 1.53em;
         font-weight: 500;
+        width: 80%; /* Controls how wide the line stretches across the menu */
+        text-align: center;
+        border-bottom: 1px solid #e0d5c1; /* Adds the Forma-colored dividing line */
+        padding: 1.5rem 0; /* Creates equal breathing room above and below the text */
+    }
+
+    /* Removes the line under the very last tab for a cleaner finish */
+    .nav-left a:last-child {
+        border-bottom: none;
     }
 
     /* Catalogue & Cards Adjustments */
@@ -2553,6 +2595,14 @@ header.scrolled .hamburger-menu {
         padding-right: 1rem;
         padding-bottom: 2rem;
     }
+
+    .forma-facts img {
+        width: 100%;
+        min-height: 65vh;  /* Keeps the image tall */
+        max-height: none;  /* Removes desktop height limits */
+        object-fit: cover; /* Crops the sides instead of zooming out */
+        object-position: center; /* Locks focus on the center panel */
+}
     
     .mat-catalogue h2, 
     .brands h2 {
