@@ -2459,6 +2459,167 @@ details[open] summary::after {
 }
 
 /* =========================================
+   HAMBURGER MENU DEFAULT (HIDDEN ON DESKTOP)
+========================================= */
+.hamburger-menu {
+    display: none;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2002; 
+    transition: color 0.3s ease;
+}
+
+.navbar-events .hamburger-menu {
+    color: #1e0d09;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Phones & Small Tablets)
+========================================= */
+@media (max-width: 768px) {
+    /* Navbar & Hamburger */
+    .hamburger-menu {
+        display: block;
+        position: absolute;
+        left: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .navbar-tabs, .tabs-events {
+        display: flex;
+        flex-direction: row; 
+        justify-content: center;
+        align-items: center;
+        padding: 1.2rem;
+        width: 100%;
+        position: relative;
+    }
+    
+    .nav-center {
+        margin: 0 auto;
+    }
+
+    .nav-right {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        justify-content: flex-end;
+    }
+
+    /* Mobile Slide-out Menu */
+    .nav-left {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Hidden by default */
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: #fff7ed;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 2001;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-left.active {
+        left: 0;
+    }
+
+    .nav-left a {
+        color: #46271f !important;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    /* Catalogue & Cards Adjustments */
+    .shop-mat {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 2rem;
+    }
+    
+    .mat-catalogue h2, 
+    .brands h2 {
+        font-size: 3rem;
+        margin-left: 0;
+        text-align: center;
+        padding-top: 3rem;
+    }
+    
+    .mat-options {
+        justify-content: center;
+        margin-left: 0;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .yoga-mat-card {
+        max-width: 100%; 
+        margin-bottom: 3rem;
+    }
+
+    .mat-img-wrapper {
+        height: auto; 
+        aspect-ratio: 3/4; /* Maintains image proportions on mobile */
+    }
+
+    /* Product Page Spacing (mat.html) */
+    .product-page-container {
+        flex-direction: column;
+        padding: 0 1rem;
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    .product-gallery {
+        margin-top: 3rem;
+        gap: 8px;
+    }
+
+    .product-gallery img {
+        width: 100%; /* Stack images 1 per row on mobile */
+    }
+
+    .product-details {
+        position: relative;
+        top: 0;
+        margin-top: 1rem;
+        max-width: 100%;
+    }
+    
+    .product-title {
+        font-size: 2.8rem;
+    }
+
+    /* Footer Adjustments */
+    .footer-content {
+        flex-direction: column;
+        padding: 3rem 1.5rem;
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .forma-descrip {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    #full-logo {
+        margin: 0 auto;
+        margin-bottom: 1rem;
+    }
+}
+
+/* =========================================
    MOBILE RESPONSIVENESS FOR CHECKOUT
 ========================================= */
 @media (max-width: 992px) {
