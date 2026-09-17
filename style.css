@@ -2518,6 +2518,19 @@ header.scrolled .hamburger-menu {
 }
 
 /* =========================================
+   TABLET / IPAD RESPONSIVENESS (1024px and below)
+========================================= */
+@media (max-width: 1024px) {
+    .forma-facts img {
+        width: 100%;
+        min-height: 65vh;  /* Forces the image to stay tall */
+        max-height: none;  /* Removes the 500px desktop limit causing the squish */
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/* =========================================
    MOBILE RESPONSIVENESS (Phones & Small Tablets)
 ========================================= */
 @media (max-width: 768px) {
@@ -2762,8 +2775,8 @@ header.scrolled .hamburger-menu {
         gap: 0.4rem;
     }
     .yoga-mat-card {
-        max-width: 230px;      
-        margin-bottom: 4rem;   
+        max-width: 260px;      /* Increased from 230px to prevent the squished look */
+        margin-bottom: 4rem; 
     }
 
     .mat-img-wrapper {
