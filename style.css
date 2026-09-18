@@ -265,32 +265,34 @@ header.scrolled .fa-bag-shopping {
     margin: 0 auto;              
 }
 
-.shop-mat {
+./* =========================================
+   FORMA FACTS SECTION STYLING
+========================================= */ 
+
+.shop-mat{
     background-color: #eee5da;
     display: flex;
-    flex-direction: column; /* Stacks the text directly above the image */
+    flex-direction: column;
     justify-content: center;   
     align-items: center;       
-    padding-top: 6rem;  
-    padding-bottom: 6rem;
-    padding-left: 6rem; /* Removed the previous 6rem padding so everything perfectly centers */
-    padding-right: 0;
+    padding: 6rem 1rem;
 }
 
 .forma-facts-text {
     display: flex;
     flex-direction: column;
     align-items: flex-end; 
-    margin-bottom: -3rem; /* Uses a negative value to aggressively pull the image and text together */
-    position: relative;   /* Ensures the text stays visible */
-    z-index: 10;          /* Keeps the text cleanly on top in case they overlap */
+    margin-bottom: 1.5rem;
+    width: 100%;
+    max-width: 1300px;
+    padding-right: 2rem;
 }
 
 .forma-facts-text h2 {
     font-family: 'AppleGaramond-Light', serif;
     font-style: italic;
-    font-size: clamp(3rem, 5vw, 4.5rem); /* Naturally scales down on mobile screens */
-    font-weight: 50;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 500;
     color: #1e0d09;
     margin: 0;
     line-height: 1;
@@ -298,46 +300,83 @@ header.scrolled .fa-bag-shopping {
 
 .forma-facts-text p {
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.5px;
     color: #1e0d09;
     margin: 0.4rem 0 0 0;
     text-transform: uppercase;
-    line-height: 0.3;
-
 }
 
 .forma-facts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
     width: 100%;
-    line-height: 0;
-    position: relative; 
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.fact-card {
     overflow: hidden;
 }
 
+.side-card {
+    flex: 1;
+    height: 450px; /* Locks the height */
+}
+
+.center-card {
+    flex: 1.8; /* Makes the center card significantly wider than the sides */
+    height: 450px; /* Matches the exact height of the side cards */
+    background-color: #ffffff; 
+    padding: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    z-index: 2; 
+}
+
 .forma-facts img {
-    width: 95%;
+    width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center; /* Keeps the middle perfectly centered */
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    min-height: 65vh; 
-    max-height: 500px;
+    object-fit: cover; /* Ensures the image fills the space without distorting */
+    display: block;
+    border-radius: 4px;
 }
 
-.hover-forma {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    opacity: 0; 
-
-    transform: translateY(40px);
+/* =========================================
+   FORMA FACTS RESPONSIVENESS
+========================================= */
+@media (max-width: 1024px) {
+    .forma-facts {
+        gap: 1rem;
+    }
+    .side-card {
+        height: 380px;
+    }
+    .center-card {
+        height: 420px;
+    }
 }
 
-.forma-facts:hover .hover-forma {
-    opacity: 1;
-
-    transform: translateY(0);
+@media (max-width: 768px) {
+    .forma-facts {
+        flex-direction: column;
+        align-items: center;
+    }
+    .side-card, .center-card {
+        width: 100%;
+        max-width: 450px;
+        height: 400px;
+    }
+    .forma-facts-text {
+        align-items: center;
+        text-align: center;
+        padding-right: 0;
+    }
 }
 
 #catalogue{
