@@ -646,7 +646,7 @@ function processOrder(formData, buttonElement) {
     // We do NOT need the Web3Forms access_key or subject anymore!
     
     // Paste your newly generated Google Apps Script URL here
-    fetch("https://script.google.com/macros/s/AKfycbxNy8YcUnnp3Rvrk9RCNFmbTZVJrGemnvSlpIr0_7IrrwuBUY2QH9AytnQbjiucl2Qn/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbz7nRvWJ6B9euLG4vLqJ0Zxc-c6xEFIKSEqmTepkWjv6o2bYilV3bEuTtKsBoKvTYlN/exec", {
         method: "POST",
         body: formData,
         mode: 'no-cors' // Bypasses strict browser security redirects for Google Scripts
