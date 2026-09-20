@@ -277,10 +277,10 @@ header.scrolled .fa-bag-shopping {
 .forma-facts-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Snaps the paragraph to the right edge */
+    align-items: flex-end; 
     margin-bottom: 2rem;
-    width: fit-content;    /* CRITICAL: Shrinks the container to exactly hug the H2 text */
-    margin-left: auto;     /* Centers the shrink-wrapped block */
+    width: fit-content;   
+    margin-left: auto;    
     margin-right: auto;
 }
 
@@ -300,7 +300,7 @@ header.scrolled .fa-bag-shopping {
     font-weight: 500;
     letter-spacing: 0.5px;
     color: #1e0d09;
-    margin: -0.2rem 0 0 0; /* Tiny negative margin tucks it tightly under the H2 */
+    margin: -0.2rem 0 0 0; 
     text-transform: uppercase;
 }
 
@@ -310,24 +310,61 @@ header.scrolled .fa-bag-shopping {
     align-items: center;
     gap: 2rem;
     width: 100%;
-    max-width: 1600px; /* Increased from 1300px to let the images expand wider */
+    max-width: 1600px; 
     margin: 0 auto;
     padding: 0 1rem;
     box-sizing: border-box;
 }
 
 .fact-card {
+    position: relative; 
     overflow: hidden;
+    border-radius: 8px;
+}
+
+.fact-hover {
+    position: absolute;
+    bottom: 25px; 
+    left: 50%;
+    transform: translateX(-50%) translateY(15px); 
+    width: 90%;
+    background-color: rgba(30, 14, 11, 0.62);
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 0.5rem;
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.center-card .fact-hover {
+    bottom: 35px;
+    width: 88%;
+}
+
+.fact-hover p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-transform: none; 
+    letter-spacing: 0.5px;
+}
+
+.fact-card:hover .fact-hover {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); 
 }
 
 .side-card {
     flex: 1;
-    height: 580px; /* Increased from 450px to make them much taller */
+    height: 580px; 
 }
 
 .center-card {
     flex: 1.8; 
-    height: 580px; /* Matched to the new taller height */
+    height: 580px; 
     background-color: #ffffff; 
     padding: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -337,7 +374,7 @@ header.scrolled .fa-bag-shopping {
 .forma-facts img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image fills the space without distorting */
+    object-fit: cover; 
     display: block;
 }
 
