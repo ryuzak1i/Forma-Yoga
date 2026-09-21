@@ -1815,13 +1815,23 @@ body.walnut {
 }
 
 .radio-row {
+    display: flex;
+    align-items: center;
     margin-top: 0.8rem;
     margin-bottom: 0.8rem;
     font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.radio-row input[type="radio"] {
+    accent-color: #46271f;  /* Changes the active dot from blue to Forma brown */
+    margin-right: 0.8rem;   /* Adds breathing room between the button and the text */
+    cursor: pointer;
+    transform: scale(1.1);  /* Slightly enlarges the button for better usability */
 }
 
 .pay-btn {
-    background-color: #1e0d09;
+    background-color: #46271f;
     color: white;
     padding: 16px 24px;
     border: none;
@@ -1836,7 +1846,7 @@ body.walnut {
 }
 
 .pay-btn:hover {
-    background-color: #46271f;
+    background-color: #1e0d09;
 }
 
 /* --- Right Side: Sticky Summary --- */
@@ -2350,8 +2360,8 @@ details[open] summary::after {
 }
 
 .contact-submit-btn:hover {
-    background-color: transparent;
-    color: #46271f;
+    background-color: #1e0d09;
+    color: #ffffff;
 }
 
 /* Right Column: Info */
