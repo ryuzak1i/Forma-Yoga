@@ -45,15 +45,12 @@
                 <h1 class="contact-heading">Get In Touch</h1>
                 <p class="contact-subheading">Have a question about our mats, shipping, or an upcoming event? Send us a message and we'll get back to you as soon as possible.</p>
 
-                <!-- Connected to existing Web3Forms key -->
-                <form id="contact-page-form" action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="f92bb82f-c614-4542-b0f2-7ee71df403ae">
-                    <input type="hidden" name="subject" value="New Contact Form Message - Forma Yoga">
-
+                <!-- Form ID added for JavaScript interception -->
+                <form id="contact-page-form">
                     <div class="input-group">
-                        <select name="subject" id="subject" required>
+                        <!-- Changed name="subject" to name="category" -->
+                        <select name="category" id="category" required>
                             <option value="" disabled selected>Select Category</option>
-
                             <option value="Shipping">Shipping & Returns</option>
                             <option value="General">General</option>
                             <option value="Payment">Payment</option>
@@ -75,8 +72,6 @@
                         <label for="c-phone">PHONE NUMBER*</label>
                         <input type="tel" id="c-phone" name="phone" placeholder="09XX XXX XXXX" required>
                     </div>
-
-                    
 
                     <div class="input-group">
                         <label for="c-message">MESSAGE*</label>

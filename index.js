@@ -745,3 +745,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Contact Form Submission Handler
+const contactForm = document.getElementById('contact-page-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault(); 
+
+        const submitBtn = document.querySelector('.contact-submit-btn');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'SENDING...';
+        submitBtn.style.pointerEvents = 'none';
+
+        const formData = new FormData(contactForm);
+
+        // PASTE YOUR NEW CONTACT SHEET WEB APP URL HERE
+        const contactScriptURL = 'https://script.google.com/macros/s/YOUR_NEW_CONTACT_APP_ID/exec';
+
+        fetch(contactScriptURL, { method: 'POST', body: formData })
+            .then(response => {
+                alert('Thank you! Your message has been sent successfully.');
+                contactForm.reset();
+                submitBtn.textContent = originalBtnText;
+                submitBtn.style.pointerEvents = 'auto';
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Oops! Something went wrong. Please try again.');
+                submitBtn.textContent = originalBtnText;
+                submitBtn.style.pointerEvents = 'auto';
+            });
+    });
+}
