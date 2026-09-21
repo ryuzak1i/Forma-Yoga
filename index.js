@@ -761,7 +761,7 @@ if (contactForm) {
         const formData = new FormData(contactForm);
 
         // PASTE YOUR NEW CONTACT SHEET WEB APP URL HERE
-        const contactScriptURL = 'https://script.google.com/macros/s/YOUR_NEW_CONTACT_APP_ID/exec';
+        const contactScriptURL = 'https://script.google.com/macros/s/AKfycbzkkrpDzbwJuq3_23QEvssdom-6ABNpIN8X7I-wuMOlvNLn3To-B3HzDYjJY03Voekl/exec';
 
         fetch(contactScriptURL, { method: 'POST', body: formData })
             .then(response => {
