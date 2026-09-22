@@ -669,12 +669,16 @@ header.scrolled .fa-bag-shopping {
     gap: 1.5rem;
 }
 
-.who-forma h1{
-    font-family: 'Poppins';
-    font-size: 4.5rem;
+.who-forma h1 {
+    font-family: 'Poppins', sans-serif;
+    /* Scales smoothly: 2.5rem on mobile, up to 4.5rem on desktop */
+    font-size: clamp(2.5rem, 6vw, 4.5rem); 
     font-weight: 600;
-    color:white;
+    color: white;
     letter-spacing: -0.15rem;
+    text-align: center;
+    margin: 0;
+    padding: 0 1rem; /* Prevents text from touching screen edges on mobile */
 }
 
 .slider-arrow:hover {
@@ -2999,5 +3003,66 @@ header.scrolled .hamburger-menu {
 
     .forma-descrip {
         max-width: 100%;
+    }
+}
+
+/* =========================================
+   COMMUNITY SLIDER RESPONSIVENESS
+========================================= */
+
+/* Small Laptops (Displays 3 cards) */
+@media (max-width: 1280px) {
+    .community-item {
+        flex: 0 0 calc((100% - 4rem) / 3); 
+    }
+    .community-item .card-image {    
+        height: 400px;       
+    }
+}
+
+/* Tablets (Displays 2 cards) */
+@media (max-width: 1024px) {
+    .community-item {
+        flex: 0 0 calc((100% - 2rem) / 2); 
+    }
+    .community-item .card-image {    
+        height: 450px;       
+    }
+}
+
+/* Mobile Phones (Displays 1 card) */
+@media (max-width: 768px) {
+    .community {
+        padding: 4rem 0.5rem; 
+    }
+    .card-wrapper {
+        margin: 0 0.5rem; 
+    }
+    .community-item {
+        flex: 0 0 100%; /* Forces 1 card to take up the entire wrapper width */
+        padding: 0.5rem;
+    }
+    .community-item .card-image {
+        height: 500px; /* Keeps the TikTok/Reel style videos tall */
+    }
+    /* Shrinks the arrows slightly so they don't crowd the single card */
+    .slider-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+}
+
+/* =========================================
+   WHO IS FORMA MOBILE RESPONSIVENESS
+========================================= */
+@media (max-width: 768px) {
+    .who-forma {
+        min-height: 50vh; /* Reduces the height so it doesn't feel overly tall on phones */
+        gap: 1rem;
+    }
+    
+    .who-forma h1 {
+        letter-spacing: -0.05rem; /* Relaxes the tight letter spacing on smaller text for better readability */
     }
 }
