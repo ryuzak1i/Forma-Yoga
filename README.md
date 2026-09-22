@@ -1,5 +1,3 @@
-Here is a clean, professional `README.md` template tailored exactly to the custom e-commerce site you just built. It highlights your brand's unique story and the advanced technical features you successfully implemented.
-
 # Forma Yoga
 
 *Align with confidence. The mat that gets you.*
