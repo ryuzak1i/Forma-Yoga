@@ -1156,7 +1156,7 @@ header.scrolled .fa-bag-shopping {
     text-align: center;
     font-family: 'AppleGaramond-Light', serif;
     font-style: italic;
-    font-size: clamp(3rem, 5vw, 6rem);
+    font-size: clamp(2.2rem, 5vw, 6rem); 
     font-weight: 500;
     color: #46271f;
     line-height: 1;
@@ -2596,19 +2596,17 @@ details[open] summary::after {
     display: none;
     background: transparent;
     border: none;
-    color: #ffffff; /* Forces the icon to be white before scrolling */
+    color: #ffffff; 
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 2002; 
     transition: color 0.3s ease;
 }
 
-/* Turns the hamburger icon dark (#1e0d09) when you scroll down */
 header.scrolled .hamburger-menu {
     color: #1e0d09;
 }
 
-/* Forces the icon to stay dark on pages that already have a light navbar (Checkout, FAQ, etc.) */
 .navbar-events .hamburger-menu,
 .walnut-header .hamburger-menu,
 .checkout-header .hamburger-menu {
@@ -2616,453 +2614,119 @@ header.scrolled .hamburger-menu {
 }
 
 /* =========================================
-   TABLET / IPAD RESPONSIVENESS (1024px and below)
+   CONSOLIDATED RESPONSIVENESS
 ========================================= */
-@media (max-width: 1024px) {
-    .forma-facts img {
-        width: 100%;
-        min-height: 65vh;  /* Forces the image to stay tall */
-        max-height: none;  /* Removes the 500px desktop limit causing the squish */
-        object-fit: cover;
-        object-position: center;
-    }
-}
 
-/* =========================================
-   MOBILE RESPONSIVENESS (Phones & Small Tablets)
-========================================= */
-@media (max-width: 768px) {
-    /* Navbar & Hamburger */
-    .hamburger-menu {
-        display: block;
-        position: absolute;
-        left: 1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .navbar-tabs, .tabs-events {
-        display: flex;
-        flex-direction: row; 
-        justify-content: center;
-        align-items: center;
-        padding: 1.2rem;
-        width: 100%;
-        position: relative;
-    }
-    
-    .nav-center {
-        margin: 0 auto;
-    }
-
-    .nav-right {
-        position: absolute;
-        right: 1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        justify-content: flex-end;
-    }
-
-    /* Mobile Slide-out Menu */
-    .nav-left {
-        position: fixed;
-        top: 0;
-        left: -100%; /* Hidden by default */
-        width: 75%;
-        max-width: 320px;
-        height: 100vh;
-        background-color: #fff7ed;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0; /* Removed gap so we can control the line spacing perfectly */
-        transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        z-index: 2001;
-        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
-    }
-
-    .nav-left.active {
-        left: 0;
-    }
-
-    .nav-left a {
-        color: #46271f !important;
-        font-size: 1.53em;
-        font-weight: 500;
-        width: 80%; /* Controls how wide the line stretches across the menu */
-        text-align: center;
-        border-bottom: 1px solid #e0d5c1; /* Adds the Forma-colored dividing line */
-        padding: 1.5rem 0; /* Creates equal breathing room above and below the text */
-    }
-
-    /* Removes the line under the very last tab for a cleaner finish */
-    .nav-left a:last-child {
-        border-bottom: none;
-    }
-
-    /* Catalogue & Cards Adjustments */
-    .shop-mat {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 2rem;
-    }
-
-    .forma-facts img {
-        width: 100%;
-        min-height: 65vh;  /* Keeps the image tall */
-        max-height: none;  /* Removes desktop height limits */
-        object-fit: cover; /* Crops the sides instead of zooming out */
-        object-position: center; /* Locks focus on the center panel */
-}
-    
-    .mat-catalogue h2, 
-    .brands h2 {
-        font-size: 3rem;
-        margin-left: 0;
-        text-align: center;
-        padding-top: 3rem;
-    }
-    
-    .mat-options {
-        justify-content: center;
-        margin-left: 0;
-        padding: 1rem;
-        width: 100%;
-    }
-
-    .yoga-mat-card {
-        max-width: 100%; 
-        margin-bottom: 3rem;
-    }
-
-    .mat-img-wrapper {
-        height: auto; 
-        aspect-ratio: 3/4; /* Maintains image proportions on mobile */
-    }
-
-    /* Product Page Spacing (mat.html) */
-    .product-page-container {
-        flex-direction: column;
-        padding: 0 1rem;
-        margin-top: 3rem;
-        width: 100%;
-    }
-
-    .product-gallery {
-        margin-top: 3rem;
-        gap: 8px;
-    }
-
-    .product-gallery img {
-        width: 100%; /* Stack images 1 per row on mobile */
-    }
-
-    .product-details {
-        position: relative;
-        top: 0;
-        margin-top: 1rem;
-        max-width: 100%;
-    }
-    
-    .product-title {
-        font-size: 2.8rem;
-    }
-
-    /* Footer Adjustments */
-    .footer-content {
-        flex-direction: column;
-        padding: 3rem 1.5rem;
-        gap: 2rem;
-        align-items: center;
-        text-align: center;
-    }
-
-    .forma-descrip {
-        max-width: 100%;
-        text-align: center;
-    }
-    
-    #full-logo {
-        margin: 0 auto;
-        margin-bottom: 1rem;
-    }
-}
-
-/* =========================================
-   MOBILE RESPONSIVENESS FOR CHECKOUT
-========================================= */
-@media (max-width: 992px) {
-    .checkout-header,
-    .checkout-layout {
-        background: #ffffff !important; /* Forces solid white for mobile phones */
-    }
-    
-    .checkout-layout {
-        flex-direction: column-reverse; 
-    }
-    
-    .contact-details, 
-    .checkout-sidebar {
-        flex: 1 1 100%;
-        max-width: 100%;
-        padding: 2rem 5%;
-    }
-    
-    .checkout-sidebar {
-        height: auto;
-        position: relative;
-        top: 0;
-        padding-top: 100px; /* Accounts for header on mobile */
-        border-left: none;
-        border-bottom: 1px solid #e0d5c1;
-    }
-    
-    .contact-details {
-        padding-top: 3rem;
-    }
-}
-
-/* =========================================
-   MOBILE RESPONSIVENESS (Phones & Small Tablets)
-========================================= */
-@media (max-width: 768px) {
-    .navbar-tabs {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-    
-    .nav-left {
-        gap: 1.5rem;
-        justify-content: center;
-    }
-
-    .shop-mat {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    
-    .mat-catalogue h2, 
-    .brands h2 {
-        font-size: 3rem;
-        margin-left: 0;
-        text-align: center;
-    }
-    
-    .mat-options {
-        justify-content: center;
-        margin-left: 0;
-        width: 100%;
-        height: auto; 
-        overflow: visible;
-    }
-
-    .yoga-mat-card {
-        display: flex;
-        flex-direction: column;
-        width: 100%; 
-        max-width: 350px; 
-    }
-}
-
-/* =========================================
-   LAPTOP RESPONSIVENESS (1280px and below)
-========================================= */
-@media (max-width: 1280px) {
-    .mat-options{
-        gap: 0.4rem;
-    }
-    .yoga-mat-card {
-        max-width: 260px;      /* Increased from 230px to prevent the squished look */
-        margin-bottom: 4rem; 
-    }
-
-    .mat-img-wrapper {
-        height: 460px;         
-    }
-
-    .mat-name, 
-    .mat-price {
-        font-size: 0.95rem; 
-    }
-    
-    .mat-catalogue h2 {
-        font-size: 3.5rem;     
-    }
-
-    .community-item {
-        flex: 0 0 calc((100% - 4rem) / 3);
-    }
-
-    .community-item .card-image {    
-        height: 400px;       
-        
-    }
-}
-
-/* =========================================
-   Mobile Responsiveness for OUR STORY
-========================================= */
+/* --- 1440px (Small Desktops / Large Laptops) --- */
 @media (max-width: 1440px) {
-    /*PHONES*/
-    .story-intro,
-    .story-mission {
+    .story-intro, .story-mission { 
         max-width: 1100px; 
-        gap: 3rem;        
-        padding: 3rem 2rem;
+        gap: 3rem; 
+        padding: 3rem 2rem; 
     }
-
-    .story-text {
-        font-size: 0.98rem; 
-        line-height: 1.7;
+    .story-text { 
+        flex: 1 1 100%; 
+        width: 100%; 
+        padding: 0; 
+        font-size: 1rem; 
+        text-align: justify; 
     }
-
-    .story-img {
-        max-width: 480px;  
-        height: 340px;     
-        border-width: 8px;
-    }
-}
-
-@media (max-width: 992px) {
-    /*LAPTOP*/
-    .gets-you {
-        padding-top: 3rem;
-    }
-
-    .story-intro,
-    .story-mission {
-        flex-direction: column;  
-        padding: 2.5rem 1.5rem; 
-        gap: 2rem;
-    }
-
-    .story-mission .story-img {
-        order: -1; 
-    }
-
-    .story-text {
-        flex: 1 1 100%;
-        width: 100%;
-        padding: 0;
-        font-size: 1rem;
-        text-align: left;        
-    }
-
-    .story-img {
-        flex: 1 1 100%;
-        width: 100%;
-        max-width: 100%;
-        height: 280px;           
-        border-width: 6px;       
+    .story-img { 
+        max-width: 480px; 
+        height: 340px; 
+        border-width: 8px; 
     }
 }
 
-/* ===================================================
-   MOBILE RESPONSIVENESS EVENTS.HTML
-=================================================== */
-
-/* Laptops (1024px to 1280px) */
+/* --- 1280px (Laptops) --- */
 @media (max-width: 1280px) {
-    .event-card-grid {
-        gap: 2rem;
-    }
-
-    .event-card {
-        flex: 0 1 320px;
-        height: 460px;
-    }
-
-    .card-item{
-        flex: 0 0 calc((100% - 4rem) / 3);
-    }
+    .mat-options { gap: 0.4rem; }
+    .yoga-mat-card { max-width: 260px; margin-bottom: 4rem; }
+    .mat-img-wrapper { height: 460px; }
+    .mat-name, .mat-price { font-size: 0.95rem; }
+    .mat-catalogue h2 { font-size: 3.5rem; }
+    
+    .community-item { flex: 0 0 calc((100% - 4rem) / 3); }
+    .community-item .card-image { height: 400px; }
+    
+    .event-card-grid { gap: 2rem; }
+    .event-card { flex: 0 1 320px; height: 460px; }
+    .card-item { flex: 0 0 calc((100% - 4rem) / 3); }
 }
 
-/* Mobile & Tablet Stacking (under 992px) */
-@media (max-width: 992px) {
-    .event-card-grid {
-        flex-direction: column;    
-        align-items: center;
-    }
-
-    .event-card {
-        width: 100%;
-        max-width: 450px;         
-        height: 380px;
-    }
-}
-/* =========================================
-    Mobile Responsiveness for FOOTER 
-   ========================================= */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        padding: 3rem 1.5rem;
-        gap: 2rem;
-    }
-
-    .forma-descrip {
-        max-width: 100%;
-    }
-}
-
-/* =========================================
-   COMMUNITY SLIDER RESPONSIVENESS
-========================================= */
-
-/* Small Laptops (Displays 3 cards) */
-@media (max-width: 1280px) {
-    .community-item {
-        flex: 0 0 calc((100% - 4rem) / 3); 
-    }
-    .community-item .card-image {    
-        height: 400px;       
-    }
-}
-
-/* Tablets (Displays 2 cards) */
+/* --- 1024px (Tablets / iPad Landscape) --- */
 @media (max-width: 1024px) {
-    .community-item {
-        flex: 0 0 calc((100% - 2rem) / 2); 
-    }
-    .community-item .card-image {    
-        height: 450px;       
-    }
-}
-
-/* Mobile Phones (Displays 1 card) */
-@media (max-width: 768px) {
-    .community {
-        padding: 4rem 0.5rem; 
-    }
-    .card-wrapper {
-        margin: 0 0.5rem; 
-    }
-    .community-item {
-        flex: 0 0 100%; /* Forces 1 card to take up the entire wrapper width */
-        padding: 0.5rem;
-    }
-    .community-item .card-image {
-        height: 500px; /* Keeps the TikTok/Reel style videos tall */
-    }
-    /* Shrinks the arrows slightly so they don't crowd the single card */
-    .slider-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
-    }
-}
-
-/* =========================================
-   WHO IS FORMA MOBILE RESPONSIVENESS
-========================================= */
-@media (max-width: 768px) {
-    .who-forma {
-        min-height: 50vh; /* Reduces the height so it doesn't feel overly tall on phones */
-        gap: 1rem;
+    .forma-facts img { 
+        width: 100%; 
+        min-height: 65vh; 
+        max-height: none; 
+        object-fit: cover; 
+        object-position: center; 
     }
     
-    .who-forma h1 {
-        letter-spacing: -0.05rem; /* Relaxes the tight letter spacing on smaller text for better readability */
-    }
+    .community-item { flex: 0 0 calc((100% - 2rem) / 2); }
+    .community-item .card-image { height: 450px; }
 }
+
+/* --- 992px (Small Tablets) --- */
+@media (max-width: 992px) {
+    .checkout-header, .checkout-layout { background: #ffffff !important; }
+    .checkout-layout { flex-direction: column-reverse; }
+    .contact-details, .checkout-sidebar { flex: 1 1 100%; max-width: 100%; padding: 2rem 5%; }
+    .checkout-sidebar { height: auto; position: relative; top: 0; padding-top: 100px; border-left: none; border-bottom: 1px solid #e0d5c1; }
+    .contact-details { padding-top: 3rem; }
+    
+    .gets-you { padding-top: 3rem; }
+    .story-intro, .story-mission { flex-direction: column; padding: 2.5rem 1.5rem; gap: 2rem; }
+    .story-mission .story-img { order: -1; }
+    .story-text { flex: 1 1 100%; width: 100%; padding: 0; font-size: 1rem; text-align: justify; }
+    .story-img { flex: 1 1 100%; width: 100%; max-width: 100%; height: 280px; border-width: 6px; }
+    
+    .event-card-grid { flex-direction: column; align-items: center; }
+    .event-card { width: 100%; max-width: 450px; height: 380px; }
+}
+
+/* --- 768px (Mobile Phones) --- */
+@media (max-width: 768px) {
+    .card-item { flex: 0 0 100%; }
+    
+    .contact-layout { gap: 3.125rem; flex-direction: column; }
+    .contact-heading { font-size: 2.5rem; }
+    
+    .hamburger-menu { display: block; position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); }
+    .navbar-tabs, .tabs-events { display: flex; flex-direction: row; justify-content: center; align-items: center; padding: 1.2rem; width: 100%; position: relative; }
+    .nav-center { margin: 0 auto; }
+    .nav-right { position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); justify-content: flex-end; }
+    .nav-left { position: fixed; top: 0; left: -100%; width: 75%; max-width: 320px; height: 100vh; background-color: #fff7ed; flex-direction: column; justify-content: center; align-items: center; gap: 1.5rem; transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 2001; box-shadow: 5px 0 15px rgba(0,0,0,0.1); }
+    .nav-left.active { left: 0; }
+    .nav-left a { color: #46271f !important; font-size: 1.53em; font-weight: 500; width: 80%; text-align: center; border-bottom: 1px solid #e0d5c1; padding: 1.5rem 0; }
+    .nav-left a:last-child { border-bottom: none; }
+    
+    .shop-mat { padding-left: 1rem; padding-right: 1rem; padding-bottom: 2rem; }
+    .forma-facts img { width: 100%; min-height: 65vh; max-height: none; object-fit: cover; object-position: center; }
+    
+    .mat-catalogue h2, .brands h2 { font-size: 3rem; margin-left: 0; text-align: center; padding-top: 3rem; }
+    .mat-options { justify-content: center; margin-left: 0; padding: 1rem; width: 100%; height: auto; overflow: visible; }
+    .yoga-mat-card { display: flex; flex-direction: column; width: 100%; max-width: 350px; margin-bottom: 3rem; }
+    .mat-img-wrapper { height: auto; aspect-ratio: 3/4; }
+    
+    .product-page-container { flex-direction: column; padding: 0 1rem; margin-top: 3rem; width: 100%; }
+    .product-gallery { margin-top: 3rem; gap: 8px; }
+    .product-gallery img { width: 100%; }
+    .product-details { position: relative; top: 0; margin-top: 1rem; max-width: 100%; }
+    .product-title { font-size: 2.8rem; }
+    
+    .footer-content { flex-direction: column; padding: 3rem 1.5rem; gap: 2rem; align-items: center; text-align: center; }
+    .forma-descrip { max-width: 100%; text-align: center; }
+    #full-logo { margin: 0 auto; margin-bottom: 1rem; }
+    
+    .community { padding: 4rem 0.5rem; }
+    .card-wrapper { margin: 0 0.5rem; }
+    .community-item { flex: 0 0 100%; padding: 0.5rem; }
+    .community-item .card-image { height: 500px; }
+    .slider-arrow { width: 36px; height: 36px; font-size: 0.9rem; }
+    
+    .who-forma { min-height: 50vh; gap: 1rem; }
+    .who-forma h1 { letter-spacing: -0.05rem; }
+}
+
