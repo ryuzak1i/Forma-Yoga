@@ -2650,7 +2650,7 @@ header.scrolled .hamburger-menu {
     .community-item .card-image { height: 400px; }
     
     .event-card-grid { gap: 2rem; }
-    .event-card { flex: 0 1 320px; height: 460px; }
+    .event-card { flex: 0 1 320px; height: 650px; } 
     .card-item { flex: 0 0 calc((100% - 4rem) / 3); }
 }
 
@@ -2683,7 +2683,17 @@ header.scrolled .hamburger-menu {
     .story-img { flex: 1 1 100%; width: 100%; max-width: 100%; height: 280px; border-width: 6px; }
     
     .event-card-grid { flex-direction: column; align-items: center; }
-    .event-card { width: 100%; max-width: 450px; height: 380px; }
+    .event-card { width: 100%; max-width: 450px; height: 680px; display: flex; flex-direction: column; }
+    .event-img-wrapper {
+        flex: 1;
+        overflow: hidden;
+    }
+    
+    .event-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 /* --- 768px (Mobile Phones) --- */
@@ -2730,3 +2740,44 @@ header.scrolled .hamburger-menu {
     .who-forma h1 { letter-spacing: -0.05rem; }
 }
 
+/* =========================================
+   OUR STORY - HERO MOBILE FIX
+========================================= */
+@media (max-width: 768px) {
+    /* 1. Shift the focus to the right (70%) to balance the group */
+    .our-story-img img {
+        height: 65vh !important; 
+        object-position: 42% top !important; 
+    }
+
+    /* 2. Anchors text to the bottom right with a clean indent */
+    .our-story-overlay {
+        top: 65vh !important; 
+        bottom: auto !important;       
+        transform: translateY(calc(-100% - 25px)) !important; 
+        right: 0 !important;
+        width: 100% !important;
+        text-align: right !important;      /* Aligns text to the right */
+        padding-right: 1.5rem !important;  /* Creates the right indent */
+        box-sizing: border-box !important;
+    }
+    
+    /* 3. Shrinks the main heading so it doesn't block the founders */
+    .our-story-overlay .home-quote {
+        font-size: 3.5rem !important;      /* Forces a much smaller size on mobile */
+        line-height: 0.9 !important;
+    }
+
+    /* 4. Keeps the sub-header aligned and proportionally smaller */
+    .our-story-overlay .sub-header {
+        margin-right: 0 !important;
+        margin-top: 0.5rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    .gets-you {
+        font-size: 2.8rem !important; /* Drops the size significantly on phones */
+        line-height: 1.2 !important;
+        padding-top: 3.5rem !important;
+    }
+}
