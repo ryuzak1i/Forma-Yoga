@@ -2915,3 +2915,27 @@ header.scrolled .hamburger-menu {
     flex-direction: column !important;
     justify-content: flex-start !important;
 }
+
+/* =========================================
+   MAT CATALOGUE FULL-WIDTH FIX (Desktop)
+========================================= */
+@media (min-width: 1025px) {
+    /* 1. Removes the 1200px container limit so it can span the whole screen */
+    .mat-catalogue {
+        max-width: 100% !important; 
+    }
+
+    /* 2. Spreads the cards evenly and aligns them with the header */
+    .mat-options {
+        justify-content: space-between !important; 
+        margin: 0 !important; 
+        padding: 2rem 3rem !important; 
+        gap: 1.5rem !important;
+    }
+
+    /* 3. Removes the 350px limit and forces all cards to stretch and fill the empty space */
+    .yoga-mat-card {
+        flex: 1 1 0 !important; 
+        max-width: none !important; 
+    }
+}
