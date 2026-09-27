@@ -2920,22 +2920,36 @@ header.scrolled .hamburger-menu {
    MAT CATALOGUE FULL-WIDTH FIX (Desktop)
 ========================================= */
 @media (min-width: 1025px) {
-    /* 1. Removes the 1200px container limit so it can span the whole screen */
+    /* 1. Breaks the outer wrappers out of any restrictive width limits */
+    #catalogue, 
     .mat-catalogue {
-        max-width: 100% !important; 
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
-    /* 2. Spreads the cards evenly and aligns them with the header */
+    /* 2. Uses CSS Grid to mathematically divide the row into exactly 5 equal columns */
     .mat-options {
-        justify-content: space-between !important; 
-        margin: 0 !important; 
-        padding: 2rem 3rem !important; 
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important; 
+        width: 100% !important;
+        max-width: 100% !important;
         gap: 1.5rem !important;
+        padding: 2rem 3rem 6rem 3rem !important; 
+        margin: 0 !important;
+        box-sizing: border-box !important;
     }
 
-    /* 3. Removes the 350px limit and forces all cards to stretch and fill the empty space */
+    /* 3. Removes old max-width limits from the individual cards so they can grow */
     .yoga-mat-card {
-        flex: 1 1 0 !important; 
-        max-width: none !important; 
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important; 
+    }
+
+    /* 4. Ensures the tall mat shape scales up proportionally as the screen gets wider */
+    .mat-img-wrapper {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 3 / 5 !important; 
     }
 }
