@@ -2859,3 +2859,59 @@ header.scrolled .hamburger-menu {
         padding: 1.5rem 1.5rem 2rem 1.5rem !important;
     }
 }
+
+/* =========================================
+   LOCKED EVENT CARDS (IDENTICAL EQUAL HEIGHT)
+========================================= */
+/* 1. Forces all cards in the row to stretch to match the tallest card */
+.event-card-grid {
+    align-items: stretch !important; 
+}
+
+/* 2. Re-centers the cards when they stack vertically on mobile */
+@media (max-width: 992px) {
+    .event-card-grid {
+        align-items: center !important; 
+    }
+}
+
+.event-card {
+    flex: 0 0 calc(33.333% - 1rem) !important; /* This exact math forces strictly 3 cards per row */
+    width: auto !important;      
+    height: auto !important;        
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;      
+}
+
+.event-card-content {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 100% !important; /* Ensures the inner wrapper fills the stretched card */
+}
+
+.event-img-wrapper {
+    width: 100% !important;
+    height: 480px !important;       
+    overflow: hidden !important;
+    flex: none !important;
+}
+
+.event-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important; 
+    display: block !important;
+}
+
+/* 2. Forces the beige text box to stretch down and fill any remaining empty space */
+.text-content {
+    padding: 1.5rem !important;
+    background-color: #eee5da !important;
+    flex-grow: 1 !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
