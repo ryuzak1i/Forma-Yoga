@@ -2468,6 +2468,24 @@ details[open] summary::after {
     color: #8c736a;
 }
 
+.location-block p {
+    display: flex !important;
+    align-items: center;
+    gap: 0.8rem;               
+    margin-bottom: 0.8rem !important; 
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: default;
+    
+    /* This stops the text from breaking into two lines */
+    white-space: nowrap !important; 
+}
+
+/* Styles the icon to match your small 'LOCATION' header color */
+.location-block p i {
+    color: #8c736a;            
+    font-size: 1.1rem;         
+}
+
 .footer-section {
     background-image: linear-gradient(#1e0d09, #46271f, #5d3d34, #65463d);
     width: 100%;
