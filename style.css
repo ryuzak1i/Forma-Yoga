@@ -650,10 +650,25 @@ header.scrolled .fa-bag-shopping {
     flex-shrink: 0;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
-
 /* =========================================
-   RENT A MAT SECTION (BUTTON ONLY)
+   RENT A MAT SECTION (FULL BEIGE BACKGROUND)
 ========================================= */
+.rent-mat-wrapper {
+    background-color: #eee5da; 
+    width: 100%;
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+}
+
+.rent-mat-text {
+    margin: 0 auto 3rem auto;      
+    background-color: transparent; 
+    box-shadow: none;              
+    text-align: center;  
+    max-width: max-content;
+    padding: 0; 
+}
+
 .rent-mat {
     position: relative;
     background-image: url('images/rent-mat.png');
@@ -663,48 +678,35 @@ header.scrolled .fa-bag-shopping {
     
     width: 100%;
     min-height: 80vh;
-    margin-bottom: 10rem;
-}
-
-.rent-mat-text {
-    position: absolute;
-    top: 0%;            
-    right: 0%;           
-    background-color: white;
-    padding: 1.5rem 2.5rem; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
-    text-align: right;
-    max-width: max-content;
+    margin-bottom: 0; /* Removes the old empty margin to let the beige background wrap smoothly */
 }
 
 .rent-mat-text h1 {
     font-family: 'AppleGaramond-Light', sans-serif;
     font-size: clamp(2.5rem, 4vw, 4rem);
     font-weight: 100;
-    font-style: italic ;
+    font-style: italic;
     color: #46271f;
     margin: 0;
     line-height: 1; 
 }
 
-/* Styles your new subheader */
 .rent-mat-text h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.6px;
     text-transform: uppercase;
     color: #5d3d34;
-    margin: 0.1rem 0 0 0; 
+    margin: -0.1rem 0 0 0; 
+
+    text-align: right;
 }
 
 /* Mobile fallback */
 @media (max-width: 768px) {
     .rent-mat-text {
-        top: 10%;
-        right: 50%;
-        transform: translateX(50%);
-        text-align: center;
+        margin: 3rem auto 1.5rem auto; /* Slightly tighter spacing on phones */
         width: 90%;
         padding: 1.5rem;
     }
