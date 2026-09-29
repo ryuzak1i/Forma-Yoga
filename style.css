@@ -651,6 +651,107 @@ header.scrolled .fa-bag-shopping {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* =========================================
+   RENT A MAT SECTION (BUTTON ONLY)
+========================================= */
+.rent-mat {
+    position: relative;
+    background-image: url('images/rent-mat.png');
+    background-size: cover;       
+    background-position: center; 
+    background-repeat: no-repeat; 
+    
+    width: 100%;
+    min-height: 80vh;
+    margin-bottom: 10rem;
+}
+
+.rent-mat-text {
+    position: absolute;
+    top: 0%;            
+    right: 0%;           
+    background-color: white;
+    padding: 1.5rem 2.5rem; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+    text-align: right;
+    max-width: max-content;
+}
+
+.rent-mat-text h1 {
+    font-family: 'AppleGaramond-Light', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 100;
+    font-style: italic ;
+    color: #46271f;
+    margin: 0;
+    line-height: 1; 
+}
+
+/* Styles your new subheader */
+.rent-mat-text h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #5d3d34;
+    margin: 0.1rem 0 0 0; 
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+    .rent-mat-text {
+        top: 10%;
+        right: 50%;
+        transform: translateX(50%);
+        text-align: center;
+        width: 90%;
+        padding: 1.5rem;
+    }
+}
+
+.rent-mat .button-container {
+    position: absolute;
+    bottom: 6%;       
+    left: 7%;       
+    justify-content: flex-start;
+}
+
+.rent-button {
+    background-color: #46271f;
+    padding: 16px 36px;        /* Increased from 14px 36px to make the box thicker and wider */
+    width: fit-content;       
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.rent-button:hover {
+    background-color: #ffffff;
+}
+
+.rent-button a {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1.3rem;         /* Increased from 0.95rem to make the text larger */
+    letter-spacing: 1px;     /* Slightly widened the letter spacing to balance the larger text */
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.rent-button:hover a {
+    color: #46271f;            /* Added this so the text turns brown when the button turns white */
+}
+
+@media (max-width: 768px) {
+    .rent-mat .button-container {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 8%;
+    }
+}
+
 /*WHO IS FORMA*/
 
 .who-forma {
