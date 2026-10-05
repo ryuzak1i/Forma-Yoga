@@ -1001,7 +1001,7 @@ header.scrolled .fa-bag-shopping {
 }
 
 .product-gallery img {
-    width: calc(50% - 6px);     /* Exactly two images per row */
+    width: calc(50% - 6px);    
     height: auto;
     object-fit: cover;
     display: block;
@@ -1071,7 +1071,6 @@ header.scrolled .fa-bag-shopping {
     border-radius: 50%;
     cursor: pointer;
     
-    /* NEW: Resets default button styles so they stay perfect circles */
     padding: 0; 
     border: 1px solid transparent;
     outline: none; 
@@ -1488,7 +1487,7 @@ header.scrolled .fa-bag-shopping {
     width: 100%;
 }
 
-.cabana-vid {
+.events-vid {
     position: relative;
     width: 100%;
     height: 70vh; 
@@ -1855,7 +1854,6 @@ body.walnut {
     display: none !important; 
 }
 
-/* Forces the Forma text and basket icon to be black */
 .checkout-header .navbar-tabs,
 .checkout-header .navbar-tabs a,
 .checkout-header .fa-bag-shopping,
@@ -1868,7 +1866,7 @@ body.walnut {
 .contact-details {
     flex: 1 1 55%;
     max-width: 55%;
-    padding: 120px 5% 6rem 10%; /* 120px pushes the form safely below the 90px header */
+    padding: 120px 5% 6rem 10%; 
     font-family: 'Poppins', sans-serif;
 }
 
@@ -1906,7 +1904,6 @@ body.walnut {
     -webkit-appearance: none;
     -moz-appearance: none;
     
-    /* Injects the custom thin brown chevron */
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2346271f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
     
@@ -1931,10 +1928,10 @@ body.walnut {
 }
 
 .radio-row input[type="radio"] {
-    accent-color: #46271f;  /* Changes the active dot from blue to Forma brown */
-    margin-right: 0.8rem;   /* Adds breathing room between the button and the text */
+    accent-color: #46271f;  
+    margin-right: 0.8rem;   
     cursor: pointer;
-    transform: scale(1.1);  /* Slightly enlarges the button for better usability */
+    transform: scale(1.1);  
 }
 
 .pay-btn {
@@ -2368,7 +2365,7 @@ details[open] summary::after {
 .policy-header,
 .policy-header.scrolled {
     background-color: #fff7ed !important;
-    border-bottom: none; /* Add this if you want to remove any default lines */
+    border-bottom: none;
 }
 /* =========================================
    CONTACT PAGE 
@@ -2579,11 +2576,9 @@ details[open] summary::after {
     transition: transform 0.3s ease, color 0.3s ease;
     cursor: default;
     
-    /* This stops the text from breaking into two lines */
     white-space: nowrap !important; 
 }
 
-/* Styles the icon to match your small 'LOCATION' header color */
 .location-block p i {
     color: #8c736a;            
     font-size: 1.1rem;         
