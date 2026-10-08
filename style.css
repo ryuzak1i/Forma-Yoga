@@ -3065,3 +3065,56 @@ header.scrolled .hamburger-menu {
         aspect-ratio: 3 / 5 !important; 
     }
 }
+
+@media (max-width: 768px) {
+    /* ... your existing mobile rules ... */
+
+    /* =========================================
+       MOBILE RENT A MAT SECTION
+    ========================================= */
+    .rent-mat-wrapper {
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+    }
+
+    .rent-mat-text {
+        margin: 2rem auto 2rem auto; 
+        width: 95%;
+        padding: 1rem;
+    }
+    
+    .rent-mat-text h1 {
+        /* Scales the heading down so it fits gracefully on a phone */
+        font-size: clamp(2rem, 8vw, 3rem); 
+    }
+    
+    .rent-mat-text h2 {
+        /* Ensures the subtitle remains legible */
+        font-size: 0.85rem; 
+        text-align: center; /* Center-aligns the subtitle on mobile for better balance */
+        margin-top: 0.5rem;
+    }
+
+    .rent-mat {
+        /* Reduces the massive background height for smaller screens */
+        min-height: 50vh; 
+    }
+
+    .rent-mat .button-container {
+        /* Keeps the button centered near the bottom of the image */
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 8%;
+        width: 90%; /* Allows the button wrapper to fill most of the screen width */
+    }
+
+    .rent-button {
+        width: 100%; /* Forces the button to be full-width on mobile */
+        padding: 14px 20px;
+    }
+    
+    .rent-button a {
+        font-size: 1.1rem; /* Slightly smaller text for the button */
+        text-align: center;
+    }
+}
