@@ -619,16 +619,16 @@ header.scrolled .fa-bag-shopping {
     margin: 0;
 }
 
-.brands h2{
+.brands h2 {
     text-align: center;
     background-color: #eee5da;
 
     font-weight: 500;
     font-size: 4rem;
-    color:#46271f;
+    color: #46271f;
     margin: 0; 
 
-    padding-top: 4rem; 
+    padding-top: 4rem; /* You can reduce this to 2rem if you want it even tighter */
     padding-bottom: 1rem;
 }
 
@@ -1487,7 +1487,13 @@ header.scrolled .fa-bag-shopping {
     width: 100%;
     height: 70vh; 
     overflow: hidden;
-    margin-bottom: 10rem; 
+    margin-bottom: 0; 
+}
+
+.events-vid + .events-vid {
+    border-top: 10rem solid #eee5da; 
+    height: calc(70vh + 10rem); 
+    margin-top: 0; 
 }
 
 /* Adds a dark gradient over the video so white text is always readable */
