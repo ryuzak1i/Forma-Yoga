@@ -1508,13 +1508,6 @@ header.scrolled .fa-bag-shopping {
     z-index: 0;
 }
 
-/* Styles the active tab in the navbar */
-.tabs-events a.active {
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-}
-
 .background-video {
     position: absolute;
     top: 0;
